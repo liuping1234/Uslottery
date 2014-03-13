@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<options>
+    <item id="wdzhxx">
+        <introduction>网点综合形象:</introduction>
+        <child>A,B</child>
+        <cNum>2</cNum>
+    </item>
+    <item id="wdltxbz">
+        <introduction>网点乐透型标准:</introduction>
+        <child>D,G</child>
+        <cNum>2</cNum>
+    </item>
+    <item id="wdzhxx">
+        <introduction>网点即开票标准:</introduction>
+       <child>J</child>
+        <cNum>1</cNum>
+    </item>
+   <item id="wdjcbz">
+        <introduction>网点竞彩标准:</introduction>
+        <child>Y,R</child>
+        <cNum>2</cNum>
+    </item>
+    <option id="A">
+        <intro>一票否决事项</intro>
+        <score></score>
+        <childNum>4</childNum>
+    </option>
+     <option id="B">
+        <intro>网点形象分</intro>
+        <score>10</score>
+        <childNum>5</childNum>
+    </option>
+     <option id="D">
+        <intro>超级大乐透玩法规范经营</intro>
+        <score>60</score>
+       <childNum>7</childNum>
+    </option>
+    <option id="G">
+        <intro>高频玩法规范经营</intro>
+        <score>30</score>
+      <childNum>4</childNum>
+    </option>
+    <option id="J">
+        <intro>即开票标准化经营评分项</intro>
+        <score>90</score>
+       <childNum>5</childNum>
+    </option>
+    <option id="Y">
+        <intro>硬件标准分</intro>
+        <score>60</score>
+        <childNum>4</childNum>
+    </option>
+     <option id="R">
+        <intro>软件标准分</intro>
+        <score>30</score>
+        <childNum>5</childNum>
+    </option>
+    <option id="A1">
+        <intro>未向未成人销售彩票兑奖</intro>
+        <score></score>
+        <childNum>0</childNum>
+    </option>
+   
+     <option id="A2">
+        <intro>无私设赌博机或老虎机</intro>
+        <score></score>
+        <childNum>0</childNum>
+    </option>
+   
+     <option id="A3">
+        <intro>无销售私彩</intro>
+        <score></score>
+        <childNum>0</childNum>
+    </option>
+     <option id="A4">
+        <intro>无参与网络代购的违法违规经营行为</intro>
+        <score></score>
+        <childNum>0</childNum>
+    </option>
+     <option id="B1">
+        <intro>店招门头符合统一标准，完好且无遮挡</intro>
+        <score>2</score>
+        <childNum>0</childNum>
+    </option>
+     <option id="B2">
+        <intro>LED信息屏，营业时间内LED运转正常，内容及时、准确</intro>
+        <score>2</score>
+        <childNum>0</childNum>
+    </option>
+     <option id="B3">
+        <intro>店内外整齐、卫生</intro>
+        <score>2</score>
+        <childNum>0</childNum>
+    </option>
+    <option id="B4">
+        <intro>在销售区域的显著位置悬挂体育彩票代销证</intro>
+        <score>2</score>
+        <childNum>0</childNum>
+    </option>
+    <option id="B5">
+        <intro> 显著位置张贴“不得向未成年人销售彩票及兑奖” 警示语</intro>
+        <score>2</score>
+        <childNum>0</childNum>
+    </option>
+    
+     <option id="D1">
+        <intro>大乐透店外奖池公告牌</intro>
+        <score>10</score>
+        <childNum>0</childNum>
+    </option>
+     <option id="D2">
+        <intro>大乐透开奖提示牌</intro>
+        <score>10</score>
+        <childNum>0</childNum>
+    </option>
+     <option id="D3">
+        <intro>大乐透走势图应用</intro>
+        <score>10</score>
+        <childNum>0</childNum>
+    </option>
+     <option id="D4">
+        <intro>大乐透中奖宣传栏</intro>
+        <score>10</score>
+        <childNum>0</childNum>
+    </option>
+   
+     <option id="D5">
+        <intro>大乐透海报</intro>
+        <score>10</score>
+        <childNum>0</childNum>
+    </option>
+     <option id="D6">
+        <intro>大乐透店内开奖信息公告牌</intro>
+        <score>5</score>
+        <childNum>0</childNum>
+    </option>
+     <option id="D7">
+        <intro>号码推荐</intro>
+        <score>5</score>
+       <childNum>0</childNum>
+    </option>
+     
+     <option id="G1">
+        <intro>11选5走势图应用</intro>
+        <score>10</score>
+        <childNum>0</childNum>
+    </option>
+   
+     <option id="G2">
+        <intro>11选5开奖电视</intro>
+        <score>5</score>
+        <childNum>0</childNum>
+    </option>
+   
+     <option id="G3">
+        <intro>11选5中奖票展示</intro>
+        <score>10</score>
+        <childNum>0</childNum>
+    </option>
+    
+     <option id="G4">
+        <intro>11选5复式胆拖查询</intro>
+        <score>5</score>
+        <childNum>0</childNum>
+    </option>
+    
+     <option id="J1">
+        <intro>展示票金额(必填单选项)</intro>
+        <score>20</score>
+        <childNum>3</childNum>
+    </option>
+    
+    <option id="J11">
+        <intro>展示票金额6000以上</intro>
+        <score>0</score>
+        <childNum>0</childNum>
+    </option>
+    <option id="J12">
+        <intro>展示票金额3000-6000</intro>
+        <score>10</score>
+        <childNum>0</childNum>
+    </option>
+    <option id="J13">
+        <intro>.展示票金额3000以下</intro>
+        <score>20</score>
+        <childNum>0</childNum>
+    </option>
+    
+     <option id="J2">
+        <intro>真票展示</intro>
+        <score>22</score>
+        <childNum>5</childNum>
+    </option>
+   
+    <option id="J21">
+        <intro>陈列在售票种>=8种</intro>
+        <score>6</score>
+        <childNum>0</childNum>
+    </option>
+    <option id="J22">
+        <intro>陈列30元票>=1种</intro>
+        <score>4</score>
+        <childNum>0</childNum>
+    </option>
+    <option id="J23">
+        <intro>陈列20元票>=2种</intro>
+        <score>4</score>
+        <childNum>0</childNum>
+    </option>
+     <option id="J24">
+        <intro>陈列10元票>=2种</intro>
+        <score>4</score>
+        <childNum>0</childNum>
+    </option>
+     <option id="J25">
+        <intro>陈列5元票>=2种</intro>
+        <score>4</score>
+        <childNum>0</childNum>
+    </option>
+     <option id="J3">
+        <intro>中奖票展示</intro>
+        <score>28</score>
+         <childNum>7</childNum>
+    </option>
+    <option id="J31">
+        <intro>设立专门的即开票中奖票展示区</intro>
+        <score>4</score>
+          <childNum>0</childNum>
+    </option>
+    <option id="J32">
+        <intro>中奖展示票刮开干净，不留未刮开部分</intro>
+        <score>4</score>
+          <childNum>0</childNum>
+    </option>
+    <option id="J33">
+        <intro>中奖票张贴干净，整齐</intro>
+        <score>4</score>
+          <childNum>0</childNum>
+    </option>
+    <option id="J34">
+        <intro>日常集中张贴张数>=20张</intro>
+        <score>4</score>
+          <childNum>0</childNum>
+    </option>
+    <option id="J35">
+        <intro>中奖展示票及时更新，以在售票为主</intro>
+        <score>4</score>
+        <childNum>0</childNum>
+    </option>
+    <option id="J36">
+        <intro>中奖金额突出，用粗笔标注中奖区域</intro>
+        <score>4</score>
+          <childNum>0</childNum>
+    </option>
+    <option id="J37">
+        <intro>100元以上的中奖票用爆炸贴标注金额</intro>
+        <score>4</score>
+        <childNum>0</childNum>
+    </option>
+     <option id="J4">
+        <intro>即开票宣传</intro>
+        <score>16</score>
+         <childNum>4</childNum>
+    </option>
+     <option id="J41">
+        <intro>张贴最近期的即开票产品和活动海报</intro>
+        <score>4</score>
+         <childNum>0</childNum>
+    </option>
+    <option id="J42">
+        <intro>海报张贴明显、整齐、干净</intro>
+        <score>4</score>
+         <childNum>0</childNum>
+    </option>
+    <option id="J43">
+        <intro>无张贴过期的活动海报</intro>
+        <score>4</score>
+         <childNum>0</childNum>
+    </option>
+    <option id="J44">
+        <intro>销售台摆放新票展示架并展示新票</intro>
+        <score>4</score>
+         <childNum>0</childNum>
+    </option>
+   <option id="J5">
+        <intro>“一点一枪”</intro>
+        <score>4</score>
+         <childNum>0</childNum>
+    </option>
+    
+     <option id="Y1">
+        <intro>液晶电视</intro>
+        <score>20</score>
+        <childNum>2</childNum>
+    </option>
+    <option id="Y11">
+        <intro>液晶电视符合标准数量(2台)</intro>
+        <score>10</score>
+        <childNum>0</childNum>
+    </option>
+    <option id="Y12">
+        <intro> 店内电视播放足、篮球赛事</intro>
+        <score>10</score>
+        <childNum>0</childNum>
+    </option>
+     <option id="Y2">
+        <intro>查询电脑</intro>
+        <score>20</score>
+        <childNum>0</childNum>
+    </option>
+     
+    
+     <option id="Y3">
+        <intro>打印机</intro>
+        <score>10</score>
+        <childNum>0</childNum>
+    </option>
+     <option id="Y4">
+        <intro>竞彩单元</intro>
+        <score>10</score>
+        <childNum>0</childNum>
+    </option>
+     <option id="R1">
+        <intro>张贴最新赛程，赛果等相关资讯</intro>
+        <score>10</score>
+        <childNum>0</childNum>
+    </option>
+    
+     <option id="R2">
+        <intro>张贴中奖彩票</intro>
+        <score>5</score>
+        <childNum>0</childNum>
+    </option>
+   
+     <option id="R3">
+        <intro>玩法优势宣传</intro>
+        <score>5</score>
+        <childNum>0</childNum>
+    </option>
+     <option id="R4">
+        <intro>竞彩区域</intro>
+        <score>5</score>
+        <childNum>0</childNum>
+    </option>
+     <option id="R5">
+        <intro>店内海报</intro>
+        <score>5</score>
+        <childNum>0</childNum>
+    </option>
+    
+     
+</options>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/query_xl_dialog_ll"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_deco_gray"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/queryxl_dialog__linear"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/main_navigation_highlight_bg"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/queryxl_dialog_back"
+            android:layout_width="80dip"
+            android:layout_height="40dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dip"
+            android:background="@drawable/zxbutton_selector"
+            android:text="返 回"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="销量查询"
+            android:textColor="#ffffff"
+            android:textSize="25dip" />
+    </RelativeLayout>
+
+    <TabHost
+        android:id="@android:id/tabhost"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+       
+		<TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+    
+             />
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <!-- 定义第一个标签页的内容 -->
+
+            <LinearLayout
+                android:id="@+id/tab01"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                >
+
+                <TableLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:stretchColumns="2" >
+
+                    <DatePicker
+                        android:id="@+id/datePicker"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="80dp" />
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="查询日期:"
+                            android:textSize="@dimen/lot_font_size"
+                            android:textStyle="bold"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:id="@+id/queryDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint=""
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/lot_font_size" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="网点编号:"
+                            android:textSize="@dimen/lot_font_size"
+                            android:textStyle="bold"
+                            android:textColor="#000000" />
+
+                        <EditText
+                            android:id="@+id/title"
+                            android:layout_height="wrap_content"
+                            android:hint=""
+                            android:numeric="integer"
+                            android:selectAllOnFocus="true"
+                            android:width="80px" />
+                        <!--
+					     <Button 
+					     android:layout_width="fill_parent"
+					     android:layout_height="wrap_content"
+					     android:text="查询"
+					     android:id="@+id/xlbtn1"
+					     android:paddingRight="10dp"
+					     android:textSize="@dimen/lot_font_size"
+						 android:textStyle="bold"
+					     />
+                        -->
+                    </TableRow>
+			
+                    <Button
+                        android:id="@+id/xlbtn2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="查   询"
+                        android:textSize="@dimen/lot_font_size"
+                        android:textStyle="bold"
+                       />
+                
+                </TableLayout>
+            </LinearLayout>
+
+            <!-- 定义第二个标签页的内容 -->
+
+            <LinearLayout
+                android:id="@+id/tab02"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <TableLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:stretchColumns="2" >
+
+                    <DatePicker
+                        android:id="@+id/datePicker2"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="80dp" />
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="查询日期:"
+                            android:textSize="@dimen/lot_font_size"
+                            android:textStyle="bold"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:id="@+id/queryDate2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint=""
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/lot_font_size" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="中心名称:"
+                            android:textSize="@dimen/lot_font_size"
+                            android:textStyle="bold"
+                            android:textColor="#000000" />
+
+                        <TextView
+                            android:id="@+id/cityName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint=""
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/lot_font_size" />
+
+                        <Button
+                            android:id="@+id/xlbtn12"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="10dp"
+                            android:text="选择中心"
+                            android:textSize="@dimen/lot_font_size"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <Button
+                        android:id="@+id/xlbtn22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="查   询"
+                        android:textSize="@dimen/lot_font_size"
+                        android:textStyle="bold" />
+                </TableLayout>
+            </LinearLayout>
+        </FrameLayout>
+        
+    </TabHost>
+
+</LinearLayout>

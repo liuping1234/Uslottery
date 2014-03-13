@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <RelativeLayout
+            android:id="@+id/notification_linear"
+            android:layout_width="fill_parent"
+            android:layout_height="45dip"
+            android:background="@drawable/main_navigation_highlight_bg"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_check_no"
+                android:layout_width="80dip"
+                android:layout_height="40dip"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dip"
+                android:background="@drawable/zxbutton_selector"
+                android:text="全不选"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="相机"
+                android:textColor="#ffffff"
+                android:textSize="25dip" />
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="80dip"
+                android:layout_height="40dip"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dip"
+                android:background="@drawable/zxbutton_selector"
+                android:text="确定"
+                android:textColor="@color/white"
+                android:textSize="18dip" />
+        </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/btn_check_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="全选" />
+
+   
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/gridview_picselect"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:horizontalSpacing="2dip"
+        android:numColumns="3"
+        android:verticalSpacing="2dip" />
+
+</LinearLayout>

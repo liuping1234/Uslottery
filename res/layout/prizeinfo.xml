@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="@color/white"
+	>
+   <TextView
+    android:id="@+id/title"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="即开彩票活动兑奖信息"
+	android:textSize="@dimen/title_font_size"
+	android:gravity="center"
+	android:paddingTop="10dp"
+	android:paddingBottom="10dp"
+	android:textStyle="bold"
+	android:textColor="@color/contents_text"
+	/>  
+	  <ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:background="@drawable/jklog"
+				/>
+	<TableLayout 
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:stretchColumns="1,2"
+	>
+	    <TextView
+	        android:id="@+id/prizeinfo"
+	        android:text=""
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:paddingLeft="10dp"
+			android:textSize="@dimen/lot_font_size"
+			android:textColor="@color/contents_text"
+			/>
+	<TableRow>
+	      
+	        <TextView
+	            android:text="序列号码:"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textSize="@dimen/lot_font_size"
+				android:textColor="@color/contents_text"
+				/>
+	          <TextView android:id="@+id/sid"
+	            android:text=""
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+			android:textColor="@color/contents_text"
+				android:textSize="@dimen/lot_font_size"
+				/>
+	</TableRow>
+	<!-- <TableRow>
+	      
+	        <TextView
+	            android:text="彩种名称:"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textSize="@dimen/lot_font_size"
+				/>
+	          <TextView android:id="@+id/gameName"
+	            android:text=""
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textSize="@dimen/lot_font_size"
+				/>
+	</TableRow> -->
+		<TableRow>
+	      
+	        <TextView 
+	            android:text="中奖等级:"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textSize="@dimen/lot_font_size"
+				android:textColor="@color/contents_text"
+				/>
+	          <TextView android:id="@+id/gradeNo"
+	            android:text=""
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textSize="@dimen/lot_font_size"
+				android:textColor="@color/contents_text"
+				/>
+	</TableRow>
+	<TableRow>
+	      
+	        <TextView 
+	            android:text="奖品名称:"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textSize="@dimen/lot_font_size"
+				android:textColor="@color/contents_text"
+				/>
+	          <TextView android:id="@+id/drawName"
+	            android:text=""
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textSize="@dimen/lot_font_size"
+				android:textColor="@color/contents_text"
+				/>
+	</TableRow>
+		<TableRow>
+	      
+	        <TextView 
+	            android:text="兑奖情况:"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textSize="@dimen/lot_font_size"
+				android:textColor="@color/contents_text"
+				/>
+	          <TextView android:id="@+id/status"
+	            android:text=""
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textSize="@dimen/lot_font_size"
+				android:textColor="@color/contents_text"
+				/>
+	</TableRow>
+  	<TableRow>
+	      
+	        <TextView 
+	            android:text="兑奖时间:"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textSize="@dimen/lot_font_size"
+				android:textColor="@color/contents_text"
+				/>
+	          <TextView android:id="@+id/prizeTime"
+	            android:text=""
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textColor="@color/contents_text"
+				android:textSize="@dimen/lot_font_size"
+				/>
+	</TableRow>
+	<LinearLayout
+	    android:orientation="horizontal"
+	     android:gravity="center">
+	     <Button android:id="@+id/btn"
+	            android:text="确认兑奖"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:textSize="@dimen/lot_font_size"
+				/>
+	      <Button android:id="@+id/clsbtn"
+	            android:text="取消"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:textSize="@dimen/lot_font_size"
+				/>
+	</LinearLayout>
+   
+	</TableLayout>
+
+</LinearLayout>

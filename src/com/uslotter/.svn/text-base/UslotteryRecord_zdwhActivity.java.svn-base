@@ -1,0 +1,128 @@
+package com.uslotter;
+
+import java.util.ArrayList;
+import java.util.List;
+import android.app.Activity;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
+import android.widget.Spinner;
+import android.widget.TextView;
+import com.uslotter.R;
+public class UslotteryRecord_zdwhActivity extends Activity{
+	private Button btn_exit = null;
+	private Button btn_save = null;
+	 private LinearLayout ll_add = null;
+	 private List<LinearLayout> lls = null;
+ 	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.record2_zdwh);
+		btn_exit = (Button)this.findViewById(R.id.record2_zdwh_back);
+		btn_save = (Button)this.findViewById(R.id.record2_zdwh_save);
+		ll_add = (LinearLayout)this.findViewById(R.id.record2_zdwh_ll_whbj);
+		lls = new ArrayList<LinearLayout>();
+		btn_exit.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				finish();
+				
+			}
+		});
+		btn_save.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				
+			}
+		});
+		createWidget();
+	}
+	public void createWidget(){
+		LinearLayout _ll = new LinearLayout(this);
+		_ll.setOrientation(LinearLayout.VERTICAL);
+		LayoutParams lps = new LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+		_ll.setLayoutParams(lps);
+		
+ 		LinearLayout ll = new LinearLayout(this);
+		ll.setOrientation(LinearLayout.HORIZONTAL);
+	    LayoutParams lp_ll = new LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        ll.setLayoutParams(lp_ll);
+        
+        TextView tv = new TextView(this);
+        LayoutParams lp_tv = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+       tv.setTextColor(Color.BLACK);
+       tv.setText("部件名称:");
+       lp_tv.setMargins(5, 0,5, 0);
+       tv.setTextSize(20);
+        tv.setLayoutParams(lp_tv);
+        
+      final  Spinner sp = new Spinner(this);
+      sp.setTag(false);
+        LayoutParams lp_sp = new LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        sp.setLayoutParams(lp_sp);  
+        ArrayAdapter ar = ArrayAdapter.createFromResource(this,R.array.zdwh_whbj, android.R.layout.simple_spinner_item);
+        ar.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sp.setAdapter(ar);
+   
+        sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				boolean flag = (Boolean)sp.getTag();
+				if(flag){
+					
+				}else{
+					if(!sp.getSelectedItem().toString().trim().equals("")){
+						createWidget();
+					}
+				}
+				
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+				
+				
+			}
+		
+        });
+        
+        ll.addView(tv);
+        ll.addView(sp);
+        
+        LinearLayout ll2 = new LinearLayout(this);
+        ll2.setOrientation(LinearLayout.HORIZONTAL);
+        LayoutParams lp_ll2 = new LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        ll2.setLayoutParams(lp_ll2);
+        
+        TextView tv2 = new TextView(this);
+        tv2.setText("部件编号：");
+        tv2.setTextColor(Color.BLACK);
+        tv2.setTextSize(20);
+        LayoutParams lp_tv2 = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        lp_tv2.setMargins(5, 0, 5, 0);
+        tv2.setLayoutParams(lp_tv2);
+        
+        EditText et2 = new EditText(this);
+        LayoutParams lp_et2 = new LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        et2.setLayoutParams(lp_et2);
+        
+        ll2.addView(tv2);
+        ll2.addView(et2);
+        _ll.addView(ll);
+        _ll.addView(ll2);
+        ll_add.addView(_ll);
+        lls.add(_ll);
+	}
+}

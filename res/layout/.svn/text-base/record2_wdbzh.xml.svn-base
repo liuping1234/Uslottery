@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_deco_gray"
+    android:fillViewport="true" >
+
+    <LinearLayout
+        android:id="@+id/record2_wdbzh_linear1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/record2_wdbzh_notification_linear"
+            android:layout_width="fill_parent"
+            android:layout_height="45dip"
+            android:background="@drawable/main_navigation_highlight_bg"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/record2_wdbzh_back"
+                android:layout_width="80dip"
+                android:layout_height="40dip"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dip"
+                android:background="@drawable/zxbutton_selector"
+                android:text="取 消"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="网点标准化"
+                android:textColor="#ffffff"
+                android:textSize="25dip" />
+
+            <Button
+                android:id="@+id/record2_wdbzh_save"
+                android:layout_width="80dip"
+                android:layout_height="40dip"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dip"
+                android:background="@drawable/zxbutton_selector"
+                android:text="保 存"
+                android:textColor="@color/white"
+                android:textSize="18dip" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/record2_wdbzh_llwdbzh"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/textview_boder"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/record2_wdbzh_rl"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dip"
+                android:layout_marginTop="5dip"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/record2_wdbzh_bzh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dip"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center_vertical"
+                    android:text="标准化检查(a)"
+                    android:textColor="#000000"
+                    android:textSize="30dip" />
+
+                <TextView
+                    android:id="@+id/record2_wdbzh_kf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dip"
+                    android:layout_toRightOf="@id/record2_wdbzh_bzh"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textSize="20dip" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:background="#9D9D9D" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="60dip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dip"
+                    android:layout_marginLeft="10dip"
+                    android:gravity="center"
+                    android:text="网点状态:"
+                    android:textColor="#000000"
+                    android:textSize="20dip" />
+
+                <Spinner
+                    android:id="@+id/record2_wdbzh_sp"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dip"
+                    android:entries="@array/status" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/record2_wdbzh_iv_kfx"
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:background="#9D9D9D" />
+
+            <RelativeLayout
+                android:id="@+id/record2_wdbzh_rl_kfx"
+                android:layout_width="fill_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/record2_wdbzh_df"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dip"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center_vertical"
+                    android:text="得分:"
+                    android:textColor="#000000"
+                    android:textSize="20dip" />
+
+                <TextView
+                    android:id="@+id/record2_wdbzh_tv_df"
+                    android:layout_width="fill_parent"
+                    android:layout_height="60dip"
+                    android:layout_toRightOf="@id/record2_wdbzh_df"
+                    android:gravity="center_vertical"
+                    android:scrollbars="vertical"
+                    android:text="无"
+                    android:textColor="#000000"
+                    android:textSize="20dip" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dip"
+                    android:src="@drawable/a1" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:background="#9D9D9D" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="50dip"
+                android:layout_marginBottom="10dip"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="20dip"
+                android:layout_marginTop="5dip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/record2_wdbzh_wdzp_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dip"
+                    android:gravity="center_vertical"
+                    android:text="网点照片:"
+                    android:textColor="#000000"
+                    android:textSize="20dip" />
+
+                <ImageView
+                    android:id="@+id/record2_wdbzh_wdzp_iv"
+                    android:layout_width="40dp"
+                    android:layout_height="40dip"
+                    android:layout_marginLeft="10dip"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/reader_news_fontfour_btn"
+                    android:src="@drawable/add1" />
+
+                <HorizontalScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dip"
+                    android:layout_gravity="center_vertical" >
+
+                    <LinearLayout
+                        android:id="@+id/record2_wdbzh_wdzp_ll"
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dip" >
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/history
+END
+DBHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/history/DBHelper.java
+END
+HistoryManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/history/HistoryManager.java
+END
+HistoryClickListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/history/HistoryClickListener.java
+END

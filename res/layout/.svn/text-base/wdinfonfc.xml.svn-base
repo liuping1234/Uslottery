@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	>
+
+	<TableLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" 
+     android:stretchColumns="1"
+     android:paddingTop="10dp"
+     android:paddingLeft="10dp"
+    > 
+    <TableRow  android:gravity="bottom">
+	   <ImageView
+	    android:id="@+id/logo"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:paddingTop="10dp"
+		android:paddingBottom="10dp"
+		android:paddingLeft="10dp"
+		/>  
+		<LinearLayout 
+		android:orientation="vertical"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:gravity="bottom"
+		>
+			   <TextView
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/title"
+				android:text="网点编号:"
+				android:paddingLeft="10dp"
+				/>  
+				<TextView
+				android:id="@+id/phone"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="网点电话:"
+				android:paddingLeft="10dp"
+				/>  
+					<TextView
+				android:id="@+id/status"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="网点状态:"
+				android:paddingLeft="10dp"
+				/>  
+				
+		</LinearLayout>
+	</TableRow>
+</TableLayout>
+<TextView
+				android:id="@+id/cz"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="行政区域:"
+				android:paddingTop="10dp"
+				android:paddingLeft="10dp"
+				/>  
+		    
+	<TextView
+		    	android:id="@+id/address"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="网点地址:"
+				android:paddingLeft="10dp"
+				android:paddingBottom="10dp"
+				/>  
+<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="业主信息"
+	 android:textSize="18dp"
+	android:paddingTop="10dp"
+	android:paddingLeft="10dp"
+	/>  
+	
+
+<TextView
+     android:id="@+id/oinfo"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text=""
+	android:paddingTop="10dp"
+	android:paddingLeft="10dp"
+	/>  				
+
+	<TextView
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="网点信息"
+	android:paddingTop="10dp"
+	 android:textSize="18dp"
+	android:paddingLeft="10dp"
+	/>  
+<TextView
+     android:id="@+id/wdinfo"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text=""
+	android:paddingTop="10dp"
+android:paddingLeft="10dp"
+	/>  				
+
+</LinearLayout>

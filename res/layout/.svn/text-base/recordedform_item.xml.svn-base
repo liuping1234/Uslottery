@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+			android:layout_height="60dip"
+			android:layout_margin="10dip">
+              		
+              		<TextView 
+			   		android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+					android:textSize="16dip"
+			        android:text="网点编号"
+			        android:gravity="center"
+			        android:textColor="#000000"
+			        android:layout_weight="1"
+			           android:id="@+id/recordedform_wdbh"/>
+                    <TextView 
+			   		android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+					android:textSize="16dip"
+			        android:text="服务日期"
+			        android:textColor="#000000"
+			        android:gravity="center"
+			         android:layout_weight="1"
+			          android:id="@+id/recordedform_service_date"/>
+                    <TextView 
+			   		android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+					android:textSize="16dip"
+			        android:text="提交时间"
+			        android:gravity="center"
+			        android:textColor="#000000"
+			         android:layout_weight="1"
+			         android:id="@+id/recordedform_commit_time"/>
+        </LinearLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/recordedform_dialog_ll"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_deco_gray"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/recordedform_linear"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/main_navigation_highlight_bg"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/recordedform_back"
+            android:layout_width="80dip"
+            android:layout_height="40dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dip"
+            android:background="@drawable/zxbutton_selector"
+            android:text="返 回"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="已提交录单"
+            android:textColor="#ffffff"
+            android:textSize="25dip" />
+         <Button
+	        android:id="@+id/recordedform_save"
+	        android:layout_width="80dip"
+	        android:layout_height="40dip"
+	        android:layout_centerVertical="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginRight="20dip"
+	        android:textColor="@color/white"
+	        android:text="提 交"
+	        android:textSize="18dip" 
+	        android:visibility="gone"
+	        android:background="@drawable/zxbutton_selector"
+	        />
+    </RelativeLayout>
+ <ListView
+        android:id="@+id/recordedform_lv"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical" 
+        android:cacheColorHint="#ffffff"
+        android:layout_margin="10dip"
+        android:background="@drawable/textview_boder"
+        android:descendantFocusability="blocksDescendants"
+        />
+    
+    
+</LinearLayout>

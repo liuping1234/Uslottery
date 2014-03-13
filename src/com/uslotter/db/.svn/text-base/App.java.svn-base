@@ -1,0 +1,249 @@
+package com.uslotter.db;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class App implements Serializable {
+
+	private static final long serialVersionUID = -183648767712665463L;
+
+	/**
+	 * 
+	 */
+	private int id;
+	private String wdbh = "";
+	private String fwdh = "";
+	private String fwrq = "";
+	private String fwyb = "";
+	private String df = "";
+	private String kfx = "";
+	private String state = "";
+	private String wdzp = "";
+	private String userId = "";
+	// 完成时间
+	private String wcrq = "";
+	// 经办人
+	private String jbr = "";
+	// 服务评价
+	private String fwpj = "";
+	// 网 点 意 见 :
+	private String wdyj = "";
+	// 总结分析
+	private String zjfx = "";
+	// 专管员建议
+	private String zgyyj = "";
+	private String network_satus = "";
+	private String remark = "";
+	// 违规照片
+	private String wgzp = "";
+
+	public String getWgzp() {
+		return wgzp;
+	}
+
+	public void setWgzp(String wgzp) {
+		this.wgzp = wgzp;
+	}
+
+	// 网点违规信息
+	private ArrayList<WdwgInfo> info = new ArrayList<App.WdwgInfo>();
+
+	public ArrayList<WdwgInfo> getInfo() {
+		return info;
+	}
+
+	public void setInfo(ArrayList<WdwgInfo> info) {
+		this.info = info;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	public String getNetwork_satus() {
+		return network_satus;
+	}
+
+	public void setNetwork_satus(String network_satus) {
+		this.network_satus = network_satus;
+	}
+
+	public String getWcrq() {
+		return wcrq;
+	}
+
+	public void setWcrq(String wcrq) {
+		this.wcrq = wcrq;
+	}
+
+	public String getJbr() {
+		return jbr;
+	}
+
+	public void setJbr(String jbr) {
+		this.jbr = jbr;
+	}
+
+	public String getFwpj() {
+		return fwpj;
+	}
+
+	public void setFwpj(String fwpj) {
+		this.fwpj = fwpj;
+	}
+
+	public String getWdyj() {
+		return wdyj;
+	}
+
+	public void setWdyj(String wdyj) {
+		this.wdyj = wdyj;
+	}
+
+	public String getZjfx() {
+		return zjfx;
+	}
+
+	public void setZjfx(String zjfx) {
+		this.zjfx = zjfx;
+	}
+
+	public String getZgyyj() {
+		return zgyyj;
+	}
+
+	public void setZgyyj(String zgyyj) {
+		this.zgyyj = zgyyj;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getWdbh() {
+		return wdbh;
+	}
+
+	public void setWdbh(String wdbh) {
+		this.wdbh = wdbh;
+	}
+
+	public String getFwdh() {
+		return fwdh;
+	}
+
+	public void setFwdh(String fwdh) {
+		this.fwdh = fwdh;
+	}
+
+	public String getFwrq() {
+		return fwrq;
+	}
+
+	public void setFwrq(String fwrq) {
+		this.fwrq = fwrq;
+	}
+
+	public String getFwyb() {
+		return fwyb;
+	}
+
+	public void setFwyb(String fwyb) {
+		this.fwyb = fwyb;
+	}
+
+	public String getDf() {
+		return df;
+	}
+
+	public void setDf(String df) {
+		this.df = df;
+	}
+
+	public String getKfx() {
+		return kfx;
+	}
+
+	public void setKfx(String kfx) {
+		this.kfx = kfx;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getWdzp() {
+		return wdzp;
+	}
+
+	public void setWdzp(String wdzp) {
+		this.wdzp = wdzp;
+	}
+
+	@Override
+	public String toString() {
+		return wdbh + "," + fwdh + "," + fwrq + "," + fwyb + "," + df + ","
+				+ kfx + "," + state + "," + wdzp;
+	}
+
+	public static class WdwgInfo implements Serializable {
+
+		private static final long serialVersionUID = 2998494812743472027L;
+
+		// 索引
+		private int index = 0;
+		// 违规选项
+		private String wgxx = "";
+		// 违规内容
+		private String wgnr = "";
+
+		public int getIndex() {
+			return index;
+		}
+
+		public void setIndex(int index) {
+			this.index = index;
+		}
+
+		public String getWgxx() {
+			return wgxx;
+		}
+
+		public void setWgxx(String wgxx) {
+			this.wgxx = wgxx;
+		}
+
+		public String getWgnr() {
+			return wgnr;
+		}
+
+		public void setWgnr(String wgnr) {
+			this.wgnr = wgnr;
+		}
+	}
+
+}

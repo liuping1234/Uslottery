@@ -1,0 +1,282 @@
+package com.uslotter;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.ContentResolver;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.provider.MediaStore.MediaColumns;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
+import android.view.View;
+import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.uslotter.R;
+import com.uslotter.util.DialogUtil;
+
+public class UslotteryRecord_zlpfActivity extends Activity{
+	private Button btn_exit = null;
+	private Button btn_save = null;
+	private LinearLayout ll = null;
+	private Spinner sp = null;
+	private EditText et = null;
+	private TextView tv = null;
+	private LinearLayout ll_add = null;
+	List<LinearLayout> lls = null;
+	private ImageView iv = null;
+	private ImageView iv2 = null;
+	private ArrayList<String> lists = null;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.record2_zlpf2);	
+		lls = new ArrayList<LinearLayout>();
+		ll_add = (LinearLayout) this.findViewById(R.id.record2_zlpf_ll);
+		btn_exit = (Button)this.findViewById(R.id.record2_zlpf_back);
+		btn_save = (Button)this.findViewById(R.id.record2_zlpf_save);
+		iv = (ImageView)this.findViewById(R.id.record2_zlpf_iv_annex);
+		iv2 = (ImageView)this.findViewById(R.id.record2_zlpf_iv2_annex);
+		iv2.setTag("");
+		lists = new ArrayList<String>();
+		iv.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+				intent.addCategory(Intent.CATEGORY_OPENABLE);
+				intent.setType("image/*");
+				intent.putExtra("return-data", true);
+				startActivityForResult(intent, 4);				
+			}
+		});
+		btn_exit.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				finish();			
+			}
+		});
+		
+		btn_save.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+			 test();
+				
+			}
+		});
+		createNewWidget();
+	}
+		
+	public void createNewWidget(){
+		//创建新的控件
+		LinearLayout ll = new LinearLayout(UslotteryRecord_zlpfActivity.this);
+		LayoutParams lp = new LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,
+				LinearLayout.LayoutParams.WRAP_CONTENT);
+		ll.setOrientation(LinearLayout.HORIZONTAL);
+		ll.setLayoutParams(lp);
+		
+		final Spinner _sp = new Spinner(UslotteryRecord_zlpfActivity.this);
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+			    this, R.array.zlpf, android.R.layout.simple_spinner_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		_sp.setAdapter(adapter);
+
+		_sp.setTag(false);
+		LayoutParams lp_sp = new LayoutParams((this.getScreenWidth()+30)/3,
+				LinearLayout.LayoutParams.WRAP_CONTENT);
+		lp_sp.setMargins(5, 0, 5, 0);
+		_sp.setLayoutParams(lp_sp);
+
+		_sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> arg0,
+					View arg1, int position, long arg3) {
+				boolean isTag = (Boolean)_sp.getTag();
+				if(isTag){
+					
+				}else{
+					if(!_sp.getSelectedItem().toString().equals("")){
+						_sp.setTag(true);
+						createNewWidget();
+					}
+				}
+				_sp.setId(position);
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+			}
+		
+		});
+		
+		EditText et = new EditText(UslotteryRecord_zlpfActivity.this);
+		LayoutParams lp_et =new LayoutParams((this.getScreenWidth())/3, LinearLayout.LayoutParams.WRAP_CONTENT);	
+		lp_et.setMargins(5, 0, 5, 0);
+		et.setLayoutParams(lp_et);
+		
+		TextView tv =new TextView(UslotteryRecord_zlpfActivity.this);
+		LayoutParams lp_tv = new LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,
+				LinearLayout.LayoutParams.WRAP_CONTENT);
+		lp_tv.setMargins(5, 0, 5, 0);
+		tv.setLayoutParams(lp_tv);
+		tv.setText("张");
+		tv.setTextColor(Color.BLACK);
+		tv.setTextSize(20);
+		tv.setGravity(Gravity.CENTER);
+		
+		ll.addView(_sp);
+		ll.addView(et);
+		ll.addView(tv);
+		ll_add.addView(ll);
+		lls.add(ll);
+	}
+	
+	public int getScreenWidth(){
+		DisplayMetrics metric = new DisplayMetrics();
+		this.getWindowManager().getDefaultDisplay().getMetrics(metric);
+		int w = metric.widthPixels;
+		return w;
+	}
+	
+	public void test(){
+		if(lls.size()<=0){
+			return;
+		}
+		for(LinearLayout ll:lls){
+			Spinner  sp =  (Spinner)ll.getChildAt(0);
+			EditText et = (EditText)ll.getChildAt(1);
+			TextView tv = (TextView)ll.getChildAt(2);
+			lists.add(sp.getSelectedItem().toString()+","+et.getText().toString()+","+tv.getText().toString());
+			Toast.makeText(this, sp.getSelectedItem().toString()+"\n"+et.getText().toString()+"\n"+tv.getText().toString(), Toast.LENGTH_SHORT).show();
+		}
+		if(iv2.getTag().toString().equals("")){
+			DialogUtil.showDialog(UslotteryRecord_zlpfActivity.this, "没有附件!");
+			return;
+		}
+		Intent intent = new Intent(UslotteryRecord_zlpfActivity.this,UslotteryRecord.class);
+		intent.putStringArrayListExtra("lists", lists);
+		intent.putExtra("path", iv2.getTag().toString());
+		//intent.putStringArrayListExtra(name, value);
+		UslotteryRecord_zlpfActivity.this.startActivity(intent);
+		
+		
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		if (resultCode == RESULT_OK&&intent != null) {  
+	       	  if (requestCode == 4) {  
+		            	 Bundle bundle = intent.getExtras();
+		            	 Uri originalUri = intent.getData();           
+		            	 if (originalUri != null) {     
+		            		 Bitmap bitMap = null;   
+		            		 try {  
+		            			 if(bitMap!=null)bitMap.recycle(); 
+		            			 bitMap = null;                    
+		            			 ContentResolver resolver = getContentResolver();
+		            			 bitMap = MediaStore.Images.Media.getBitmap(resolver,originalUri); 
+		            			 String[] proj = { MediaColumns.DATA };
+		            			 Cursor cursor = managedQuery(originalUri, proj, null, null,  
+		            					 null);                    // 按我个人理解 这个是获得用户选择的图片的索引值
+		            			 int column_index = cursor.getColumnIndexOrThrow(MediaColumns.DATA); 
+		          
+		            			 // 将光标移至开头 ，这个很重要，不小心很容易引起越界           
+		            			 cursor.moveToFirst();                     // 最后根据索引值获取图片路径  
+
+		            			String path_fwyb = cursor.getString(column_index);
+		            			 bitMap = Bitmap.createScaledBitmap(bitMap, 80, 80, false);
+			            			
+//		            			iv_fwyb = new ImageView(this);
+//		            			iv_fwyb.setPadding(0, 0, 15, 0);
+//			            		iv_fwyb.setLayoutParams(new LayoutParams(80, LayoutParams.FILL_PARENT));
+//			            		
+		            			// iv_fwyb = (ImageView) this.findViewById(R.id.record2_fwyb_iv);
+			            		
+		            			 iv2.setVisibility(View.VISIBLE);
+		            			 iv2.setImageBitmap(bitMap);
+
+		            			 iv2.setTag(path_fwyb);
+		            		//	ll_fwyb.addView(iv_fwyb);
+		            			 iv2.setOnClickListener(new View.OnClickListener() {
+		            					@Override
+		            					public void onClick(View v) {
+		            						ImageView iv = (ImageView)v;
+		            						Intent intent = new Intent();
+		            					     intent.setAction(android.content.Intent.ACTION_VIEW);
+		            					     intent.setDataAndType(Uri.fromFile(new File(iv.getTag().toString())), "image/*");
+		            					     UslotteryRecord_zlpfActivity.this.startActivity(intent);
+		            					}
+		            				});
+		            			 iv2.setOnLongClickListener(new View.OnLongClickListener() {
+									
+									@Override
+									public boolean onLongClick(View v) {
+										final ImageView iv = (ImageView)v;
+										
+										//delete photo
+										AlertDialog.Builder builder = new Builder(UslotteryRecord_zlpfActivity.this);
+										builder.setTitle("提示");
+										builder.setMessage("确定删除此照片吗？");
+										builder.setPositiveButton("确定", new DialogInterface.OnClickListener(){
+
+											@Override
+											public void onClick(
+													DialogInterface dialog,
+													int which) {
+											//	Toast.makeText(UslotteryRecord.this, iv.getId()+"...", Toast.LENGTH_SHORT).show();
+												//paths.remove(paths.get(iv.getId()));
+											//	ll_fwyb.removeView(iv);
+												iv2.setTag("");
+												iv2.setVisibility(View.GONE);	
+												dialog.dismiss();	
+											}
+									
+										}
+											);
+										builder.setNegativeButton("取消", new DialogInterface.OnClickListener(){
+
+											@Override
+											public void onClick(
+													DialogInterface dialog,
+													int which) {
+												
+												dialog.dismiss();
+											}
+										});
+										builder.create().show();
+										return false;
+									}
+								});
+		            		 }catch(Exception e){
+		            			 e.printStackTrace();
+		            		 }
+		            	 }
+		         	    }
+	         }
+		super.onActivityResult(requestCode, resultCode, intent);
+	}
+}

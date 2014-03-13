@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="@drawable/bg_deco_gray"
+	>
+   <RelativeLayout
+        android:id="@+id/daywdxllist_linear"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/main_navigation_highlight_bg"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/daywdxllist_back"
+            android:layout_width="80dip"
+            android:layout_height="40dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dip"
+            android:background="@drawable/zxbutton_selector"
+            android:text="返 回"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="网点销量查询"
+            android:textColor="#ffffff"
+            android:textSize="25dip" />
+    </RelativeLayout>
+    
+	<TableLayout 
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginTop="5dip"
+	android:stretchColumns="0,1"
+	>
+   	<TableRow>
+	        <Button android:id="@+id/btnpre"
+	            android:text="前一天"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				/>
+	          <Button android:id="@+id/btnnext"
+	            android:text="后一天"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				/>
+</TableRow>
+	</TableLayout>
+	<TableLayout 
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:stretchColumns="1,2"
+	>
+	<TableRow>
+	  <TextView
+	            android:text="网点编号:"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textSize="@dimen/lot_font_size"
+				android:textStyle="bold"
+				android:textColor="#000000"
+				/>
+	          <TextView android:id="@+id/wd"
+	            android:text=""
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textSize="@dimen/lot_font_size"
+				android:textColor="#000000"
+				/>
+	</TableRow> 
+	<TableRow>
+	  <TextView
+	            android:text="查询日期:"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textSize="@dimen/lot_font_size"
+				android:textStyle="bold"
+				android:textColor="#000000"
+				/>
+	          <TextView android:id="@+id/querydate"
+	            android:text=""
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:paddingTop="5dp"
+				android:textColor="#000000"
+				android:textSize="@dimen/lot_font_size"
+				/>
+	</TableRow>     
+	</TableLayout>   
+<!-- 定义一个List -->
+<ListView android:id="@+id/daywdxllist"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:background="@drawable/textview_boder"
+	android:layout_margin="5dip"
+	android:cacheColorHint="#ffffff"
+	android:scrollbars="vertical"
+	/>
+
+</LinearLayout>

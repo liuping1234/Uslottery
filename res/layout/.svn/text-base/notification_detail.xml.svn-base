@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_deco_gray"
+     >
+
+	<RelativeLayout
+	    android:id="@+id/notification_linear"
+	    android:layout_width="fill_parent"
+	    android:layout_height="45dip"
+	    android:orientation="horizontal"
+	    android:background="@drawable/main_navigation_highlight_bg" >
+
+		<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_centerHorizontal="true"
+		    android:layout_centerVertical="true"
+		    android:textColor="@color/white"
+		    android:textSize="30dip"
+		    android:text="通知详情"
+		   />
+
+	    <Button
+	        android:id="@+id/notification_detail_wdinfoback"
+	        android:layout_width="80dip"
+	        android:layout_height="40dip"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="20dip"
+	        android:textColor="@color/white"
+	        android:text="返回"
+	        android:textSize="18dip" 
+	        android:background="@drawable/zxbutton_selector"/>
+	</RelativeLayout>
+	 <TableLayout
+        android:id="@+id/bottommenu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/main_navigation_background"
+        android:padding="3dip"
+        android:stretchColumns="*" >
+
+        <TableRow>
+
+            <ImageButton
+                android:id="@+id/notification_syhome"
+                android:background="@drawable/bottommenu_button_selector"
+                android:src="@drawable/main_home" />
+
+            <ImageButton
+                android:id="@+id/notification_syjianjie"
+                android:background="@drawable/bottommenu_button_selector"
+                android:src="@drawable/main_search" />
+
+            <ImageButton
+                android:id="@+id/notification_symore"
+                android:background="@drawable/bottommenu_button_selector"
+                android:src="@drawable/main_more" />
+        </TableRow>
+    </TableLayout> 
+	<RelativeLayout 
+	    android:id="@+id/notification_linear2"
+	    android:paddingTop="20dip"
+	    android:layout_below="@id/notification_linear"
+	    android:layout_above="@id/bottommenu"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    >
+	    <LinearLayout 
+	    android:id="@+id/notification_ll"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:orientation="vertical"
+	    android:scrollbars="vertical"
+	    >
+	   <TextView
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:textColor="@color/black"
+		    android:textSize="22dip"
+		    android:id="@+id/notification_title"
+			android:gravity="left"
+			android:layout_marginBottom="10dip"
+			android:scrollbars="vertical"
+			android:layout_marginLeft="5dip"
+		    />
+	   <TextView
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:textColor="@color/black"
+		    android:id="@+id/notification_name"
+		    android:textSize="20dip"
+		    android:scrollbars="vertical"
+		    android:gravity="left"
+		    android:layout_marginBottom="10dip"
+		    android:layout_marginLeft="5dip"
+		    />
+	     <TextView
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:textColor="@color/black"
+		    android:id="@+id/notification_date"
+		    android:textSize="20dip"
+		    android:gravity="left"
+		    android:scrollbars="vertical"
+		    android:layout_marginBottom="10dip"
+		    android:layout_marginLeft="5dip"
+		    />
+	   <TextView
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:textColor="@color/black"
+		    android:id="@+id/notification_content"
+		    android:textSize="20dip"
+		    android:layout_weight="1"
+		    android:gravity="left"
+		    android:scrollbars="vertical"
+		    android:layout_marginLeft="5dip"
+		    android:layout_marginBottom="10dip"
+		    />
+	   <TextView
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:textColor="@color/black"
+		    android:id="@+id/notification_content_detail"
+		    android:textSize="20dip"
+		    android:layout_weight="1"
+		    android:gravity="left"
+		    android:scrollbars="vertical"
+		    android:layout_marginBottom="10dip"
+		    android:layout_marginLeft="5dip"
+		    />
+	    
+	  </LinearLayout>
+	</RelativeLayout>	
+	   
+</RelativeLayout>

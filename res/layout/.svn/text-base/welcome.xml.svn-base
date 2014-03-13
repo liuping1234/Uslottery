@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+  	android:background="#ffffff"
+     android:gravity="center|center_vertical"
+     >
+   <ImageView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			 android:gravity="center" 
+			 android:background="@drawable/welcom"
+			 android:contentDescription="@string/app_name"
+		 />
+      <LinearLayout
+		android:layout_width="wrap_content"
+		 android:layout_height="wrap_content"
+		 android:orientation="vertical"
+		 android:gravity="bottom|center_horizontal" 
+		>       
+     	<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			 android:gravity="center" 
+			 android:text="广东长荣科技有限公司."
+			 android:paddingTop="70dp"
+			 android:textColor="#000000"
+			 /> 
+	</LinearLayout>
+</LinearLayout>

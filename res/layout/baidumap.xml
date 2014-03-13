@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearmap"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_deco_gray"
+     >	
+  <RelativeLayout
+	    android:id="@+id/linearmap1"
+	    android:layout_width="fill_parent"
+	    android:layout_height="45dip"
+	    android:layout_alignParentTop="true"
+	    android:orientation="horizontal"
+	    android:background="@drawable/main_navigation_highlight_bg" >
+
+		<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_centerHorizontal="true"
+		    android:layout_centerVertical="true"
+		    android:textColor="@color/white"
+		    android:textSize="30dip"
+		    android:text="离线地图" />
+		
+		<Button
+	        android:id="@+id/mapback"
+	        android:layout_width="80dip"
+	        android:layout_height="30dip"
+	        android:layout_centerVertical="true"
+	        android:layout_alignParentLeft="true"
+	        android:textColor="@color/white"
+	        android:text="返回"
+	        android:textSize="10dip" 
+	        android:background="@drawable/zxbutton_selector"/>
+		<Button
+	        android:id="@+id/mapmore"
+	        android:layout_width="80dip"
+	        android:layout_height="30dip"
+	        android:layout_centerVertical="true"
+	        android:layout_alignParentRight="true"
+	        android:textColor="@color/white"
+	        android:text="热门城市"
+	        android:textSize="10dip" 
+	        android:background="@drawable/zxbutton_selector"/>
+  </RelativeLayout>
+  <com.baidu.mapapi.MapView 
+      android:id="@+id/bmapsView"
+      android:layout_below="@id/linearmap1"		
+      android:layout_width="fill_parent" 
+      android:layout_height="fill_parent"		
+      android:clickable="true" />
+
+</RelativeLayout>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="@color/white"
+	>
+   <TextView
+    android:id="@+id/title"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="即开彩票基本信息"
+	android:textSize="@dimen/title_font_size"
+	android:gravity="center"
+	android:paddingTop="10dp"
+	android:paddingBottom="10dp"
+	android:textStyle="bold"
+	/>  
+	  <ImageView android:id="@+id/lotteryImg"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				/>
+	<TableLayout 
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:stretchColumns="1,2"
+	>
+	<TableRow>
+	      
+	        <TextView
+	            android:text="序列号码:"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textSize="@dimen/lot_font_size"
+				/>
+	          <TextView android:id="@+id/sid"
+	            android:text=""
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:paddingTop="20dp"
+				android:textSize="@dimen/lot_font_size"
+				/>
+	</TableRow>
+	<TableRow>
+	      
+	        <TextView
+	            android:text="彩种名称:"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textSize="@dimen/lot_font_size"
+				/>
+	          <TextView android:id="@+id/gameName"
+	            android:text=""
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textSize="@dimen/lot_font_size"
+				/>
+	</TableRow>
+		<TableRow>
+	      
+	        <TextView 
+	            android:text="彩种面值:"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textSize="@dimen/lot_font_size"
+				/>
+	          <TextView android:id="@+id/faceValue"
+	            android:text=""
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textSize="@dimen/lot_font_size"
+				/>
+	</TableRow>
+	<TableRow>
+	      
+	        <TextView 
+	            android:text="所属地区:"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textSize="@dimen/lot_font_size"
+				/>
+	          <TextView android:id="@+id/city"
+	            android:text=""
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:textSize="@dimen/lot_font_size"
+				/>
+	</TableRow>
+		<TableRow>
+	      
+	        <TextView 
+	            android:text="入库日期:"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:paddingBottom="10dp"
+				android:textSize="@dimen/lot_font_size"
+				/>
+	          <TextView android:id="@+id/rkrq"
+	            android:text=""
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:paddingLeft="10dp"
+				android:paddingBottom="10dp"
+				android:textSize="@dimen/lot_font_size"
+				/>
+	</TableRow>
+	<LinearLayout android:gravity="center">
+	     <Button android:id="@+id/btn"
+	            android:text="返   回"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:textSize="@dimen/lot_font_size"
+				/>
+	</LinearLayout>
+   
+	</TableLayout>
+
+</LinearLayout>

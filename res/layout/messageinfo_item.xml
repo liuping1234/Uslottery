@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="80dip"
+	android:gravity="center_horizontal"
+	android:padding="7dip"
+	>
+	<View 
+    android:layout_width="fill_parent"  
+    android:layout_height="1px" 
+    android:background="?android:attr/listDivider"  
+ 	/>
+	<RelativeLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		>
+		
+		<TextView 
+	    android:id="@+id/messageinfo_button"
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:textSize="15dip"
+		android:textStyle="bold"
+		android:textColor="@color/red"
+		android:gravity="center_vertical|center_horizontal"
+		/> 
+	 <TextView 
+	    android:id="@+id/messageinfo_list"
+		android:layout_width="250dip" 
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_toLeftOf="@id/button"
+		android:textStyle="bold"
+		android:lines="1" 
+		android:textColor="@color/black"
+		android:ellipsize="end"
+		android:textSize="15dip"
+		android:text="业务号：17070424  概要内容：移站勘察，业务号：17070424，17004迁移：莞城区果蕉街13号。收到请回复：邱剑波"
+		android:gravity="center"
+		/> 
+		
+	</RelativeLayout>
+	 <View 
+	    android:layout_width="fill_parent"  
+	    android:layout_height="1px" 
+	    android:background="?android:attr/listDivider"  
+	 />
+
+</LinearLayout>

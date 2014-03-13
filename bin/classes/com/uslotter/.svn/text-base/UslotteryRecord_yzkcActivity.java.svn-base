@@ -1,0 +1,121 @@
+package com.uslotter;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
+import com.uslotter.R;
+import com.uslotter.util.DialogUtil;
+public class UslotteryRecord_yzkcActivity extends Activity{ 
+	private Button btn_exit = null;
+	private Button btn_save = null;
+	private EditText wdbz = null;
+	private EditText et_add = null;
+	private EditText et_id = null;
+	private EditText et_explain_people = null;
+	private EditText et_explain_dot = null;
+	private EditText et_remarks = null;
+	private Spinner sp_site = null;
+	private Spinner sp_type = null;
+	private Spinner sp_truth_people = null;
+	private Spinner sp_truth_dot = null;
+	private ImageView iv_add = null;
+	private ImageView iv2 = null;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.record2_yzkc);
+		btn_exit = (Button)this.findViewById(R.id.record2_yzkc_back);
+		btn_save = (Button)this.findViewById(R.id.record2_yzkc_save);
+		sp_site = (Spinner)this.findViewById(R.id.record2_yzkc_sp_site);
+		wdbz = (EditText)this.findViewById(R.id.record2_yzkc_et_bzwd);
+		et_id = (EditText)this.findViewById(R.id.record2_yzkc_et_id);
+		et_explain_people = (EditText)this.findViewById(R.id.record2_yzkc_et_explain_pople);
+		et_explain_dot = (EditText) this.findViewById(R.id.record2_yzkc_et_explain_dot);
+		sp_type = (Spinner)this.findViewById(R.id.record2_yzkc_sp_type);
+		sp_truth_people = (Spinner) this.findViewById(R.id.record2_yzkc_sp_truth_people);
+		sp_truth_dot = (Spinner) this.findViewById(R.id.record2_yzkc_sp_truth_dot);
+		
+		iv_add = (ImageView)this.findViewById(R.id.record2_yzkc_iv2_annex);
+		iv2 = (ImageView)this.findViewById(R.id.record2_yzkc_iv_annex);
+		iv_add.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+				intent.addCategory(Intent.CATEGORY_OPENABLE);
+				intent.setType("image/*");
+				intent.putExtra("return-data", true);
+				startActivityForResult(intent, 4);
+			}
+		});
+		btn_exit.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				finish();				
+			}
+		});
+		btn_save.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+			   if(sp_site.getSelectedItem().toString().trim().equals("")){
+					DialogUtil.showDialog(UslotteryRecord_yzkcActivity.this,"");
+					return;
+				}
+				
+				if(wdbz.getText().toString().equals("")){
+					DialogUtil.showDialog(UslotteryRecord_yzkcActivity.this, "网点标注为空!");
+					return;
+				}
+				
+				if(et_id.getText().toString().trim().equals("")){
+					DialogUtil.showDialog(UslotteryRecord_yzkcActivity.this, "业务编号为空!");
+					return;
+				 }
+				
+				if(sp_type.getSelectedItem().toString().trim().equals("")){
+					DialogUtil.showDialog(UslotteryRecord_yzkcActivity.this, "请选择业务类型!");
+				 	return;
+				 }
+				
+				if(sp_truth_people.getSelectedItem().toString().trim().equals("")){
+					DialogUtil.showDialog(UslotteryRecord_yzkcActivity.this, "请选择申请人的信息真实性!");
+					return;
+				}
+				
+				if(et_explain_people.getText().toString().trim().equals("")){
+					DialogUtil.showDialog(UslotteryRecord_yzkcActivity.this, "申请人信息说明为空!");
+					return;
+				 }
+				
+				if(sp_truth_dot.getSelectedItem().toString().trim().equals("")){
+					DialogUtil.showDialog(UslotteryRecord_yzkcActivity.this, "请选择申请点的信息真实性!"); 
+					return;
+				}
+				
+				if(et_explain_dot.getText().toString().trim().equals("")){
+					DialogUtil.showDialog(UslotteryRecord_yzkcActivity.this, "申请点信息说明为空!");
+					return;
+				 }
+				
+				if(et_remarks.getText().toString().trim().equals("")){
+					DialogUtil.showDialog(UslotteryRecord_yzkcActivity.this, "备注为空!");
+					return;
+				 }
+				if(iv2.getTag().toString().trim().equals("")){
+					DialogUtil.showDialog(UslotteryRecord_yzkcActivity.this, "没有上传附件!");
+					return;
+				}
+				
+			}
+		});
+	}
+}

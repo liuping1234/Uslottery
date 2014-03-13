@@ -1,0 +1,209 @@
+package com.uslotter;
+import java.io.File;
+import java.util.Calendar;
+
+import com.uslotter.R;
+import com.uslotter.util.DialogUtil;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.AlertDialog.Builder;
+import android.content.ContentResolver;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.provider.MediaStore.MediaColumns;
+import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.ImageView;
+public class UslotteryRecord_wdgzActivity extends Activity{
+	private Button btn_save = null;
+	private Button btn_exit = null;
+	private Button btn_time = null;
+	 private  DatePickerDialog tp = null;
+	 private EditText et_date = null;
+	 private EditText et_id = null;
+	 private EditText et_price = null;
+	 private EditText et_remarks = null;
+	 private ImageView iv_add = null;
+	 private ImageView iv2 = null;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.record2_wdgz);
+		btn_exit  = (Button)this.findViewById(R.id.record2_wdgz_back);
+		btn_save = (Button)this.findViewById(R.id.record2_wdgz_save);
+		btn_time = (Button)this.findViewById(R.id.record2_wdgz_date);
+		et_date = (EditText)this.findViewById(R.id.record2_wdgz_et_date);
+		et_id = (EditText)this.findViewById(R.id.record2_wdgz_et_id);
+		et_price = (EditText)this.findViewById(R.id.record2_wdgz_et_price);
+		iv_add = (ImageView)this.findViewById(R.id.record2_wdgz_iv_annex);
+		iv2 = (ImageView)this.findViewById(R.id.record2_wdgz_iv2_annex);
+		iv2.setTag("");
+		iv_add.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+				intent.addCategory(Intent.CATEGORY_OPENABLE);
+				intent.setType("image/*");
+				intent.putExtra("return-data", true);
+				startActivityForResult(intent, 4);
+			}
+		});
+		final Calendar can = Calendar.getInstance();
+		btn_time.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				tp = new  DatePickerDialog(UslotteryRecord_wdgzActivity.this, new DatePickerDialog.OnDateSetListener(){
+
+					@Override
+					public void onDateSet(DatePicker view, int year,
+							int monthOfYear, int dayOfMonth) {
+						et_date.setText(year+"-"+(monthOfYear+1)+"-"+dayOfMonth);
+					}
+				},can.get(Calendar.YEAR), can.get(Calendar.MONTH), can.get(Calendar.DAY_OF_MONTH));
+				tp.show();
+			}
+		});
+		
+		btn_exit.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
+		
+		btn_save.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if(et_id.getText().toString().trim().equals("")){
+					DialogUtil.showDialog(UslotteryRecord_wdgzActivity.this, "请填写业务编号!");
+					return;
+				}
+				if(et_price.getText().toString().trim().equals("")){
+					DialogUtil.showDialog(UslotteryRecord_wdgzActivity.this,"请填写总价格!");
+					return;
+				}
+				if(et_date.getText().toString().trim().equals("")){
+					DialogUtil.showDialog(UslotteryRecord_wdgzActivity.this, "请选择测量日期!");
+					return;
+				}
+				if(et_remarks.getText().toString().trim().equals("")){
+					DialogUtil.showDialog(UslotteryRecord_wdgzActivity.this,"请填写备注!");
+					return;
+				}
+				if(iv2.getTag().toString().equals("")){
+					DialogUtil.showDialog(UslotteryRecord_wdgzActivity.this, "没有上传原表附件!");
+					return;
+				}
+			}
+		});
+	}
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent intent) {	
+		if (resultCode == RESULT_OK&&intent != null) {  
+	       	  if (requestCode == 4) {  
+		            	 Bundle bundle = intent.getExtras();
+		            	 Uri originalUri = intent.getData();           
+		            	 if (originalUri != null) {     
+		            		 Bitmap bitMap = null;   
+		            		 try {  
+		            			 if(bitMap!=null)bitMap.recycle(); 
+		            			 bitMap = null;                    
+		            			 ContentResolver resolver = getContentResolver();
+		            			 bitMap = MediaStore.Images.Media.getBitmap(resolver,originalUri); 
+		            			 String[] proj = { MediaColumns.DATA };
+		            			 Cursor cursor = managedQuery(originalUri, proj, null, null,  
+		            					 null);                    // 按我个人理解 这个是获得用户选择的图片的索引值
+		            			 int column_index = cursor.getColumnIndexOrThrow(MediaColumns.DATA); 
+		          
+		            			 // 将光标移至开头 ，这个很重要，不小心很容易引起越界           
+		            			 cursor.moveToFirst();                     // 最后根据索引值获取图片路径  
+
+		            			String path_fwyb = cursor.getString(column_index);
+		            			 bitMap = Bitmap.createScaledBitmap(bitMap, 80, 80, false);
+			            			
+//		            			iv_fwyb = new ImageView(this);
+//		            			iv_fwyb.setPadding(0, 0, 15, 0);
+//			            		iv_fwyb.setLayoutParams(new LayoutParams(80, LayoutParams.FILL_PARENT));
+//			            		
+		            			// iv_fwyb = (ImageView) this.findViewById(R.id.record2_fwyb_iv);
+			            		
+		            			 iv2.setVisibility(View.VISIBLE);
+		            			 iv2.setImageBitmap(bitMap);
+
+		            			 iv2.setTag(path_fwyb);
+		            		//	ll_fwyb.addView(iv_fwyb);
+		            			 iv2.setOnClickListener(new View.OnClickListener() {
+		            					@Override
+		            					public void onClick(View v) {
+		            						ImageView iv = (ImageView)v;
+		            						Intent intent = new Intent();
+		            					     intent.setAction(android.content.Intent.ACTION_VIEW);
+		            					     intent.setDataAndType(Uri.fromFile(new File(iv.getTag().toString())), "image/*");
+		            					     UslotteryRecord_wdgzActivity.this.startActivity(intent);
+		            					}
+		            				});
+		            			 iv2.setOnLongClickListener(new View.OnLongClickListener() {
+									
+									@Override
+									public boolean onLongClick(View v) {
+										final ImageView iv = (ImageView)v;
+										
+										//delete photo
+										AlertDialog.Builder builder = new Builder(UslotteryRecord_wdgzActivity.this);
+										builder.setTitle("提示");
+										builder.setMessage("确定删除此照片吗？");
+										builder.setPositiveButton("确定", new DialogInterface.OnClickListener(){
+
+											@Override
+											public void onClick(
+													DialogInterface dialog,
+													int which) {
+											//	Toast.makeText(UslotteryRecord.this, iv.getId()+"...", Toast.LENGTH_SHORT).show();
+												//paths.remove(paths.get(iv.getId()));
+											//	ll_fwyb.removeView(iv);
+												iv2.setTag("");
+												iv2.setVisibility(View.GONE);	
+												dialog.dismiss();	
+											}
+									
+										}
+											);
+										builder.setNegativeButton("取消", new DialogInterface.OnClickListener(){
+
+											@Override
+											public void onClick(
+													DialogInterface dialog,
+													int which) {
+												
+												dialog.dismiss();
+											}
+										});
+										builder.create().show();
+										return false;
+									}
+								});
+		            		 }catch(Exception e){
+		            			 e.printStackTrace();
+		            		 }
+		            	 }
+		         	    }
+	         }
+		super.onActivityResult(requestCode, resultCode, intent);
+	}
+	
+}

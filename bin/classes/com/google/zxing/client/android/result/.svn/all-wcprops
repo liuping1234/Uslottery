@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/result
+END
+ResultButtonListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/result/ResultButtonListener.java
+END
+ResultHandlerFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/result/ResultHandlerFactory.java
+END
+ResultHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/result/ResultHandler.java
+END
+ProductResultHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/result/ProductResultHandler.java
+END

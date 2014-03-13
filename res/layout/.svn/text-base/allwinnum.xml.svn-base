@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical"
+              android:background="@drawable/bg_main_deco">
+              <TextView 
+			   		android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:gravity="center"
+					android:textSize="30dip"
+			        android:text="中奖详情"
+			        android:textColor="@color/white"/>
+	    <LinearLayout
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+		<TextView 
+       		android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" 
+            android:gravity="center"
+            android:text="ID"
+       		android:textColor="@color/white"/>
+       	
+   		<TextView
+   		    android:layout_width="wrap_content"
+   		    android:layout_height="wrap_content"
+   		    android:layout_weight="1"
+   		    android:gravity="center"
+   		    android:text="中奖号码"
+   		    android:textColor="@color/white"/>
+   		
+   		<TextView 
+   		    android:layout_width="wrap_content"
+   		    android:layout_height="wrap_content"
+   		    android:layout_weight="1"
+   		    android:gravity="center"
+   		    android:text="是否兑奖" 
+   		    android:textColor="@color/white"/>
+   		    
+   		<TextView 
+       		android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="中奖时间"
+            android:layout_weight="1" 
+            android:gravity="center"
+       		android:textColor="@color/white"/>
+   		
+		
+	</LinearLayout>
+	
+    
+    <ListView 
+        android:id="@+id/Wingrade"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+    />
+
+  
+</LinearLayout>

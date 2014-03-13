@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/sd/everflourish/db
+END
+DatabaseHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/sd/everflourish/db/DatabaseHelper.java
+END
+BagInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/sd/everflourish/db/BagInfo.java
+END
+SqliteHandle.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/sd/everflourish/db/SqliteHandle.java
+END
+BaseDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/sd/everflourish/db/BaseDao.java
+END

@@ -1,0 +1,54 @@
+package com.uslotter;
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
+import com.uslotter.R;
+public class UslotteryRecord_jzkcActivity extends Activity{
+	private Button btn_exit = null;
+	private Button btn_save = null;
+	private Spinner sp_place = null; 
+	private EditText et_bzwd = null;
+	private EditText et_id = null;
+	private Spinner sp_type = null;
+	private Spinner sp_truth_people = null;
+	private Spinner sp_truth_dot = null;
+	private EditText et_people = null;
+	private EditText et_dot = null;
+	private EditText et_remarks = null;
+	private ImageView iv = null;
+	private ImageView iv2 = null;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.record2_jzkc);
+		btn_exit = (Button)this.findViewById(R.id.record2_jzkc_back);
+		btn_save = (Button)this.findViewById(R.id.record2_jzkc_save);
+		sp_place = (Spinner)this.findViewById(R.id.record2_jzkc_sp_place);
+		et_bzwd = (EditText)this.findViewById(R.id.record2_jzkc_et_bzwd);
+		et_id = (EditText)this.findViewById(R.id.record2_jzkc_et_id);
+		sp_type = (Spinner)this.findViewById(R.id.record2_jzkc_sp_type);
+		sp_truth_people = (Spinner) this.findViewById(R.id.record2_jzkc_sp_truth_people);
+		sp_truth_dot = (Spinner)this.findViewById(R.id.record2_jzkc_sp_truth_dot);
+		et_people = (EditText)this.findViewById(R.id.record2_jzkc_et_explain_people);
+		et_dot = (EditText)this.findViewById(R.id.record2_jzkc_et_explain_dot);
+		btn_exit.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				finish();				
+			}
+		});
+		btn_save.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {	
+			}
+		});
+	}
+}

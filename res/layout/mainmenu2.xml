@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+       android:background="@drawable/bg_deco_gray"
+    android:fillViewport="true"
+    android:orientation="vertical" >
+    <RelativeLayout
+    android:id="@+id/linear2"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/linear12"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/main_navigation_highlight_bg"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/zgy2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="专管员："
+            android:layout_marginLeft="10dip"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/syzgyname2"
+            android:layout_width="70dip"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/zgy2"
+            android:text="123"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/linear2"
+            android:layout_alignTop="@id/linear2"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/welcom" />
+
+        <Button
+            android:id="@+id/syzhuxiao2"
+            android:layout_width="80dip"
+            android:layout_height="40dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/zxbutton_selector"
+            android:text="注销登录"
+            android:textColor="@color/white"
+            android:textSize="18dip"
+            android:layout_marginRight="10dip" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/lil2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear12"
+        android:orientation="horizontal" 
+        android:gravity="center_vertical"
+            android:layout_marginTop="5dip"
+            android:layout_marginBottom="5dip"
+            android:layout_marginLeft="10dip">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="操作网点："
+            android:textColor="@color/red"
+            android:layout_gravity="center_vertical"
+            android:textSize="15dip"
+            />
+
+        <TextView
+            android:id="@+id/workid2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+             android:layout_gravity="center_vertical"
+            android:textSize="15dip" />
+        
+         <ImageView 
+            android:clickable="true"  
+        	android:padding="15.0dip"  
+        	android:layout_gravity="center_vertical" 
+        	android:layout_width="wrap_content" 
+        	android:layout_height="wrap_content" 
+        	android:src="@drawable/guide_dot_black"
+        	 android:layout_marginLeft="150dip" 
+        	android:id="@+id/mainmenu2_iv1"/>
+        <ImageView 
+            android:clickable="true"  
+        	android:padding="15.0dip"  
+        	android:layout_gravity="center_vertical" 
+        	android:layout_width="wrap_content" 
+        	android:layout_height="wrap_content" 
+        	android:src="@drawable/guide_dot_white"
+        	android:id="@+id/mainmenu2_iv2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lil12"
+        android:layout_width="fill_parent"
+        android:layout_height="100dip"
+        android:layout_below="@id/lil2"
+        android:background="@drawable/textview_boder"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:orientation="vertical"
+       >
+ 		<TextView
+            android:id="@+id/listtv2"
+            android:layout_width="fill_parent"
+            android:layout_height="100dip"
+            android:cacheColorHint="#00000000" 
+            android:text="正在加载中..."
+            android:textSize="22dip"
+            android:gravity="center"
+            android:textColor="#000000"
+             android:background="@drawable/textview_boder"
+            />
+        <ListView
+            android:id="@+id/listWdtz2"
+            android:layout_width="fill_parent"
+            android:layout_height="100dip"
+            android:cacheColorHint="#00000000" 
+            android:visibility="invisible"
+            android:background="@drawable/textview_boder"
+            android:transcriptMode="alwaysScroll"
+            >
+        </ListView>
+       
+    </LinearLayout>
+<LinearLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+      android:layout_below="@id/lil12"
+      android:id="@+id/mainmenu_bt_ll2"
+    android:gravity="right">
+    <Button
+        android:id="@+id/btmore2"
+        android:layout_width="100dip"
+        android:layout_height="30dip"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dip"
+        android:layout_marginRight="10dip"
+        android:layout_below="@id/lil2"
+        android:background="@drawable/look_tzbutton_selector"
+        android:text="查看更多"
+        android:textColor="#EE7621"
+        android:textSize="15dip" />
+</LinearLayout>
+    
+     
+ 
+        <TableLayout
+        android:id="@+id/bottommenu2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/main_navigation_background"
+        android:padding="3dip"
+        android:layout_alignParentBottom="true"
+        android:stretchColumns="*" >
+
+        <TableRow>
+
+            <ImageButton
+                android:id="@+id/syhome2"
+                android:background="@drawable/bottommenu_button_selector"
+                android:src="@drawable/main_home" />
+
+            <ImageButton
+                android:id="@+id/syjianjie2"
+                android:background="@drawable/bottommenu_button_selector"
+                android:src="@drawable/main_search" />
+
+            <RelativeLayout
+                 android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                 >
+                  <ImageButton
+                android:id="@+id/symore2"
+                  android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bottommenu_button_selector"
+                android:src="@drawable/main_more" />
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/symore2" 
+                android:layout_alignBottom="@id/symore2"
+                android:text=""
+                android:textSize="20dp"
+                android:id="@+id/mainmenu_tv_count2"
+                android:textColor="#ff0000"
+                android:paddingRight="10dip"
+                android:paddingBottom="10dip"
+                />
+            </RelativeLayout>
+        </TableRow>
+    </TableLayout>
+      <LinearLayout   
+	  android:layout_width="fill_parent"    
+	  android:layout_height="wrap_content" 
+	  android:layout_above="@id/bottommenu2"
+      android:layout_below="@id/mainmenu_bt_ll2"
+	  >    
+
+	      <GridView
+        android:id="@+id/mainmenu2_gridView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="3" 
+   
+        /> 
+      </LinearLayout>
+       
+</RelativeLayout>
+</ScrollView>

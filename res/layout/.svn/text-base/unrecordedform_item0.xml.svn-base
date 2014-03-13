@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_margin="10dip">
+              		
+                    <TextView 
+			   		android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+					android:textSize="16dip"
+			        android:text="选项"
+			        android:gravity="center"
+			        android:textColor="#000000"
+			        android:layout_weight="1"/>
+                    <TextView 
+			   		android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+					android:textSize="16dip"
+			        android:text="网点编号"
+			        android:gravity="center"
+			        android:textColor="#000000"
+			        android:layout_weight="1"/>
+                    <TextView 
+			   		android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+					android:textSize="16dip"
+			        android:text="服务单号"
+			        android:textColor="#000000"
+			        android:gravity="center"
+			         android:layout_weight="1"/>
+                    <TextView 
+			   		android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+					android:textSize="16dip"
+			        android:text="服务日期"
+			        android:gravity="center"
+			        android:textColor="#000000"
+			         android:layout_weight="1"/>
+                    <TextView 
+			   		android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+					android:textSize="16dip"
+			        android:text="操作"
+			        android:textColor="#ff0000"
+			        android:gravity="center"
+			        android:layout_weight="1"
+			       />
+        </LinearLayout>

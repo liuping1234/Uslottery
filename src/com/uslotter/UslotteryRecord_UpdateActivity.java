@@ -1,0 +1,809 @@
+package com.uslotter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.http.client.ClientProtocolException;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
+import android.content.ContentResolver;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.provider.MediaStore;
+import android.provider.MediaStore.MediaColumns;
+import android.text.method.ScrollingMovementMethod;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
+
+import com.cr.uslotter.R;
+import com.uslotter.compress.ImageCompress;
+import com.uslotter.db.AppService;
+import com.uslotter.mode.App;
+import com.uslotter.util.DialogUtil;
+import com.uslotter.util.HttpConnect;
+import com.uslotter.util.HttpUrl;
+import com.uslotter.util.HttpUtil;
+import com.uslotter.util.Util;
+public class UslotteryRecord_UpdateActivity extends Activity{
+	DatePickerDialog dialog_date = null;
+	TimePickerDialog dialog_time = null;
+	StringBuilder builder = null;
+	 private EditText et_date = null;
+	 private EditText et_time = null;
+	 private EditText et_wdbh,et_fwdh;
+	 private Button save,exit;
+	 TextView tv_wdbz = null;
+	 private Button btn_muti = null;
+	 private TextView kf = null;
+	 String state_s = null;
+	 String url = "";
+	 String wdbh,date,time;
+	 String fwdh;
+	 int i;
+	 private ImageView iv_wdbh_add = null;
+	 private ImageView iv_fwyb_add = null;
+	 private ImageView iv_fwyb = null;
+	 private ImageView iv_kfx = null;
+	 private LinearLayout ll_fwyb;
+	 private String path_fwyb = "";	
+	 private String path = "";
+	 private File mFile = null;
+	 private boolean[] selected =  null;
+	 private String _flag = "";
+	 private String _options;
+	 private String _df;
+	 private String _sp = 0+"";
+	 private ArrayList<String> _paths;
+	 private Button un_commit,commit,un_standardlize;
+	 private AppService appService = null;
+	 private TextView tv_count;
+	 private LinearLayout ll_wdbzh = null;
+	 private App app = null;
+	 private EditText et_date1 = null;
+	 private EditText et_time1 = null;
+	 private Spinner sp_fwpj;
+	 private EditText et_wdyj;
+	 private EditText et_zjfx;
+	 private EditText et_zgyjy;
+	 private EditText et_jbrqm;	
+	 
+    private Handler handler = new Handler(){
+	@Override
+	public void handleMessage(Message msg) {
+		super.handleMessage(msg);
+		int what = msg.what;
+		   if(msg.what == 1){
+			String str= msg.obj.toString();
+			Toast.makeText(UslotteryRecord_UpdateActivity.this, "上传成功!", Toast.LENGTH_LONG).show();	
+			}
+		   else if(msg.what ==2){
+			try {
+				if(msg.obj == null){
+				Toast.makeText(UslotteryRecord_UpdateActivity.this, "没有收到服务器消息！", 
+					Toast.LENGTH_SHORT).show();
+					return;
+				}
+				String str = msg.obj.toString();
+				JSONArray arr = null;
+				String status = null;
+				String gpstatus = null;
+				arr = new JSONArray(str);
+				JSONObject obj = arr.getJSONObject(0);
+				String _msg = obj.getString("Msg");
+				if(_msg.equals("1")){
+				    status = obj.getString("status");// 通知标题
+				    gpstatus = obj.getString("gpstatus");// 通知类型
+				}
+				else{
+				    return;
+				}
+				Intent intent = new Intent();
+				intent.setAction("android.intent.action.UslotteryRecordStandardActivity");
+				intent.putExtra("Status",status);
+				intent.putExtra("gpstatus", gpstatus);
+				UslotteryRecord_UpdateActivity.this.startActivityForResult(intent, 3);
+				UslotteryRecord_UpdateActivity.this.overridePendingTransition(R.anim.push_left_in,
+					R.anim.push_left_out);
+				finish();
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		} 
+		   else if(msg.what == -1){
+			//网络连接失败
+			Toast.makeText(UslotteryRecord_UpdateActivity.this, "网络连接失败!", Toast.LENGTH_SHORT).show();
+		} 
+		   else if(msg.what == -2){
+			//网络连接失败
+			Toast.makeText(UslotteryRecord_UpdateActivity.this, "出现未知异常!", Toast.LENGTH_SHORT).show();
+		}
+	     }
+	 };
+	 
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.record2_update);
+		appService = new AppService(this);
+		app = (App)this.getIntent().getSerializableExtra("app");
+		final  Calendar calendar = Calendar.getInstance();
+		
+		 //........................................
+                et_date1 = (EditText)this.findViewById(R.id.record2_up_et_date1);       
+		et_time1 = (EditText)this.findViewById(R.id.record2_up_et_time1);
+		et_date1.setOnClickListener(new View.OnClickListener() {
+		    @Override
+		    public void onClick(View v) {
+			dialog_date = new DatePickerDialog(UslotteryRecord_UpdateActivity.this,
+			   new  DatePickerDialog.OnDateSetListener(){
+
+			      @Override
+			      public void onDateSet(DatePicker view, int year,int monthOfYear, int dayOfMonth) {
+						et_date1.setText(year+"-"+((monthOfYear+1)>9?(monthOfYear+1):"0"+
+					(monthOfYear+1))+"-"+(dayOfMonth>9?dayOfMonth:"0"+dayOfMonth));
+			     }
+					},
+					calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+					calendar.get(Calendar.DAY_OF_MONTH));
+					dialog_date.show();
+				}
+			});
+	        et_time1.setOnClickListener(new View.OnClickListener() {
+		   @Override
+		   public void onClick(View v) {
+			dialog_time = new TimePickerDialog(UslotteryRecord_UpdateActivity.this, 
+						new TimePickerDialog.OnTimeSetListener() {
+						
+			     @Override
+			     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+							
+				et_time1.setText((hourOfDay>9?hourOfDay:"0"+hourOfDay)+":"+(
+					minute>9?minute:"0"+minute));
+							
+			     }
+					}, 
+			calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true);
+			dialog_time.show();
+				}
+			});
+
+		 //服务评价
+		 sp_fwpj = (Spinner)this.findViewById(R.id.record2_up_sp_fwpj);
+		 //网点意见
+		 et_wdyj = (EditText)this.findViewById(R.id.record2_up_et_wdyj);
+		 et_wdyj.setMovementMethod(ScrollingMovementMethod.getInstance());
+		 //总结分析
+		 et_zjfx = (EditText)this.findViewById(R.id.record2_up_et_zjfx);
+		 et_zjfx.setMovementMethod(ScrollingMovementMethod.getInstance());
+		 //专管员建议
+		 et_zgyjy = (EditText)this.findViewById(R.id.record2_up_et_zgyjy);
+		 et_zgyjy.setMovementMethod(ScrollingMovementMethod.getInstance());
+		 //经办人签名
+		 et_jbrqm = (EditText)this.findViewById(R.id.record2_up_et_jbrqm);
+		 et_jbrqm.setMovementMethod(ScrollingMovementMethod.getInstance());
+		//...........................................
+      
+		
+		_flag = this.getIntent().getStringExtra("flag");		
+		if(_flag != null && !_flag.equals("")){
+			_options = this.getIntent().getStringExtra("options");
+			_df = this.getIntent().getStringExtra("score");
+			_sp = this.getIntent().getStringExtra("sp");
+			_paths = this.getIntent().getStringArrayListExtra("paths");
+			App app = (App)this.getIntent().getSerializableExtra("app");
+			app.setKfx(_options);
+			app.setDf(_df);
+			app.setState(_sp);
+		
+		
+			}
+		save = (Button) this.findViewById(R.id.record2_up_save);
+		exit = (Button) this.findViewById(R.id.record2_up_back);
+		et_date = (EditText) this.findViewById(R.id.record2_up_et_date);
+		et_time = (EditText) this.findViewById(R.id.record2_up_et_time);
+		et_date.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				dialog_date = new DatePickerDialog(UslotteryRecord_UpdateActivity.this,
+					new  DatePickerDialog.OnDateSetListener(){
+					@Override
+					public void onDateSet(DatePicker view, int year,
+							int monthOfYear, int dayOfMonth) {
+						et_date.setText(year+"-"+((monthOfYear+1)>9?(monthOfYear+1):"0"
+							+(monthOfYear+1))+"-"+(dayOfMonth>9?dayOfMonth:"0"+dayOfMonth));
+						
+					}
+				},
+				calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+				calendar.get(Calendar.DAY_OF_MONTH));
+				dialog_date.show();
+			}
+		});
+		et_time.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				dialog_time = new TimePickerDialog(UslotteryRecord_UpdateActivity.this, 
+					new TimePickerDialog.OnTimeSetListener() {
+					
+					@Override
+					public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+						
+						et_time.setText((hourOfDay>9?hourOfDay:"0"+hourOfDay)+":"+
+						(minute>9?minute:"0"+minute));
+						
+					}
+				}, 
+						calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true);
+				dialog_time.show();
+			}
+		});
+        et_wdbh = (EditText) this.findViewById(R.id.record2_up_et_wdbh);
+        et_fwdh = (EditText) this.findViewById(R.id.record2_up_et_fwdh);
+
+        	SharedPreferences sps = getSharedPreferences("CardInOut", MODE_WORLD_WRITEABLE);
+    		String wdid = sps.getString("wdID", "");
+    		if(!wdid.equals("")){
+    			et_wdbh.setText(wdid);
+    		}
+        tv_wdbz = (TextView) this.findViewById(R.id.record2_up_bzh);
+        String date_time = app.getFwrq();
+        String[] date_time_str = date_time.split(",");
+		
+        if(date_time_str.length == 2){
+            et_date.setText(date_time_str[0]);
+            et_time.setText(date_time_str[1]);
+        }
+        
+        et_wdbh.setText(app.getWdbh());
+        et_wdbh.setEnabled(false);
+        et_fwdh.setText(app.getFwdh());
+        //.............
+        String date_time1 = app.getWcrq();
+        String[] date_time_str1 =date_time1.split(",");
+        if(date_time_str1.length == 2){
+        	  et_date1.setText(date_time_str1[0]);
+              et_time1.setText(date_time_str1[1]);
+        }
+        String fwpj_str = app.getFwpj();
+        if(fwpj_str.equals("满意")){
+			  sp_fwpj.setSelection(0);
+		  }else if(fwpj_str.equals("一般")){
+			  sp_fwpj.setSelection(1);
+		  }else if(fwpj_str.equals("不满意")){
+			  sp_fwpj.setSelection(2);
+		  }
+  	  et_wdyj.setText(app.getWdyj());
+	 //总结分析
+		  et_zjfx.setText(app.getZjfx());
+	 //专管员建议
+		  et_zgyjy.setText(app.getZgyyj());
+		  et_jbrqm.setText(app.getJbr());
+        //.............
+         iv_fwyb_add = (ImageView)this.findViewById(R.id.record2_up_fwyb_iv_add);
+         ll_fwyb = (LinearLayout)this.findViewById(R.id.record2_up_fwyb_ll);
+         iv_fwyb = (ImageView)this.findViewById(R.id.record2_up_fwyb_iv);
+         if(app.getFwyb() != null && !app.getFwyb().trim().equals("")){
+        	 path_fwyb = app.getFwyb().trim();
+        	 Bitmap bmp = BitmapFactory.decodeFile(path_fwyb);
+        	
+        	 bmp = Bitmap.createScaledBitmap(bmp, 80, 80, false);
+			 iv_fwyb.setVisibility(View.VISIBLE);
+			 iv_fwyb.setImageBitmap(bmp);
+			iv_fwyb.setTag(path_fwyb);
+			
+			iv_fwyb.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						ImageView iv = (ImageView)v;
+						Intent intent = new Intent();
+					     intent.setAction(android.content.Intent.ACTION_VIEW);
+					     intent.setDataAndType(Uri.fromFile(new File(iv.getTag().toString())), "image/*");
+					     UslotteryRecord_UpdateActivity.this.startActivity(intent);
+					     UslotteryRecord_UpdateActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);	
+					}
+				});
+			iv_fwyb.setOnLongClickListener(new View.OnLongClickListener() {
+				
+				@Override
+				public boolean onLongClick(View v) {
+					final ImageView iv = (ImageView)v;
+					
+					//delete photo
+					AlertDialog.Builder builder = new Builder(UslotteryRecord_UpdateActivity.this);
+					builder.setTitle("提示");
+					builder.setMessage("确定删除此照片吗？");
+					builder.setPositiveButton("确定", new DialogInterface.OnClickListener(){
+						@Override
+						public void onClick(
+								DialogInterface dialog,
+								int which) {
+							iv_fwyb.setTag("");
+							iv_fwyb.setVisibility(View.GONE);	
+							dialog.dismiss();	
+						}
+					});
+					builder.setNegativeButton("取消", new DialogInterface.OnClickListener(){
+
+						@Override
+						public void onClick(
+								DialogInterface dialog,
+								int which) {
+							
+							dialog.dismiss();
+						}
+					});
+					builder.create().show();
+					return false;
+				}
+			});
+         }
+         iv_fwyb_add.setOnClickListener(new View.OnClickListener() {	
+  			@Override
+  			public void onClick(View v) {
+  				new AlertDialog.Builder(UslotteryRecord_UpdateActivity.this)
+  				.setTitle("温馨提示!")
+  				.setMessage("选择拍照还是图库?")
+  				.setPositiveButton("拍照",new DialogInterface.OnClickListener(){
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                        startActivityForResult(intent,6);		
+					}})
+  				.setNegativeButton("图库", new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						Intent intent=new Intent(Intent.ACTION_GET_CONTENT);
+		  			     intent.addCategory(Intent.CATEGORY_OPENABLE);
+		  			     intent.setType("image/*");
+		  			     intent.putExtra("return-data", true);
+		  			     startActivityForResult(intent, 4);
+		  			   UslotteryRecord_UpdateActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+					}
+				})
+				.create()
+				.show();
+  			}
+  		});
+     
+        
+         exit.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(UslotteryRecord_UpdateActivity.this,UnRecordFormActivity.class);	
+				UslotteryRecord_UpdateActivity.this.startActivity(intent);
+				UslotteryRecord_UpdateActivity.this.finish();
+				UslotteryRecord_UpdateActivity.this.overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);					
+			}
+		});
+         
+        save.setOnClickListener(new View.OnClickListener() {	
+ 			@Override
+ 			public void onClick(View v) {
+ 				
+ 				
+ 				wdbh= et_wdbh.getText().toString().trim();
+ 					if(wdbh.equals("")){
+ 						DialogUtil.showDialog(UslotteryRecord_UpdateActivity.this, "请填写好网点编号!");
+ 						return;
+ 					}
+ 				
+ 					 fwdh = et_fwdh.getText().toString().trim();
+ 					if(fwdh.equals("")){
+ 						DialogUtil.showDialog(UslotteryRecord_UpdateActivity.this, "请填写好服务单号!");
+ 						return;
+ 					}
+ 					
+ 					date = et_date.getText().toString().trim();
+ 					if(date.equals("")){
+ 						DialogUtil.showDialog(UslotteryRecord_UpdateActivity.this, "请填写好日期!");
+ 						return;
+ 					}
+ 					
+ 					 time = et_time.getText().toString().trim();
+ 					if(time.equals("")){
+ 						DialogUtil.showDialog(UslotteryRecord_UpdateActivity.this, "请填写好时间!");
+ 						return;
+ 					}
+ 					
+ 					//................................................................	
+ 					String et_date1_str  = et_date1.getText().toString().trim();
+ 					String et_time1_str = et_time1.getText().toString().trim();
+ 					if(et_date1_str.equals("")){
+ 						DialogUtil.showDialog(UslotteryRecord_UpdateActivity.this, "请填写好完成日期!");
+ 						return;
+ 					}
+ 					if(et_time1_str.equals("")){
+ 						DialogUtil.showDialog(UslotteryRecord_UpdateActivity.this, "请填写好完成时间!");
+ 						return;
+ 					}
+ 					String jbr_str = et_jbrqm.getText().toString().trim();
+ 					String fwpj_str = sp_fwpj.getSelectedItem().toString();
+ 					String et_wdyj_str = et_wdyj.getText().toString().trim();
+ 					String et_zjfx_str = et_zjfx.getText().toString().trim();
+ 					String et_zgyjy_str = et_zgyjy.getText().toString().trim();
+ 					String et_jbrqm_str = et_jbrqm.getText().toString().trim();
+ 					app.setWcrq(et_date1_str+","+et_time1_str);
+ 					app.setJbr(jbr_str);
+ 					app.setFwpj(fwpj_str);
+ 					app.setWdyj(et_wdyj_str);
+ 					app.setZjfx(et_zjfx_str);
+ 					app.setZgyyj(et_zgyjy_str);
+ 					//.................................................................
+ 				
+ 					app.setWdbh(wdbh);
+ 					app.setFwdh(fwdh);
+ 					app.setFwrq(date+","+time);
+ 					app.setFwyb(path_fwyb);
+ 	 				if(_sp != null){
+ 					    app.setState(_sp);
+ 						
+ 					}
+ 					if(_df != null){
+ 						app.setDf(_df);
+ 					}
+ 					if(_options != null){
+ 						app.setKfx(_options);
+ 					}
+ 					String userId = Util.getSharedPrefercencesString(UslotteryRecord_UpdateActivity.this, "username");
+ 					if(!userId.equals("")){
+ 						//Toast.makeText(UslotteryRecord_UpdateActivity.this, userId+"", Toast.LENGTH_SHORT).show();
+ 						app.setUserId(userId);	
+ 					}
+ 					if(_paths != null){
+ 						StringBuilder builder =new StringBuilder();
+ 						for(int i = 0;i<_paths.size();i++ ){
+ 							if(i == _paths.size()-1){
+ 								builder.append(_paths.get(i));	
+ 							}else{
+ 								builder.append(_paths.get(i)+",");
+ 							}	
+ 						}
+ 						app.setWdzp(builder.toString());
+ 					}
+ 					 appService.updateFromWDBH(app);
+               Intent intent =new Intent(UslotteryRecord_UpdateActivity.this,UslotteryRecord.class);
+               intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+               startActivity(intent);
+               UslotteryRecord_UpdateActivity.this.overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+			 	
+               finish();
+ 					
+ 			}
+ 		});   
+        
+       
+    
+     
+        ll_wdbzh = (LinearLayout)this.findViewById(R.id.record2_up_llwdbzh);
+  
+        ll_wdbzh.setOnClickListener(new View.OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			String con = et_wdbh.getText().toString();
+			
+			if(con.equals("")||con.length()!=5){
+				DialogUtil.showDialog(UslotteryRecord_UpdateActivity.this, "请填写正确网点编号!");
+				return;
+			}
+			
+			String fwdh = et_fwdh.getText().toString();
+			String fwrq_date = et_date.getText().toString();
+			String fwrq_time = et_time.getText().toString();
+			
+			app.setWdbh(con);
+			app.setFwdh(fwdh);
+			app.setFwrq(fwrq_date+","+fwrq_time);
+	//..........................................
+			
+			String et_date1_str  = et_date1.getText().toString().trim();
+				String et_time1_str = et_time1.getText().toString().trim();
+			String jbr_str = et_jbrqm.getText().toString().trim();
+				String fwpj_str = sp_fwpj.getSelectedItem().toString();
+				String et_wdyj_str = et_wdyj.getText().toString().trim();
+				String et_zjfx_str = et_zjfx.getText().toString().trim();
+				String et_zgyjy_str = et_zgyjy.getText().toString().trim();
+				String et_jbrqm_str = et_jbrqm.getText().toString().trim();
+				app.setWcrq(et_date1_str+","+et_time1_str);
+				app.setJbr(jbr_str);
+				app.setFwpj(fwpj_str);
+				app.setWdyj(et_wdyj_str);
+				app.setZjfx(et_zjfx_str);
+				app.setZgyyj(et_zgyjy_str);
+			//...........................................
+			Intent intent = new Intent(UslotteryRecord_UpdateActivity.this,UslotteryRecord_wdbzhUpdateActivity.class);
+			intent.putExtra("wdbh", con);
+			intent.putExtra("app", app);
+			UslotteryRecord_UpdateActivity.this.startActivity(intent);		
+			UslotteryRecord_UpdateActivity.this.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+		 	
+			finish();
+		}
+	});
+	}
+	
+	
+	
+	
+
+	@Override	 
+	 public boolean onKeyDown(int keyCode, KeyEvent event) {
+	  //按下键盘上返回按钮 //
+	  if(keyCode == KeyEvent.KEYCODE_BACK){ 
+			new AlertDialog.Builder(UslotteryRecord_UpdateActivity.this)
+			.setTitle("提示！")
+			.setMessage("是否退出修改")
+			.setCancelable(false)
+			.setPositiveButton("确定",
+					new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(DialogInterface arg0,
+								int arg1) {
+							Intent intent = new Intent(UslotteryRecord_UpdateActivity.this,UnRecordFormActivity.class);	
+							UslotteryRecord_UpdateActivity.this.startActivity(intent);
+							UslotteryRecord_UpdateActivity.this.finish();
+							UslotteryRecord_UpdateActivity.this.overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+						}
+					})
+			.setNegativeButton("取消",
+					new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(DialogInterface arg0,
+								int arg1) {
+						}
+					}).create().show();
+		  return true;
+	  }else{  
+		  return super.onKeyDown(keyCode, event);	 
+	  }	 
+	 }
+	
+	 @Override  
+     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {  
+	
+          if (resultCode == 3) {  
+
+         }  
+ 
+          if (resultCode == RESULT_OK&&intent != null) {  
+        	  if (requestCode == 4) {  
+	            	 Bundle bundle = intent.getExtras();
+	            	 Uri originalUri = intent.getData();           
+	            	 if (originalUri != null) {     
+	            		 Bitmap bitMap = null;   
+	            		 try {  
+	            			 if(bitMap!=null)bitMap.recycle(); 
+	            			 bitMap = null;                    
+	            			 ContentResolver resolver = getContentResolver();
+	            			 bitMap = MediaStore.Images.Media.getBitmap(resolver,originalUri); 
+	            			 String[] proj = { MediaColumns.DATA };
+	            			 Cursor cursor = managedQuery(originalUri, proj, null, null,  
+	            					 null);                    // 按我个人理解 这个是获得用户选择的图片的索引值
+	            			 int column_index = cursor.getColumnIndexOrThrow(MediaColumns.DATA); 
+	          
+	            			 // 将光标移至开头 ，这个很重要，不小心很容易引起越界           
+	            			 cursor.moveToFirst();                     // 最后根据索引值获取图片路径  
+	            			// String path = cursor.getString(column_index);
+	            			 String _path = "/sdcard/a"+Util.getCurTime()+".jpeg";
+	            			// Toast.makeText(UslotteryRecord_UpdateActivity.this, "正在检测压缩，请稍候...", Toast.LENGTH_SHORT).show();
+	            			// bitMap = Util.rotate(bitMap, 90);
+	            			 path_fwyb =  ImageCompress.compressImage3(bitMap,UslotteryRecord_UpdateActivity.this,_path);
+	            			
+	            			
+	            			 bitMap = Bitmap.createScaledBitmap(bitMap, 80, 80, false);
+	
+	            			 iv_fwyb.setVisibility(View.VISIBLE);
+	            			iv_fwyb.setImageBitmap(bitMap);
+                            app.setFwyb(path_fwyb);
+	            			//iv_fwyb.setTag(path_fwyb);
+	            			iv_fwyb.setOnClickListener(new View.OnClickListener() {
+	            					@Override
+	            					public void onClick(View v) {
+	            						ImageView iv = (ImageView)v;
+	            						Intent intent = new Intent();
+	            					     intent.setAction(android.content.Intent.ACTION_VIEW);
+	            					   //intent.setDataAndType(Uri.fromFile(new File(iv.getTag().toString())), "image/*");
+	            					     intent.setDataAndType(Uri.fromFile(new File(app.getFwyb())), "image/*");
+		            					 UslotteryRecord_UpdateActivity.this.startActivity(intent);
+	            					}
+	            				});
+	            			iv_fwyb.setOnLongClickListener(new View.OnLongClickListener() {
+								
+								@Override
+								public boolean onLongClick(View v) {
+									final ImageView iv = (ImageView)v;
+									
+									//delete photo
+									AlertDialog.Builder builder = new Builder(UslotteryRecord_UpdateActivity.this);
+									builder.setTitle("提示");
+									builder.setMessage("确定删除此照片吗？");
+									builder.setPositiveButton("确定", new DialogInterface.OnClickListener(){
+
+										@Override
+										public void onClick(
+												DialogInterface dialog,
+												int which) {
+											//iv_fwyb.setTag("");
+											 app.setFwyb("");
+											iv_fwyb.setVisibility(View.GONE);	
+											dialog.dismiss();	
+										}
+								
+									}
+										);
+									builder.setNegativeButton("取消", new DialogInterface.OnClickListener(){
+
+										@Override
+										public void onClick(
+												DialogInterface dialog,
+												int which) {
+											
+											dialog.dismiss();
+										}
+									});
+									builder.create().show();
+									return false;
+								}
+							});
+	            		 }catch(Exception e){
+	            			 e.printStackTrace();
+	            		 }
+	            	 }
+	         	    }else if(requestCode == 6){
+	         	    	 String sdStatus = Environment.getExternalStorageState();
+  	    	            if (!sdStatus.equals(Environment.MEDIA_MOUNTED)) { // 检测sd是否可用
+  	    	                return;
+  	    	            }
+  	    	            Bundle bundle = intent.getExtras();
+  	    	            Bitmap bitmap = (Bitmap) bundle.get("data");// 获取相机返回的数据，并转换为Bitmap图片格式
+  	    	            FileOutputStream b = null;
+  	    	            File file = new File("/sdcard/");
+  	    	            file.mkdirs();// 创建文件夹，名称为myimage
+  	    	           //照片的命名，目标文件夹下，以当前时间数字串为名称，即可确保每张照片名称不相同。
+  	    	   
+   	                    String fileName = "/sdcard/a"+Util.getCurTime()+".jpg";
+   	                   path_fwyb = ImageCompress.compressImage3(bitmap, UslotteryRecord_UpdateActivity.this, fileName);
+   	                 bitmap = Bitmap.createScaledBitmap(bitmap, 80, 80, false);            		
+         			 iv_fwyb.setVisibility(View.VISIBLE);
+         			iv_fwyb.setImageBitmap(bitmap);
+         			iv_fwyb.setTag(path_fwyb);
+         			iv_fwyb.setOnClickListener(new View.OnClickListener() {
+         					@Override
+         					public void onClick(View v) {
+         						ImageView iv = (ImageView)v;
+         						Intent intent = new Intent();
+         					     intent.setAction(android.content.Intent.ACTION_VIEW);
+         					     intent.setDataAndType(Uri.fromFile(new File(iv.getTag().toString())), "image/*");
+         					    UslotteryRecord_UpdateActivity.this.startActivity(intent);
+         					}
+         				});
+
+          			iv_fwyb.setOnLongClickListener(new View.OnLongClickListener() {
+							
+							@Override
+							public boolean onLongClick(View v) {
+								final ImageView iv = (ImageView)v;
+								
+								//delete photo
+								AlertDialog.Builder builder = new Builder(UslotteryRecord_UpdateActivity.this);
+								builder.setTitle("提示");
+								builder.setMessage("确定删除此照片吗？");
+								builder.setPositiveButton("确定", new DialogInterface.OnClickListener(){
+
+									@Override
+									public void onClick(
+											DialogInterface dialog,
+											int which) {
+									
+										iv_fwyb.setTag("");
+										iv_fwyb.setVisibility(View.GONE);	
+										dialog.dismiss();	
+									}
+							
+								}
+									);
+								builder.setNegativeButton("取消", new DialogInterface.OnClickListener(){
+
+									@Override
+									public void onClick(
+											DialogInterface dialog,
+											int which) {
+										
+										dialog.dismiss();
+									}
+								});
+								builder.create().show();
+								return false;
+							}
+						});
+	         	    }
+          }
+	 }
+	 
+	 public void upload(final String url,final File[] files){
+		 new Thread(){
+				@Override
+				public void run() {
+					Looper.prepare();
+					try{
+					String result =  HttpConnect.uploadFile1(url, files);
+					Message msg = handler.obtainMessage();
+					msg.obj = result;
+					msg.what = 1;
+					handler.sendMessage(msg);
+					}catch(Exception e){
+						e.printStackTrace();
+					}
+					Looper.loop();
+				}
+				
+			}.start(); 
+	 }
+	 
+	 public void queryData(final String wdbh){
+			new Thread(){
+				
+				public void run(){
+					
+					if(HttpUtil.checkNet(UslotteryRecord_UpdateActivity.this)){
+						 Map<String,String> map=new HashMap<String,String>();
+						 map.put("wdNo", wdbh);
+						try {
+							String post = HttpUtil.postRequest(HttpUrl.URL+HttpUrl.Wd_Status,map);
+							Message msg = new Message();
+							msg.obj = post;
+							msg.what = 2;
+							handler.sendMessage(msg);
+						} catch (ClientProtocolException e) {
+							handler.sendEmptyMessage(-2);
+							e.printStackTrace();
+						} catch (IOException e) {
+							handler.sendEmptyMessage(-2);
+							e.printStackTrace();
+						}catch (Exception e) {
+							handler.sendEmptyMessage(-2);
+							e.printStackTrace();
+						}
+					}else{
+						handler.sendEmptyMessage(-1);
+					}
+				}
+			}.start();
+		}
+}

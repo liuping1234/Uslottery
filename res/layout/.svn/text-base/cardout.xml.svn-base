@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_deco_gray"
+    >
+
+	<RelativeLayout
+	    android:id="@+id/linear"
+	    android:layout_width="fill_parent"
+	    android:layout_height="45dip"
+	    android:layout_alignParentTop="true"
+	    android:orientation="horizontal"
+	    android:background="@drawable/main_navigation_highlight_bg" >
+
+		<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_centerHorizontal="true"
+		    android:layout_centerVertical="true"
+		    android:textColor="@color/white"
+		    android:textSize="25dip"
+		    android:text="签退" />
+
+	    <Button
+	        android:id="@+id/qtback"
+	        android:layout_width="80dip"
+	        android:layout_height="40dip"
+	        android:layout_centerVertical="true"
+	        android:layout_alignParentLeft="true"
+	        android:textColor="@color/white"
+	        android:text="返回"
+	        android:textSize="18dip" 
+	        android:layout_marginLeft="20dip"
+	        android:background="@drawable/zxbutton_selector"/>
+	    
+	    <Button
+            android:id="@+id/carderror_out"
+            android:layout_width="80dip"
+            android:layout_height="40dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/zxbutton_selector"
+            android:text="刷卡故障"
+            android:textColor="@color/white"
+            android:layout_marginRight="20dip"
+            android:textSize="18dip" >
+        </Button>
+	</RelativeLayout>
+	
+	<RelativeLayout
+        android:id="@+id/linear2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear"
+        android:orientation="horizontal"
+        android:paddingTop="10dip" >
+
+        <TextView
+            android:id="@+id/txtitle_out"
+            android:layout_width="wrap_content"
+            android:layout_height="40dip"
+            android:layout_below="@id/linear"
+            android:gravity="center_vertical"
+            android:text="网点编号："
+            android:textColor="@color/blue"
+            android:textSize="15dip" >
+        </TextView>
+
+       <Button
+            android:id="@+id/commite_out"
+            android:layout_width="80dip"
+            android:layout_height="40dip"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/look_tzbutton_selector"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="确定"
+            android:textColor="@color/button"
+            android:textSize="10dip" />
+
+        <EditText
+            android:id="@+id/ettitle_out"
+            android:layout_width="100dip"
+            android:layout_height="40dip"
+            android:layout_toLeftOf="@id/commite_out"
+            android:layout_toRightOf="@id/txtitle_out"
+            android:gravity="center_vertical" />
+        <RadioGroup
+            android:id="@+id/rp_out"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/txtitle_out"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <RadioButton
+                android:id="@+id/RadioButton1_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="该网点无IC卡"
+                android:textColor="@color/red" />
+
+            <RadioButton
+                android:id="@+id/RadioButton2_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="该网点IC卡已坏"
+                android:textColor="@color/red" />
+
+            <RadioButton
+                android:id="@+id/RadioButton3_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="刷卡失败"
+                android:textColor="@color/red" />
+        </RadioGroup>
+
+    </RelativeLayout>
+	
+	<TextView
+	    android:id="@+id/outmessage"
+	    android:layout_below="@id/linear2"
+	    android:gravity="center_vertical|center_horizontal"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:textSize="30dip"
+	    android:textColor="@color/red"
+	    android:text="签退请刷卡！">
+	</TextView>
+
+</RelativeLayout>

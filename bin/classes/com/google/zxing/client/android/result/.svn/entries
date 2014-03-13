@@ -1,0 +1,79 @@
+8
+
+dir
+14
+http://192.168.0.201/repos/software/project_source_code/Uslottery/src/com/google/zxing/client/android/result
+http://192.168.0.201/repos/software
+
+
+
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+8b59784f-abe3-6e4f-bde3-b8bc1f90d7fc
+
+ResultButtonListener.java
+file
+
+
+
+
+2013-10-28T06:47:15.828125Z
+fac4105d16b37006ba6ed3bcb48f5eeb
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+
+ResultHandlerFactory.java
+file
+
+
+
+
+2013-10-28T06:47:15.828125Z
+78c2aa5e591036cfb6f810f4cea22128
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+
+supplement
+dir
+
+ResultHandler.java
+file
+
+
+
+
+2013-10-28T06:47:15.843750Z
+3645b834c60f95c2b307ed39f012f4cf
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+
+ProductResultHandler.java
+file
+
+
+
+
+2013-10-28T06:47:15.843750Z
+1559cd177835ddadf190d7f258e7a0b7
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+

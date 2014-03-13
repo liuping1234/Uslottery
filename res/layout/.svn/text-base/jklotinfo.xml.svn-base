@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="fill_parent"
+     android:layout_height="fill_parent"
+     android:fillViewport="true"
+     android:background="@drawable/bg_deco_gray"
+     android:scrollbars="none">
+     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	>
+	 <RelativeLayout
+        android:id="@+id/jklotinfo__linear"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/main_navigation_highlight_bg"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/jklotinfo_back"
+            android:layout_width="80dip"
+            android:layout_height="40dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dip"
+            android:background="@drawable/zxbutton_selector"
+            android:text="返 回"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="即开派票"
+            android:textColor="#ffffff"
+            android:textSize="25dip" />
+    </RelativeLayout>
+         
+
+	<TableLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" 
+     android:stretchColumns="1"
+     android:paddingTop="10dp"
+     android:paddingLeft="10dp"
+    > 
+    <TableRow  android:gravity="bottom">
+	   <ImageView
+	    android:id="@+id/logo"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:paddingTop="10dp"
+		android:paddingBottom="10dp"
+		android:paddingLeft="10dp"
+		/>  
+		<LinearLayout 
+		android:orientation="vertical"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:gravity="bottom"
+		>
+			   <TextView
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/title"
+				android:text="网点编号:"
+				android:paddingLeft="10dp"
+				android:textColor="#000000"
+				/>  
+				<TextView
+				android:id="@+id/phone"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="网点电话:"
+				android:paddingLeft="10dp"
+				android:textColor="#000000"
+				/>  
+					<TextView
+				android:id="@+id/status"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="网点状态:"
+				android:paddingLeft="10dp"
+				android:textColor="#000000"
+				/>  
+				
+		</LinearLayout>
+	</TableRow>
+</TableLayout>
+<TextView
+				android:id="@+id/cz"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="行政区域:"
+				android:paddingTop="10dp"
+				android:paddingLeft="10dp"
+				android:textColor="#000000"
+				/>  
+		    
+	<TextView
+		    	android:id="@+id/address"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="网点地址:"
+				android:paddingLeft="10dp"
+				android:textColor="#000000"
+				/>  
+				
+
+	<TableLayout  
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:stretchColumns="0,1"
+	>
+	    <TableRow  android:gravity="bottom">
+			<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="彩票明细"
+			android:paddingTop="10dp"
+			 android:textSize="18dp"
+			android:paddingLeft="10dp"
+			android:textColor="#000000"
+			/> 
+			   <LinearLayout 
+							android:orientation="horizontal"
+							android:layout_width="fill_parent"
+							android:layout_height="wrap_content"
+							android:gravity="right"
+							>
+							<TextView
+							     android:id="@+id/ydTime"
+								android:layout_width="fill_parent"
+								android:layout_height="wrap_content"
+								android:text=""
+								android:paddingTop="10dp"
+								 android:textSize="13dp"
+								android:paddingRight="10dp"
+								android:gravity="right"
+								android:textColor="#000000"
+							/>   
+						</LinearLayout>
+			
+		</TableRow>
+	</TableLayout>
+	
+	
+	<TableLayout  android:id="@+id/lotinfo"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:paddingTop="10dp"
+	/>
+
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="物料明细"
+		android:paddingTop="10dp"
+		android:textSize="18dp"
+		android:paddingLeft="10dp"
+		android:paddingRight="10dp"
+		android:textColor="#000000"
+	/>  
+	
+		<TableLayout  android:id="@+id/matetable"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:paddingTop="10dp"
+	/>
+	
+	<!--  
+ 	<TableLayout 
+ 	    android:id="@+id/matetable"
+		    android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+		    android:stretchColumns="0,1">
+    		    <TableRow>
+		   
+					 <TextView 
+		          android:text="序号"
+		             android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:gravity="right"
+					android:paddingRight="30dp"
+		            />  
+		        <TextView 
+		            android:text="物资名称"
+		            android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingLeft="30dp"
+					android:gravity="bottom"
+		            />
+		      <TextView 
+		            android:text="数量"
+		            android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingLeft="30dp"
+					android:gravity="bottom"
+		            />
+		    </TableRow>
+		    
+    	
+		    <TableRow>
+		        <LinearLayout 
+					android:orientation="horizontal"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:gravity="right|center_vertical"
+					>
+					 <CheckBox 
+		            android:id="@+id/tzdbox"
+		           
+		             android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:gravity="right"
+					android:paddingRight="30dp"
+		            />  
+					</LinearLayout>
+		        <TextView 
+		            android:text="投注单"
+		            android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingLeft="30dp"
+					android:gravity="bottom"
+		            />
+		        <EditText     android:id="@+id/tzdnum"
+		           android:width="30px"
+		           android:numeric="integer"
+		            android:text="1"
+		            android:gravity="left"
+		             android:layout_width="wrap_content"
+					android:layout_height="wrap_content"/>
+		    </TableRow>
+		 <TableRow>
+		        <LinearLayout 
+					android:orientation="horizontal"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:gravity="right|center_vertical"
+					>
+					 <CheckBox 
+		            android:id="@+id/dyzbox"
+		          
+		             android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:gravity="right"
+					android:paddingRight="30dp"
+		            />  
+					</LinearLayout>
+		        <TextView 
+		            android:text="热敏纸"
+		            android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingLeft="30dp"
+					android:gravity="bottom"
+		            />
+		        <EditText     android:id="@+id/dyznum"
+		           android:width="30px"
+		           android:numeric="integer"
+		             android:text="1"
+		            android:gravity="left"
+		             android:layout_width="wrap_content"
+					android:layout_height="wrap_content"/>
+		    </TableRow>
+		    <TableRow>
+		        <LinearLayout 
+					android:orientation="horizontal"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:gravity="right|center_vertical"
+					>
+					 <CheckBox 
+		            android:id="@+id/rmpbox"
+		          
+		             android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:gravity="right"
+					android:paddingRight="30dp"
+		            />  
+					</LinearLayout>
+		        <TextView 
+		            android:text="三月份海报"
+		            android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingLeft="30dp"
+					android:gravity="bottom"
+		            />
+		        <EditText     android:id="@+id/rmpnum"
+		             android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					 android:width="30px"
+					 android:gravity="left"
+					   android:text="1"
+		           android:numeric="integer"
+					/>
+		    </TableRow>  
+		</TableLayout>   	-->		
+<Button    android:id="@+id/cfmbtm"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+android:paddingLeft="30dp"
+android:paddingRight="30dp"
+	android:text="确     认"/>
+</LinearLayout>
+    
+ </ScrollView>

@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.uslotter"
+    android:versionCode="12"
+    android:versionName="1.0.12" >
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <uses-sdk android:minSdkVersion="10" />
+    <!-- Wifi related -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.RAISED_THREAD_PRIORITY" />
+    <!-- Wifi related -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+
+    <application
+        android:debuggable="true"
+        android:icon="@drawable/welcom"
+        android:label="@string/app_name" >
+        <activity
+            android:name="com.uslotter.WelcomeActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.uslotter.UslotteryActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.UslotteryActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.uslotter.MessageInfo"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MessageInfo" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.uslotter.UslotteryMainMenu"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.UslotteryMainMenu" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.uslotter.UslotteryCardin"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.UslotteryCardin" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.uslotter.UslotteryCardout"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.UslotteryCardout" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.uslotter.UslotteryCardrecord"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.UslotteryCardrecord" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.uslotter.nfc.JkConfirm"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.JkConfirm" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.uslotter.wdinfo.SelectByIDActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.SelectByIDActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.uslotter.lingtu.lingtuMapActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.lingtuMapActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.uslotter.wdinfo.WDInfoActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.WDInfoActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.uslotter.UpdateActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.NFCUPDATEAPK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.uslotter.UslotteryRecord"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.UslotteryRecord" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.uslotter.UslotteryRecordStandard"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.UslotteryRecordStandard" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.uslotter.UslotteryRecordStandardActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.UslotteryRecordStandardActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.uslotter.NotificationDetailActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.NotoficationDetailActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.hz.ReadCardActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.READCARD" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.nfc.action.TECH_DISCOVERED"
+                android:resource="@xml/filter_nfc" />
+        </activity>
+        <activity android:name="com.hz.WelcomeHzActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.WelcomeHzActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.hz.HzLotteryActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.HZLOTTERY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.hz.ReadCardHandleActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.READCARDHND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.hz.ConfigActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.HZCONFIG" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.hz.UpdateActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.HZUPDATEAPK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.uslotter.UslotteryRecord_wdbzhActivity" />
+        <activity android:name="com.uslotter.UslotteryRecord_zdjcActivity" />
+        <activity android:name="com.uslotter.UslotteryRecord_xccxActivity" />
+        <activity android:name="com.uslotter.UslotteryRecord_pxhdActivity" />
+        <activity android:name="com.uslotter.UslotteryRecord_zlpfActivity" />
+        <activity android:name="com.uslotter.UslotteryRecord_zdwhActivity" />
+        <activity android:name="com.uslotter.UslotteryRecord_jzkcActivity" />
+        <activity android:name="com.uslotter.UslotteryRecord_yzkcActivity" />
+        <activity android:name="com.uslotter.UslotteryRecord_yskcActivity" />
+        <activity android:name="com.uslotter.UslotteryRecord_zlgxActivity" />
+        <activity android:name="com.uslotter.UslotteryRecord_hyActivity" />
+        <activity android:name="com.uslotter.UslotteryRecord_qtfwActivity" />
+        <activity android:name="com.uslotter.UslotteryRecord_wdgzActivity" />
+        <activity android:name="com.uslotter.UslotteryRecord_wdwgActivity" />
+        <activity android:name="com.lottery.XlQueryTabActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEWQUERY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.lottery.WdXlActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEWWDXL" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.lottery.CityXlActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEWCITYXL" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.nfclottery.MainNfcActivity"
+            android:label="@string/app_name" >
+
+            <!-- Add a technology filter -->
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.nfc.action.TECH_DISCOVERED"
+                android:resource="@xml/filter_nfc" />
+        </activity>
+        <activity android:name="com.nfclottery.WdInfoActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEWWDINFO" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.nfclottery.JkConfirmActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.JKCONFIRM" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.nfclottery.AddressLocMap" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEWMAP" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.uslotter.performance.PerformanceActivity" />
+
+        <!-- 声明需要使用Google Map API -->
+        <uses-library android:name="com.google.android.maps" />
+
+        <activity
+            android:name="com.sd.everflourish.WelComeSdActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.sd.everflourish.LotMainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sd.everflourish.client.JkConfirm" >
+            <intent-filter>
+                <action android:name="android.intent.action.JKCONFIRM" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sd.everflourish.lot.check.LotteryCheckMainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.LOTCHECK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sd.everflourish.lot.check.CheckLotActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEWCHECKLOTRES" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sd.everflourish.lot.scan.ShowPackage" >
+            <intent-filter>
+                <action android:name="android.intent.action.LOOKBAG" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sd.everflourish.lot.scan.LocatingAllCard" >
+            <intent-filter>
+                <action android:name="android.intent.action.LOOKHISTORYNUM" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sd.everflourish.lot.scan.LocatingWinCard" >
+            <intent-filter>
+                <action android:name="android.intent.action.FINDLOTWIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sd.everflourish.lot.scan.WinCardInfo" >
+            <intent-filter>
+                <action android:name="android.intent.action.FINDLOTWININFO" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sd.everflourish.lot.scan.LotBagNoScanActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.LOTSCAN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sd.everflourish.lot.scan.LotBagNoScanHandleActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.SAVELOTNO" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sd.everflourish.lot.scan.LotBagNoscanHandle" >
+            <intent-filter>
+                <action android:name="android.intent.action.SAVELOTNO1" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sd.everflourish.lot.scan.ShowSetting" >
+            <intent-filter>
+                <action android:name="android.intent.action.SETTING" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sd.everflourish.lot.scan.DrawScanActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.DRAWSCAN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sd.everflourish.lot.scan.DrawScanHandle" >
+            <intent-filter>
+                <action android:name="android.intent.action.DRAWHANDLE1" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sd.everflourish.lot.scan.DhActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.DRAWHANDLE2" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sd.everflourish.lot.scan.DrawScanHandleActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.DRAWHANDLE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sd.everflourish.UpdateActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.NFCUPDATEAPK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sd.everflourish.lot.scan.PrizeActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.PRIZE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sd.everflourish.lot.scan.PrizeHandleActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.PRIZEHANDLE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!--
+        <activity android:name="com.sd.everflourish.UpdateActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.CHECKUPDATEAPK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        -->
+        <activity
+            android:name="com.google.zxing.client.android.DigilinxActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.google.zxing.client.android.CHECKLOT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.google.zxing.client.android.CaptureActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.zxing.client.android.SCAN" />
+
+                <category android:name="com.everflourish.lot.intent.category.LOTTERY_CATEGORY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <!-- 扫描即开彩票序列号名 -->
+            <intent-filter>
+                <action android:name="com.google.zxing.client.android.SCAN" />
+
+                <category android:name="com.everflourish.lot.scan.intent.category.LOTSCAN_CATEGORY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <!-- 扫描抽奖的即开彩票序列号名 -->
+            <intent-filter>
+                <action android:name="com.google.zxing.client.android.SCAN" />
+
+                <category android:name="com.everflourish.lot.scan.intent.category.DRAWSCAN_CATEGORY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- 兑奖 -->
+            <intent-filter>
+                <action android:name="com.google.zxing.client.android.SCAN" />
+
+                <category android:name="com.everflourish.lot.scan.intent.category.PRIZE_CATEGORY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- Allow web apps to launch Barcode Scanner by linking to http://zxing.appspot.com/scan. -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="zxing.appspot.com"
+                    android:path="/scan"
+                    android:scheme="http" />
+            </intent-filter>
+            <!-- We also support a Google Product Search URL. -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="www.google.com"
+                    android:path="/m/products/scan"
+                    android:scheme="http" />
+            </intent-filter>
+            <!-- And the UK version. -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="www.google.co.uk"
+                    android:path="/m/products/scan"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.google.zxing.client.android.PreferencesActivity"
+            android:label="@string/preferences_name" >
+        </activity>
+        <activity android:name="com.google.zxing.client.android.encode.EncodeActivity" >
+            <intent-filter>
+                <action android:name="com.google.zxing.client.android.ENCODE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <!-- This allows us to handle the Share button in Contacts. -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/x-vcard" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.sd.everflourish.client.bound.NfcCheck" >
+        </activity>
+        <activity android:name="com.sd.everflourish.client.bound.JkConfirm" >
+        </activity>
+        <activity android:name="com.uslotter.UnStandardizeActivity" >
+        </activity>
+        <activity android:name="com.uslotter.RecordedFormActivity" >
+        </activity>
+        <activity android:name="com.uslotter.UnRecordFormActivity" >
+        </activity>
+        <activity android:name="com.uslotter.UslotteryRecord_UpdateActivity" >
+        </activity>
+        <activity android:name="com.uslotter.UslotteryRecord_wdbzhUpdateActivity" >
+        </activity>
+        <activity android:name="com.uslotter.UslotteryRecordStandardUpdateActivity" >
+        </activity>
+        <activity android:name="com.uslotter.UslotteryMainMenu2" >
+        </activity>
+        <activity android:name="com.uslotter.UslotteryMainMenu3" >
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string-array name="status" >
+        <item >在售</item>
+        <item >停机</item>
+        <item >退站</item>
+        <item >迁移</item>
+	</string-array>
+	<string-array name="hdzt">
+	    <item></item>
+	    <item >玩法</item>
+	    <item >玩法促销</item>
+	</string-array>
+	<string-array name="zdjc" >
+	    <item ></item>
+        <item >2013年4月网点检查重点</item>
+        <item >2012年9月专管员工作重点</item>
+        <item >2012年6月网点检查重点</item>
+        <item >2012年5月网点检查重点</item>
+	  <item >2012年4月网点检查重点</item>
+	  <item >2012年3月“淘金乐”网点检查</item>
+	  <item >2011年11月专管员工作重点</item>
+	  <item >2011年10月专管员工作重点</item>
+	  <item >9月份专管员工作重点</item>
+	  <item >2011年8月专管员工作重点</item>
+	  <item >7月份专管员工作重点</item>
+	  <item >2011年6月网点检查重点</item>
+	  <item >2011年5月网点检查重点</item>
+	  <item >2011年4月网点检查重点</item>
+	</string-array>
+	<string-array name="fwpj" >
+	      <item >满意</item>
+        <item >一般</item>
+        <item >不满意</item>
+	</string-array>
+	<string-array name="hy" >
+	      <item ></item>
+        <item >中心会议</item>
+        <item >专管员工作例会</item>
+	</string-array>
+	<string-array name="wdwg" >
+	     <item ></item>
+        <item >销售点一般信息资料更改，如：销售点的电话,面积,照片,专营性质,销售点等类型</item>
+        <item >销售点未挂"销售许可证"</item>
+	 <item >销售点未销售即开票彩票。</item>
+	 <item >销售点未经市体彩中心批准擅自变更销售地址的。</item>
+	 <item >销售点不按统一规范装修或没有得到市体彩中心批准私自更改装修，在市体彩中心发出整改通知后仍不改正的。</item>
+	 <item >销售点形象差，环境脏乱，影响体彩形象的。</item>
+	 <item >销售点不配合片区服务员的服务工作，导致服务工作无法按中心要求完成。</item>
+	 <item >销售点拒绝为中奖者兑奖被投诉的或销售员态度恶劣，被彩民投诉。 </item>
+	 <item >销售点未经市体彩中心批准擅自关门停业, 全年连续暂停销售时间不得超过40天，累计不得超过60天。</item>
+	 <item >销售点不按面值销售，严禁溢价和折价销售。 </item>
+	 <item >销售点销售已作废彩票、打印的不完整、不清晰的彩票。</item>
+	 <item >销售点严重浪费投注单、热敏票及宣传资料或挪作他用的。 </item>
+	 <item >销售点未经允许擅自使用体育彩票标识或名义的。 </item> 
+	 <item >销售点冒领或少付中奖者奖金，欺骗中奖者的。</item>
+	  <item >销售点销售异地、境外彩票、过期彩票、“私彩”、非法出版物或进行其他与国家法律法规相抵触的活动</item>
+	 <item >销售点销售异地、境外彩票、过期彩票、“私彩”、非法出版物或进行其他与国家法律法规相抵触的活动</item>
+	 <item >销售点向未满18周岁的未成年人销售彩票。</item>
+	 <item >销售点有转手倒卖销售点行为，擅自将体育彩票的销售权转让、转包给第三方或与其他销售点联盟经营的。 </item>
+	 <item >销售点不按规范操作或误导彩民购彩，受到彩民投诉或造成彩民损失。 </item>
+	 <item >销售点未按规定做好安全工作，发生安全事故致使销售终端设备损失的。 </item>
+	 <item >销售点擅自拆卸终端机或更换终端机零件；修改、复制终端机内装载的程序和有关数据文件。</item>
+	 <item >销售点其它情况（在“工作情况记录表”的“情况描述”栏除写入“1-01-21”代号后，还应加上文字描述）</item>
+	 <item >门楣装修不规范</item>
+	 <item >没有粘贴警示标语</item>
+	 <item >走势图没有及时更新</item>
+	 <item >没有即开售票展示</item>
+	 <item >宣传资料不齐全</item>
+	 <item >海报张贴不及时</item>
+	 <item >奖池信息不及时准确</item>
+	 <item >销售员服务不热情礼貌，不主动打招呼。</item>
+	 <item >销售员没有主动介绍彩种</item>
+	 <item >销售员服务用语不规范</item>
+	 <item >销售员售票操作不熟练</item>
+	 <item >销售员不熟悉各种玩法</item>
+	 <item >网点没有即开票存储</item>
+	 <item >销售员没有了解最新活动资讯</item>
+	 <item >网点没有在兑奖票兑奖后进行标识</item>
+	 <item >网点没有规范的进行中奖票保管和销毁</item>
+	 <item >网点没有按规定时间开业</item>
+	  <item >其他违规情况（自行描述）</item>	 
+	 </string-array>
+	 <string-array name="yskc_ys">
+	     <item>验收</item>
+	 </string-array>
+	  <string-array name="yskc_kc">
+	     <item>考察</item>
+	      <item>验收</item>
+	</string-array>
+	  <string-array name="yskc_yn">
+	     <item>是</item>
+	     <item>否</item>
+	 </string-array>
+	<string-array name="zlpf" >
+	    <item ></item>
+        <item >打印纸</item>
+        <item >投注单</item>
+	     <item >网点月报</item>
+	     <item >特大喜讯海报(即开中奖票)</item>
+	     <item >11选5玩法单页</item>
+	     <item >竞彩玩法单页</item>
+	     <item >其他玩法单页</item>
+	</string-array>
+	<string-array name="service_type">
+        <item >标准化检查(a)</item>
+        <item >重点检查(h)</item>
+        <item >宣传促销(b)</item>
+        <item >培训活动(c)</item>
+	    <item >资料派发(d)</item>
+        <item >终端维护(e)</item>
+        <item >建站勘察(f)</item>
+        <item >移站勘察(g)</item>
+	    <item >验收勘察(h)</item>
+        <item >资料更新(i)</item>
+        <item >会议(j)</item>
+        <item >其它服务(k)</item>
+	    <item >网点改造(L)</item>
+        <item >网点违规(M)</item>
+	</string-array>
+	<string-array name="wgxm" >
+	    <item ></item>
+        <item >销售点一般信息资料更改，如：销售点电话、面积、照片、专营性质、销售点类型等。</item>
+        <item >销售点未挂“销售许可证”。</item>
+        <item >销售点未销售即开票彩票。</item>
+        <item >销售点未经市体彩中心批准擅自变更销售地址的。</item>
+	    <item >销售点不按统一规范装修或没有得到市体彩中心批准私自更改装修，在市体彩中心发出整改通知后仍不改正的。</item>
+        <item >销售点形象差，环境脏乱，影响体彩形象的。</item>
+        <item >销售点不配合片区服务员的服务工作，导致服务工作无法按中心要求完成。</item>
+        <item >销售点拒绝为中奖者兑奖被投诉的或销售员态度恶劣，被彩民投诉。 </item>
+	    <item >销售点未经市体彩中心批准擅自关门停业, 全年连续暂停销售时间不得超过40天，累计不得超过60天。</item>
+        <item >销售点不按面值销售，严禁溢价和折价销售。 </item>
+        <item >销售点销售已作废彩票、打印的不完整、不清晰的彩票。</item>
+        <item >销售点严重浪费投注单、热敏票及宣传资料或挪作他用的。 </item>
+	    <item >销售点未经允许擅自使用体育彩票标识或名义的。 </item>
+        <item >销售点冒领或少付中奖者奖金，欺骗中奖者的。 </item>
+		  <item >销售点销售异地、境外彩票、过期彩票、“私彩”、非法出版物或进行其他与国家法律法规相抵触的活动</item>
+		  <item >销售点向未满18周岁的未成年人销售彩票。</item>
+		  <item >销售点有转手倒卖销售点行为，擅自将体育彩票的销售权转让、转包给第三方或与其他销售点联盟经营的。 </item>
+		  <item >销售点不按规范操作或误导彩民购彩，受到彩民投诉或造成彩民损失。 </item>
+		  <item >销售点未按规定做好安全工作，发生安全事故致使销售终端设备损失的。 </item>
+		  <item >销售点擅自拆卸终端机或更换终端机零件；修改、复制终端机内装载的程序和有关数据文件。</item>
+		  <item >销售点其它情况（在“工作情况记录表”的“情况描述”栏除写入“1-01-21”代号后，还应加上文字描述）</item>
+		  <item >门楣装修不规范</item>
+		  <item >没有粘贴警示标语</item>
+		  <item >走势图没有及时更新</item>
+		  <item >没有即开售票展示</item>
+		  <item >宣传资料不齐全</item>
+		  <item >海报张贴不及时</item>
+		  <item >奖池信息不及时准确</item>
+		  <item >销售员服务不热情礼貌，不主动打招呼。</item>
+		  <item >销售员没有主动介绍彩种</item>
+		  <item >销售员服务用语不规范</item>
+		  <item >销售员售票操作不熟练</item>
+		  <item >销售员不熟悉各种玩法</item>
+		  <item >网点没有即开票存储</item>
+		  <item >销售员没有了解最新活动资讯</item>
+		  <item >网点没有在兑奖票兑奖后进行标识</item>
+		  <item >网点没有规范的进行中奖票保管和销毁</item>
+		  <item >网点没有按规定时间开业</item>
+		  <item >其他违规情况（自行描述）</item>
+		  <item >网点违规(M)</item>
+	</string-array>
+	<string-array name="zlgx" >
+	    <item></item>
+	    <item>网点电话</item>
+	    <item >网点照片</item>
+	    <item>网点面积</item>
+	    <item >网点级别</item>
+	    <item >网点地段</item>
+	    <item >业主电话</item>
+	    <item >业主手机号码</item>
+	    <item >销售员</item>
+	    <item>销售员手机</item>
+	    <item>网点类型</item>
+	    </string-array>
+	    <string-array name="yskc">
+	        <item>莞城区</item>
+	       <item>麻涌镇</item>
+	       <item>石龙镇</item>
+	       <item>虎门镇</item>
+	       <item>道滘镇</item>
+	       <item>石碣镇</item>
+	       <item>洪梅镇</item>
+	       <item>寮步镇</item>
+	       <item>大岭山镇</item>
+	       <item>大朗镇</item>
+	       <item >黄江镇</item>
+	       <item>樟木头镇</item>
+	       <item >凤岗镇</item>
+	       <item>塘厦镇</item>
+	       <item>清溪镇</item>
+	       <item >常平镇</item>
+	       <item>桥头镇</item>
+	       <item>横沥镇</item>
+	       <item >东坑镇</item>
+	       <item >企石镇</item>
+	       <item>石排镇</item>
+	       <item >茶山镇</item>
+	       <item>长安镇</item>
+	       <item>南城区</item>
+	       <item>东城区</item>
+	       <item>万江区</item>
+	       <item >高步镇</item>
+	       <item>沙田镇</item>
+	       <item>望牛墩镇</item>
+	       <item>中堂镇</item>
+	       <item>谢岗镇</item>
+	       <item>厚街镇</item>
+	    </string-array>
+	    <string-array name="zdwh_type">
+	        <item >上门解决</item>
+	        <item>中心解决</item>
+	    </string-array>
+	    <string-array name="zdwh_clfs">
+	        <item>更换</item>
+	        <item>调整</item>
+	        <item>除尘</item>
+	        <item>重装系统</item>
+	    </string-array>
+	    <string-array name="zdwh_whbj">
+	        <item></item>
+	         <item>打印机信号线</item>
+	       <item>GDP-86III显示器</item>
+	       <item>内存条</item>
+	       <item>CP86(8700)主板2.0(不含散热片)</item>
+	      <item>CP8600(8700)主板散热片</item>
+	      <item>STAR并口打印机</item>
+	      <item>OCR读票机主机</item>
+	      <item>A005金伟嘉ATX电源</item>
+	      <item>高速CF卡</item>
+	      <item>60键可编程键盘</item>
+	      <item>打印机电源线</item>
+	      <item>打印机信号线</item>
+	      <item>双头灯管逆变器</item>
+	      <item>逆变器信号线</item>
+	      <item>迅驰赛扬M二代CPU</item>
+	      <item>DDRII533 512M笔记本内存</item>
+	      <item>A005散热器</item>
+	      <item>STAR串口打印机</item>
+	      <item>A005打印机串口线</item>
+	      <item>KB3000U体彩键盘（USB）</item>
+	      <item>键盘线缆USB-RJ45/0.7M</item>
+	      <item>主机-II.2</item>
+	      <item>主板-POS.465</item>
+	      <item>P驱-IDE</item>
+	     <item>ATX大电源-II.2</item>
+	     <item>键盘-II.2</item>
+	     <item>读票机-II.2</item>
+	     <item>打印机-II.2</item>
+	     <item>UPS-II.2</item>
+	     <item>显示器-II.2</item>
+	    <item>CF盘-64M</item>
+	    <item>转接卡POS102-II.2</item>
+	    <item>接口转接板-II.2</item>
+	    <item>指示灯板-II.2</item>
+	    <item>键盘转接板-II.2</item>
+	    <item>电源风扇-II.2</item>
+	    <item>打印机电源线-II.2</item>
+	    <item>读票机信号线-II.2</item>
+	    <item>读票机电源线-II.2</item>
+	    <item>键盘内连线-II.2</item>
+	    <item>指示灯线-II.2</item>
+	    <item>键盘转接头-II.2</item>
+	    <item>打印机信号线</item>
+	    <item>220V大电源板</item>
+	    <item>24V小电源板</item>
+	    <item>220V电源线</item>
+	    <item>研华915主板</item>
+	    <item>读票机</item>
+	    <item>打印机</item>
+	    <item>其它</item>
+	    <item>GDP-86III显示器</item>
+	      
+	    </string-array>
+	    <string-array name="zdwh_zdxh">
+	        <item>II.2</item>
+	      <item>CP86增强</item>
+	      <item>CP86-08</item>
+	      <item>单场</item>
+	    </string-array>
+	    <string-array name="pxhd_pxhd">
+	        <item ></item>
+	        <item >消防知识培训</item>
+	      <item >玩法营销技巧培训</item>
+	      <item >网点宣传营销综合培训</item>
+	      <item >竞彩操作培训</item>
+	      <item >竞彩玩法培训</item>
+	    <item >销售员培训</item>
+	    <item >上岗培训</item>
+	    </string-array>
+	    <string-array name="pxhd_pxdx">
+	        <item >业主</item>
+	        <item >销售员</item>
+	      <item >彩民</item>
+	    
+	     
+	    </string-array>
+	<string name="app_name">专管员</string>
+    <string name="title">MiFare Tag Detection</string>
+   
+    <string name="quit_description">确认退出？</string>
+    <string name="dialog_top_title">提示信息</string>
+    <string name="button_cancel">取消</string>
+    <string name="button_ok">确定</string>
+    <string	name="hello">Hello World, LocationMap!</string>
+	<string	name="txtAddress">地址:</string>
+	<string	name="address">广州天河区</string>	
+	<string	name="loc">定位</string>	
+	<string name="result_net_error">网络连接失败！</string> 
+	<string name="result_wd_error">网点编号不存在</string>
+    <string name="result_xl_err">查询不到销量</string> 
+	
+    <string name="kjgg_name">开奖公告</string>
+    <string name="result_checklot_error">请扫描即开彩票序列号的二维码区域</string>
+    <string name="result_xl_error">查询的日期销量不存在</string>
+    
+    
+    
+    
+    
+  <string name="app_picker_name">应用</string>
+  <string name="bookmark_picker_name">书签</string>
+  <string name="button_add_calendar">添加事件至日历</string>
+  <string name="button_add_contact">添加联系人</string>
+  <string name="button_back">返回</string>
+  <string name="button_book_search">打开图书搜索</string>
+  <string name="button_clipboard_empty">剪切板清空</string>
+  <string name="button_custom_product_search">自定义搜索</string>
+  <string name="button_dial">拨号</string>
+  <string name="button_done">完成</string>
+  <string name="button_email">发送email</string>
+  <string name="button_get_directions">获取地址</string>
+  <string name="button_google_shopper">谷歌购物</string>
+  <string name="button_mms">发送彩信</string>
+  <string name="button_open_browser">打开浏览器</string>
+  <string name="button_product_search">打开产品搜索</string>
+  <string name="button_read_book">浏览本书</string>
+  <string name="button_search_book_contents">搜索图书内容</string>
+  <string name="button_share_app">共享应用</string>
+  <string name="button_share_bookmark">分享书签</string>
+  <string name="button_share_by_email">通过email分享</string>
+  <string name="button_share_by_sms">通过短信分享</string>
+  <string name="button_share_clipboard">分享剪切板</string>
+  <string name="button_share_contact">分享联系人</string>
+  <string name="button_show_map">显示地图</string>
+  <string name="button_sms">发送短信</string>
+  <string name="button_web_search">网页搜索</string>
+  <string name="button_wifi">连接到网络</string>
+  <string name="contents_contact">联系人信息</string>
+  <string name="contents_email">Email地址</string>
+  <string name="contents_location">地理坐标</string>
+  <string name="contents_phone">电话号码</string>
+  <string name="contents_sms">短信地址</string>
+  <string name="contents_text">纯文本</string>
+  <string name="history_clear_text">删除历史</string>
+  <string name="history_email_title">条码扫描器历史</string>
+  <string name="history_send">发送历史</string>
+  <string name="history_title">历史</string>
+  <string name="menu_about">关于</string>
+  <string name="menu_help">帮助</string>
+  <string name="menu_history">历史</string>
+  <string name="menu_settings">设置</string>
+  <string name="menu_share">分享</string>
+  <string name="msg_about">以ZXing的开源条码库为基础</string>
+  <string name="msg_buggy">该器件具有已知的错误导致条形码扫描问题。为了 更多信息，请访问 http://code.google.com/p/zxing/wiki/FrequentlyAskedQuestions</string>
+  <string name="msg_bulk_mode_scanned">散装模式：条码扫描，并保存</string>
+  <string name="msg_camera_framework_bug">很抱歉，机器人相机出现问题。您可能需要重新启动设备。</string>
+  <string name="msg_default_contents">内容</string>
+  <string name="msg_default_format">格式</string>
+  <string name="msg_default_meta">元数据</string>
+  <string name="msg_default_mms_subject">Hi</string>
+  <string name="msg_default_status">  </string>
+ 
+  <string name="msg_default_time">时间</string>
+  <string name="msg_default_type">类型</string>
+  <string name="msg_encode_barcode_failed">找不到条码。</string>
+  <string name="msg_encode_contents_failed">不能从已有数据中读取条码。   </string>
+  <string name="msg_google_shopper_missing">谷歌购物未安装</string>
+  <string name="msg_install_google_shopper">谷歌购物结合条码扫描价格，评论和不打开浏览器。您想尝试吗？</string>
+  <string name="msg_intent_failed">抱歉，无法打开所需软件。 条码内容可能无效。</string>
+  <string name="msg_loading_apps">装载应用名单</string>
+  <string name="msg_not_our_results">你离开此应用程序。搜索结果，您会看到的都没有涉及这个应用程序</string>
+  <string name="msg_redirect">重定向</string>
+  <string name="msg_sbc_book_not_searchable">抱歉，无法找到此图书。</string>
+  <string name="msg_sbc_failed">抱歉，搜索时遇到错误。</string>
+  <string name="msg_sbc_no_page_returned">没有返回页面</string>
+  <string name="msg_sbc_page">页面</string>
+  <string name="msg_sbc_searching_book">搜索图书</string>
+  <string name="msg_sbc_snippet_unavailable">摘录不可用</string>
+  <string name="msg_sbc_unknown_page">未知页面</string>
+  <string name="msg_share_explanation">你可以在你的手机屏幕上显示条码，并使用其他手机扫描此条码方式进行分享</string>
+  <string name="msg_share_subject_line">这是我所扫描条码的内容</string>
+  <string name="msg_unmount_usb">对不起，SD卡是不可访问。</string>
+  <string name="preferences_actions_title">找到条码时</string>
+  <string name="preferences_bulk_mode_summary">连续扫描并保存许多条形码</string>
+  <string name="preferences_bulk_mode_title">批量扫描模式</string>
+  <string name="preferences_copy_to_clipboard_title">复制到剪切板</string>
+  <string name="preferences_custom_product_search_summary">使用％s作为产品ID占位</string>
+  <string name="preferences_custom_product_search_title">自定义搜索网址</string>
+  <string name="preferences_decode_1D_title">解码一维条码</string>
+  <string name="preferences_decode_Data_Matrix_title">数据矩阵码解码</string>
+  <string name="preferences_decode_QR_title">解码QR条码</string>
+  <string name="preferences_front_light_summary">使前灯如果可用</string>
+  <string name="preferences_front_light_title">前灯</string>
+  <string name="preferences_general_title">一般设置</string>
+  <string name="preferences_name">设置</string>
+  <string name="preferences_play_beep_title">提示音</string>
+  <string name="preferences_remember_duplicates_summary">在历史上同条码扫描店多</string>
+  <string name="preferences_remember_duplicates_title">记住重复</string>
+  <string name="preferences_result_title">结果设置</string>
+  <string name="preferences_scanning_title">当扫描条形码</string>
+  <string name="preferences_supplemental_summary">试图检索有关内容的信息条码</string>
+  <string name="preferences_supplemental_title">检索更多的信息</string>
+  <string name="preferences_vibrate_title">振动</string>
+  <string name="result_address_book">找到联系人信息</string>
+  <string name="result_calendar">找到日历事件</string>
+  <string name="result_email_address">找到email地址</string>
+  <string name="result_geo">找到地理坐标</string>
+  <string name="result_isbn">找到图书</string>
+  <string name="result_product">扫描成功</string>
+  <string name="result_sms">找到短信地址</string>
+  <string name="result_tel">找到电话号码</string>
+  <string name="result_text">找到纯文本</string>
+  <string name="result_uri">找到URL</string>
+  <string name="result_wifi">发现网络配置</string>
+  <string name="sbc_name">Google图书搜索</string>
+  <string name="share_name">通过条码分享</string>
+  <string name="title_about">条码扫描器</string>
+  <string name="wa_name">网络配置</string>
+  <string name="wifi_changing_network">不断变化的网络</string>
+  <string name="wifi_connect_failed">网络连接失败</string>
+  <string name="wifi_connected">连接的</string>
+  <string name="wifi_creating_network">创建网络</string>
+  <string name="wifi_modifying_network">修改网络</string>
+  <string name="wifi_ssid_label">网络名称</string>
+  <string name="wifi_ssid_missing">网络实名失踪</string>
+  <string name="wifi_type_incorrect">网络类型不正确</string>
+  <string name="wifi_type_label">类型</string>
+  <string name="zxing_url">http://code.google.com/p/zxing</string>
+  
+    
+  <string name="result_succeeded">扫描结果</string>
+  <string name="result_failed">扫描结果</string>
+    <string name="result_failed_why">"无法扫描此产品"</string>
+</resources>

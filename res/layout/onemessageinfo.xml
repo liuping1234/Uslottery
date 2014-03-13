@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="@drawable/bg_deco_gray"
+	>
+	<RelativeLayout
+	    android:id="@+id/linear"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentTop="true"
+	    android:orientation="horizontal"
+	    android:background="@drawable/main_navigation_highlight_bg" >
+
+		<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_centerHorizontal="true"
+		    android:layout_centerVertical="true"
+		    android:textColor="@color/white"
+		    android:textSize="30dip"
+		    android:text="通知详情" />
+
+	    <Button
+	        android:id="@+id/messageback"
+	        android:layout_width="80dip"
+	        android:layout_height="30dip"
+	        android:layout_centerVertical="true"
+	        android:layout_alignParentLeft="true"
+	        android:textColor="@color/white"
+	        android:text="返回"
+	        android:textSize="10dip" 
+	        android:background="@drawable/zxbutton_selector"/>
+	</RelativeLayout>
+	<LinearLayout 
+	    android:id="@+id/lil1"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:orientation="vertical"
+	    android:padding="10dip"
+	    android:background="@drawable/messageinfo_background"
+	     >
+	    <TextView 
+	        android:id="@+id/mesName"
+	        android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:textSize="20dip"
+	    	android:text="标题">
+		</TextView>
+	</LinearLayout>
+</LinearLayout>

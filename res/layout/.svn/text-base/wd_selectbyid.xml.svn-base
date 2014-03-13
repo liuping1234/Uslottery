@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_deco_gray"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/linear"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/main_navigation_highlight_bg"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="网点查询"
+            android:textColor="@color/white"
+            android:textSize="30dip" />
+
+        <Button
+            android:id="@+id/wdinfobackby_id"
+            android:layout_width="80dip"
+            android:layout_height="40dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/zxbutton_selector"
+            android:text="返回"
+            android:textColor="@color/white"
+            android:textSize="18dip" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/linear2"
+        android:layout_width="fill_parent"
+        android:layout_height="80dip"
+        android:layout_below="@id/linear"
+        android:paddingTop="20dip" >
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="40dip"
+            android:layout_alignParentLeft="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dip"
+            android:text="网点编号："
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/selectbyid"
+            android:layout_width="100dip"
+            android:layout_height="40dip"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/look_tzbutton_selector"
+            android:text="查询"
+            android:textColor="@color/button" />
+
+        <EditText
+            android:id="@+id/wdNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="40dip"
+            android:layout_toLeftOf="@id/selectbyid"
+            android:layout_toRightOf="@id/tv" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/linear3"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/linear2"
+        android:paddingTop="20dip" >
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:padding="10dip"
+            android:text="业主姓名："
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/wdName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tvName"
+            android:padding="10dip"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvtel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/wdName"
+            android:padding="10dip"
+            android:text="网点电话："
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/wdtel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/wdName"
+            android:layout_toRightOf="@id/tvtel"
+            android:padding="10dip"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvtype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/wdtel"
+            android:padding="10dip"
+            android:text="网点类型："
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/wdtype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/wdtel"
+            android:layout_toRightOf="@id/tvtype"
+            android:padding="10dip"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvquality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/wdtype"
+            android:padding="10dip"
+            android:text="网点性质："
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/wdquality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/wdtype"
+            android:layout_toRightOf="@id/tvquality"
+            android:padding="10dip"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/wdquality"
+            android:padding="10dip"
+            android:text="建站日期："
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/wddate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/wdquality"
+            android:layout_toRightOf="@id/tvdate"
+            android:padding="10dip"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tvaddr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/wddate"
+            android:padding="10dip"
+            android:text="网点地址："
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/wdaddr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/wddate"
+            android:layout_toRightOf="@id/tvaddr"
+            android:padding="10dip"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/selectbymap"
+            android:layout_width="100dip"
+            android:layout_height="40dip"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/wddate"
+            android:background="@drawable/look_tzbutton_selector"
+            android:text="查看地图"
+            android:textColor="@color/button" />
+
+        <TextView
+            android:id="@+id/tvsale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/wdaddr"
+            android:padding="10dip"
+            android:text="网点销量："
+            android:textColor="@color/black" />
+        <!--
+            <Button 
+	        android:id="@+id/selectsale"
+	        android:layout_width="100dip"
+	    	android:layout_height="40dip"
+	    	android:text="销量明细"
+	    	android:textColor="@color/button"
+	    	android:layout_below="@id/tvaddr"
+	    	android:layout_alignParentRight="true"
+	    	android:background="@drawable/look_tzbutton_selector"
+	        />
+        -->
+    </RelativeLayout>
+
+</RelativeLayout>

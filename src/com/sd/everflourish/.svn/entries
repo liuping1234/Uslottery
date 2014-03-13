@@ -1,0 +1,104 @@
+8
+
+dir
+14
+http://192.168.0.201/repos/software/project_source_code/Uslottery/src/com/sd/everflourish
+http://192.168.0.201/repos/software
+
+
+
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+8b59784f-abe3-6e4f-bde3-b8bc1f90d7fc
+
+WelComeSdActivity.java
+file
+
+
+
+
+2013-10-28T06:47:15.546875Z
+84d4aff917b4aa2b400b47a9695e2053
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+
+LotMainActivity.java
+file
+
+
+
+
+2013-10-28T06:47:15.546875Z
+74b48bda5675e653d4bbd0af95867aaf
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+
+LotApplication.java
+file
+
+
+
+
+2013-10-28T06:47:15.546875Z
+897a7239b9c3f96cb95ee2e3b381dd71
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+
+db
+dir
+
+WelcomeView.java
+file
+
+
+
+
+2013-10-28T06:47:15.546875Z
+2cba00dada50d25491a133be0448dec7
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+
+util
+dir
+
+
+
+delete
+
+client
+dir
+
+lot
+dir
+
+BaseSdActivity.java
+file
+
+
+
+
+2013-10-28T06:47:15.562500Z
+81580e640ce8fd237f0da15e69b67bc7
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+

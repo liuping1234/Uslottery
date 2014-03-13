@@ -1,0 +1,70 @@
+8
+
+dir
+14
+http://192.168.0.201/repos/software/project_source_code/Uslottery/libs
+http://192.168.0.201/repos/software
+
+
+
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+8b59784f-abe3-6e4f-bde3-b8bc1f90d7fc
+
+armeabi
+dir
+
+json.jar
+file
+
+
+
+
+2013-10-28T06:47:31.265625Z
+1eaae7433f6636a51fa975a340ffe35e
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+has-props
+
+zxing.jar
+file
+
+
+
+
+2013-10-28T06:47:31.281250Z
+c731ba3a46ec650a7562354eb06f648a
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+has-props
+
+lingtumap.jar
+file
+
+
+
+
+2013-10-28T06:47:31.281250Z
+52d91468e689a3c07b9498e5b007433c
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+has-props
+

@@ -1,0 +1,213 @@
+package com.sd.everflourish.lot.check;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.http.client.ClientProtocolException;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.sd.everflourish.BaseSdActivity;
+import com.cr.uslotter.R;
+import com.uslotter.util.HttpUtil;
+
+public class CheckLotActivity extends BaseSdActivity {
+	final String TAG = "--CheckLotActivity--";
+	ProgressDialog pBar =null;
+	private int[] imageIds = new int[]{R.drawable.jklog, R.drawable.j81};
+	String[] b=new String[5];
+	String sid="";
+	int errorCode=0;//没有错误
+	@Override
+	public void onCreate(Bundle savedInstanceState){
+		sid=getIntent().getStringExtra("sid");
+		showProgressDialog(this,"验证彩票信息","获取数据中，请稍后...",ProgressDialog.STYLE_SPINNER);
+		super.onCreate(savedInstanceState);
+		final Handler handler = new Handler(){
+			@Override
+			public void handleMessage(Message msg){
+				if(msg.what==1){
+					showLotteryInfo(b);
+			   }else{
+				   if(b[0].equals("-1")){//读取的不是即开票的二维码
+					   showDialog("请读取即开票二维码部分！");
+				   }else  if(b[0].equals("-2")) {//没有找到对于的数据
+					   showDialog("没有对应即开数据！");
+				   }else  if(b[0].equals("-3")) {//发生其他异常
+					   showDialog("获取彩票信息，发生其他异常！");
+				   }else  if(b[0].equals("-4")) {
+					   showDialog("网络连接失败，请重试！");
+				   }
+				 
+			   }
+			};	
+		};
+		
+		//启动线程来连接网络并读取开奖号码
+		new Thread(){
+			public void run(){
+				boolean flag=findLotteryInfoBysid(sid);
+				Message m=new Message();
+				if(flag){
+					m.what=1;
+				}else{
+					m.what=0;
+				}
+				pBar.cancel();
+				handler.sendMessage(m);
+			}
+		}.start();
+	
+	}
+	
+	/**
+	 * 生成验证结果界面
+	 * @param b
+	 */
+	private void showLotteryInfo(String [] b){
+		 this.setContentView(R.layout.lotteryinfo);
+		  ImageView gameImg=(ImageView)findViewById(R.id.lotteryImg);
+		  gameImg.setImageResource(imageIds[0]);
+		  TextView sid=(TextView)findViewById(R.id.sid);
+		  sid.setText(b[0]);
+		  TextView gameName=(TextView)findViewById(R.id.gameName);
+		  gameName.setText(b[1]);
+		  TextView faceValue=(TextView)findViewById(R.id.faceValue);
+		  faceValue.setText(b[2]);
+		  TextView city=(TextView)findViewById(R.id.city);
+		  city.setText(b[3]);
+		  TextView rkrq=(TextView)findViewById(R.id.rkrq);
+		  rkrq.setText(b[4]);
+		  Button btn = (Button)findViewById(R.id.btn);
+		  btn.setOnClickListener(new OnClickListener(){
+			  public void onClick(View v){
+				  goToDigilinxActivity();
+				}
+		  });
+	}
+	 
+  private boolean findLotteryInfoBysid(String sid){
+	  	boolean flag=false;
+		String code=sid.substring(0,2);
+		if(!code.equals("35")){//不是即开彩票的序号号
+			b[0]="-1";
+			return flag;
+		}
+		
+		String playId=String.valueOf(Integer.parseInt(sid.substring(2,6)));
+		String info=String.valueOf(Integer.parseInt(sid.substring(6,13)));
+		String url=HttpUtil.BASE_URL;
+		Map<String ,String> rawParams=new HashMap<String,String>();
+		rawParams.put("oper", "4");
+		rawParams.put("playId", playId);
+		rawParams.put("info", info);
+		try {
+			JSONArray jsonArray=new JSONArray(HttpUtil.postRequest(url,rawParams));		
+			errorCode= isCheckError(jsonArray);
+			if(errorCode<0){
+				b[0]="-2";
+				return flag;
+			}
+			//返回时间数据有误
+			for(int i=0;i<jsonArray.length();i++){
+				JSONObject o=(JSONObject)jsonArray.get(i);
+				
+				String creTime=o.get("CreTime").toString().substring(0,10);
+				Log.d("creTime", creTime);
+				String game_Name=(String)o.get("game_Name");
+				String face_Value=String.valueOf((Integer)o.get("face_Value"));
+				String c_Name=(String)o.get("C_Name");
+				
+				
+				b[0]=sid;
+				b[1]=game_Name;
+				b[2]=face_Value;
+				b[3]=c_Name;
+				b[4]=creTime;
+			}
+			flag=true;
+		}catch (ClientProtocolException e) {
+			b[0]="-4";
+		}catch (IOException e) {
+			b[0]="-4";
+		}catch (Exception e) {
+			Log.e("checker", e.getMessage());
+			b[0]="-3";
+		}
+		return flag;
+	 }
+	
+	
+	//显示等待对话框
+	private void showProgressDialog(Context ctx,String title, String msg,int style){
+		pBar = new ProgressDialog(ctx);
+		pBar.setTitle(title);
+		pBar.setMessage(msg);
+		pBar.setProgressStyle(style);
+		pBar.show();
+	}
+	
+	//错误检查
+	private int isCheckError(JSONArray jsonArray) {
+		int len=jsonArray.length();
+		int errorCode=0;//没有错误
+		if(len==1){
+			try{
+				JSONObject o = (JSONObject)jsonArray.get(0);
+				String error=(String)o.get("error");
+				errorCode= Integer.parseInt(error);
+			}catch(Exception e){}	
+			}
+		return errorCode;
+	}
+	
+	public void showDialog(String message){
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);	    
+	   	builder.setMessage(message).setCancelable(false);
+	   	builder.setPositiveButton("确定", new android.content.DialogInterface.OnClickListener(){
+		    	  @Override
+				  public void onClick(DialogInterface dialog, int which){
+				 		goToDigilinxActivity();
+				  }
+	   	});		
+	   	builder.create().show(); 
+	}
+	
+	//即开彩票验证
+	public void goToDigilinxActivity() {
+		 Intent intent = new Intent();
+		// intent.addCategory("android.intent.category.LAUNCHER");
+		 intent.setClass(CheckLotActivity.this, LotteryCheckMainActivity.class);
+	     startActivity(intent);
+	     finish();
+	}
+	
+	  @Override	 
+		 public boolean onKeyDown(int keyCode, KeyEvent event) {
+		  //按下键盘上返回按钮 //
+		  if(keyCode == KeyEvent.KEYCODE_BACK){ 
+			  goToDigilinxActivity();
+			  return true;
+		 
+		  }else{  
+		   return super.onKeyDown(keyCode, event);	 
+		  }	 
+		 }
+}

@@ -1,0 +1,47 @@
+package com.uslotter;
+
+import java.io.File;
+import java.io.UnsupportedEncodingException;
+import com.uslotter.util.UpdateManager;
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.os.Environment;
+import android.view.KeyEvent;
+
+public class UpdateActivity extends Activity {
+	public ProgressDialog pBar;
+	private UpdateManager manager;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		String newVerName = getIntent().getStringExtra("newVerName");
+		String updateDesc = getIntent().getStringExtra("updateDesc");
+		try {
+			updateDesc = new String(updateDesc.getBytes("iso-8859-1"), "GBK");
+		} catch (UnsupportedEncodingException e) {
+			System.out.println("---转码失败----");
+		}
+		doNewVersionUpdate(newVerName, updateDesc);
+	}
+
+	private void doNewVersionUpdate(String newVerName, String updateDesc) {
+		manager = new UpdateManager(this);
+		manager.checkUpdateInfo();
+	}
+
+	public String getSDPath() {
+		File sdDir = null;
+		boolean sdCardExist = Environment.getExternalStorageState().equals(
+				android.os.Environment.MEDIA_MOUNTED); // 判断sd卡是否存在
+		if (sdCardExist) {
+			sdDir = Environment.getExternalStorageDirectory();// 获取跟目录
+			return sdDir.toString();
+		} else {
+			sdDir = Environment.getDataDirectory();
+			return sdDir.toString() + "/";
+		}
+	}
+	
+}

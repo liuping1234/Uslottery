@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android
+END
+HelpActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/HelpActivity.java
+END
+BeepManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/BeepManager.java
+END
+DecodeThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/DecodeThread.java
+END
+CaptureActivityHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/CaptureActivityHandler.java
+END
+PreferencesActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/PreferencesActivity.java
+END
+AndroidHttpClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/AndroidHttpClient.java
+END
+CaptureActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/CaptureActivity.java
+END
+DecodeHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/DecodeHandler.java
+END
+DigilinxActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/DigilinxActivity.java
+END
+InactivityTimer.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/InactivityTimer.java
+END
+Intents.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/Intents.java
+END
+FinishListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/FinishListener.java
+END
+DecodeFormatManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/DecodeFormatManager.java
+END
+ViewfinderResultPointCallback.java
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/ViewfinderResultPointCallback.java
+END
+LocaleManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/LocaleManager.java
+END
+Contents.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/Contents.java
+END
+ViewfinderView.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/ViewfinderView.java
+END
+PlanarYUVLuminanceSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/google/zxing/client/android/PlanarYUVLuminanceSource.java
+END

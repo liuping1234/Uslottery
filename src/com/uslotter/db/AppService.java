@@ -1,0 +1,373 @@
+package com.uslotter.db;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
+
+import com.uslotter.mode.App;
+
+public class AppService {
+    private SQLiteDatabase db = null;
+    private MyDataBase mdb = null;
+    private Context c = null;
+    private StringBuilder violations ;
+    private StringBuilder violations_details ;
+    private StringBuilder violations_index ;
+
+    public AppService(Context c) {
+	mdb = new MyDataBase(c);
+
+	this.c = c;
+    }
+
+    /**
+     * query
+     * 
+     * @param db
+     * @param sql
+     * @return
+     */
+    public List<App> getAllAppsFromUserId(String userId) {
+	List<App> lists = new ArrayList<App>();
+	if (userId.equals("") || userId == null) {
+	    return lists;
+	}
+	Cursor cursor = null;
+	try {
+	    db = mdb.getReadableDatabase();
+	    cursor = db.query(Application.Record.tableName, null,
+		    Application.Record.USERID + "=?", new String[] { userId },
+		    null, null, Application.Record.ID + " desc");
+
+	    if (cursor.moveToFirst()) {
+		do {
+		    App app = new App();
+		    int id = cursor.getInt(cursor
+			    .getColumnIndex(Application.Record.ID));
+		    String wdbh = cursor.getString(cursor
+			    .getColumnIndex(Application.Record.WDBH));
+		    String fwdh = cursor.getString(cursor
+			    .getColumnIndex(Application.Record.FWDH));
+		    String fwrq = cursor.getString(cursor
+			    .getColumnIndex(Application.Record.FWRQ));
+		    String fwyb = cursor.getString(cursor
+			    .getColumnIndex(Application.Record.PATH));
+		    String df = cursor.getString(cursor
+			    .getColumnIndex(Application.Record.DF));
+		    String kfx = cursor.getString(cursor
+			    .getColumnIndex(Application.Record.KFX));
+		    String state = cursor.getString(cursor
+			    .getColumnIndex(Application.Record.STATE));
+		    String wdzp = cursor.getString(cursor
+			    .getColumnIndex(Application.Record.WDZP));
+		    String wcsj = cursor.getString(cursor
+			    .getColumnIndex(Application.Record.WCSJ));
+		    String jbr = cursor.getString(cursor
+			    .getColumnIndex(Application.Record.JBR));
+		    String fwpj = cursor.getString(cursor
+			    .getColumnIndex(Application.Record.FWPJ));
+		    String wdyj = cursor.getString(cursor
+			    .getColumnIndex(Application.Record.WDYJ));
+		    String zjfx = cursor.getString(cursor
+			    .getColumnIndex(Application.Record.ZJFX));
+		    String zgyjy = cursor.getString(cursor
+			    .getColumnIndex(Application.Record.ZGYJY));
+		    String network_satus = cursor.getString(cursor
+			    .getColumnIndex(Application.Record.NETWORK_STATUS));
+		    String remark = cursor.getString(cursor
+			    .getColumnIndex(Application.Record.REMARK));
+		    
+//		    String wgxx = cursor.getString(cursor.getColumnIndex(Application.Record.WGXX));
+//		    String wgnr = cursor.getString(cursor.getColumnIndex(Application.Record.WGNR));
+//		    String indexs = cursor.getString(cursor.getColumnIndex(Application.Record.INDEXS));
+
+		    app.setId(id);
+		    if (wdbh != null) {
+			app.setWdbh(wdbh);
+		    } else {
+			app.setWdbh("");
+		    }
+
+		    if (fwdh != null) {
+			app.setFwdh(fwdh);
+		    } else {
+			app.setFwdh("");
+		    }
+
+		    if (fwrq != null) {
+			app.setFwrq(fwrq);
+		    } else {
+			app.setFwrq("");
+		    }
+
+		    if (fwyb != null) {
+			app.setFwyb(fwyb);
+		    } else {
+			app.setFwyb("");
+		    }
+
+		    if (df != null) {
+			app.setDf(df);
+		    } else {
+			app.setDf("");
+		    }
+
+		    if (kfx != null) {
+			app.setKfx(kfx);
+		    } else {
+			app.setKfx("");
+		    }
+
+		    if (state != null) {
+			app.setState(state);
+		    } else {
+			app.setState("");
+		    }
+
+		    if (wdzp != null) {
+			app.setWdzp(wdzp);
+		    } else {
+			app.setWdzp("");
+		    }
+
+		    if (userId != null || userId.equals("")) {
+			app.setUserId(userId);
+		    }
+		    if (wcsj != null) {
+			app.setWcrq(wcsj);
+		    } else {
+			app.setWcrq("");
+		    }
+		    if (jbr != null) {
+			app.setJbr(jbr);
+		    } else {
+			app.setJbr("");
+		    }
+		    if (fwpj != null) {
+			app.setFwpj(fwpj);
+		    } else {
+			app.setFwpj("");
+		    }
+		    if (wdyj != null) {
+			app.setWdyj(wdyj);
+		    } else {
+			app.setWdyj("");
+		    }
+		    if (zjfx != null) {
+			app.setZjfx(zjfx);
+		    } else {
+			app.setZjfx("");
+		    }
+		    if (zgyjy != null) {
+			app.setZgyyj(zgyjy);
+		    } else {
+			app.setZgyyj("");
+		    }
+
+		    if (network_satus != null) {
+			app.setNetwork_satus(network_satus);
+		    } else {
+			app.setNetwork_satus("");
+		    }
+
+		    if (remark != null) {
+			app.setRemark(remark);
+		    } else {
+			app.setRemark("");
+		    }
+//		ArrayList<WdwgInfo> arrayList = new ArrayList<App.WdwgInfo>();
+//		WdwgInfo info = new WdwgInfo() ;
+//		String wgxxs[] = wgxx.split(";");
+//		String wgnrs[] = wgnr.split(";");
+//		String[] index =indexs.split(";");
+//		for (int i = 0; i < index.length; i++) {
+//		    info.setIndex(Integer.parseInt(index[i]));
+//		    info.setWgnr(wgnrs[i]);
+//		    info.setWgxx(wgxxs[i]);		   
+//		    arrayList.add(info);
+//		}
+//		app.setInfo(arrayList);
+		    lists.add(app);
+		} while (cursor.moveToNext());
+	    }
+	} catch (Exception e) {
+	    e.printStackTrace();
+	} finally {
+	    if (cursor != null) {
+		if (!cursor.isClosed()) {
+		    cursor.close();
+		    cursor = null;
+		}
+		if (db.isOpen()) {
+		    db.close();
+		    db = null;
+		}
+	    }
+	}
+	return lists;
+    }
+
+    /**
+     * delete
+     */
+    public void deleteApp(int id) {
+	db = mdb.getWritableDatabase();
+	;
+	try {
+	    int r = db.delete(Application.Record.tableName,
+		    Application.Record.ID + "=?", new String[] { "" + id });
+	    if (r == 1) {
+		// Toast.makeText(this.c, "删除成功",Toast.LENGTH_SHORT).show();
+	    } else if (r <= 0) {
+		// Toast.makeText(this.c, "删除失败",Toast.LENGTH_SHORT).show();
+	    }
+	} catch (Exception e) {
+	    e.printStackTrace();
+	} finally {
+	    if (db.isOpen())
+		db.close();
+	}
+    }
+
+    /**
+     * update
+     * 
+     * @param db
+     */
+    public void update(App app) {
+	try {
+	    db = mdb.getWritableDatabase();
+	    ContentValues cv = new ContentValues();
+	    cv.put(Application.Record.WDBH, app.getWdbh());
+	    cv.put(Application.Record.FWDH, app.getFwdh());
+	    cv.put(Application.Record.FWRQ, app.getFwrq());
+	    cv.put(Application.Record.PATH, app.getFwyb());
+	    cv.put(Application.Record.DF, app.getDf());
+	    cv.put(Application.Record.KFX, app.getKfx());
+	    cv.put(Application.Record.STATE, app.getState());
+	    cv.put(Application.Record.WDZP, app.getWdzp());
+	    cv.put(Application.Record.USERID, app.getUserId());
+
+	    cv.put(Application.Record.WCSJ, app.getWcrq());
+	    cv.put(Application.Record.JBR, app.getJbr());
+	    cv.put(Application.Record.FWPJ, app.getFwpj());
+	    cv.put(Application.Record.WDYJ, app.getWdyj());
+	    cv.put(Application.Record.ZJFX, app.getZjfx());
+	    cv.put(Application.Record.ZGYJY, app.getZgyyj());
+	    cv.put(Application.Record.NETWORK_STATUS, app.getNetwork_satus());
+	    cv.put(Application.Record.REMARK, app.getRemark());
+
+	    int r = db.update(Application.Record.tableName, cv,
+		    Application.Record.ID + "=?", new String[] { app.getId()
+			    + "" });
+	    // Toast.makeText(this.c, r+":update",Toast.LENGTH_SHORT).show();
+	} catch (Exception e) {
+	    e.printStackTrace();
+	} finally {
+	    if (db.isOpen())
+		db.close();
+	}
+    }
+
+    public void updateFromWDBH(App app) {
+	try {
+	    db = mdb.getWritableDatabase();
+	    ContentValues cv = new ContentValues();
+	    cv.put(Application.Record.WDBH, app.getWdbh());
+	    cv.put(Application.Record.FWDH, app.getFwdh());
+	    cv.put(Application.Record.FWRQ, app.getFwrq());
+	    cv.put(Application.Record.PATH, app.getFwyb());
+	    cv.put(Application.Record.DF, app.getDf());
+	    cv.put(Application.Record.KFX, app.getKfx());
+	    cv.put(Application.Record.STATE, app.getState());
+	    cv.put(Application.Record.WDZP, app.getWdzp());
+	    cv.put(Application.Record.USERID, app.getUserId());
+
+	    cv.put(Application.Record.WCSJ, app.getWcrq());
+	    cv.put(Application.Record.JBR, app.getJbr());
+	    cv.put(Application.Record.FWPJ, app.getFwpj());
+	    cv.put(Application.Record.WDYJ, app.getWdyj());
+	    cv.put(Application.Record.ZJFX, app.getZjfx());
+	    cv.put(Application.Record.ZGYJY, app.getZgyyj());
+
+	    cv.put(Application.Record.NETWORK_STATUS, app.getNetwork_satus());
+	    cv.put(Application.Record.REMARK, app.getRemark());
+	    // Toast.makeText(this.c,
+	    // app.getUserId()+"..",Toast.LENGTH_SHORT).show();
+	    int r = db.update(Application.Record.tableName, cv,
+		    Application.Record.WDBH + "=? and "
+			    + Application.Record.USERID + "=?", new String[] {
+			    app.getWdbh(), app.getUserId() });
+	    if (r < 0) {
+		Toast.makeText(this.c, "更新失败!", Toast.LENGTH_SHORT).show();
+	    } else {
+		Toast.makeText(this.c, "更新成功!", Toast.LENGTH_SHORT).show();
+	    }
+	} catch (Exception e) {
+	    e.printStackTrace();
+	} finally {
+	    if (db.isOpen())
+		db.close();
+	}
+    }
+
+    /**
+     * insert
+     * 
+     * @param db
+     * @param app
+     */
+    public void insert(App app) {
+	try {
+	    db = mdb.getWritableDatabase();
+
+	    ContentValues cv = new ContentValues();
+	    cv.put(Application.Record.USERID, app.getUserId());
+	    cv.put(Application.Record.PATH, app.getFwyb());
+	    cv.put(Application.Record.WDBH, app.getWdbh());
+	    cv.put(Application.Record.FWDH, app.getFwdh());
+	    cv.put(Application.Record.FWRQ, app.getFwrq());
+	    cv.put(Application.Record.DF, app.getDf());
+	    cv.put(Application.Record.KFX, app.getKfx());
+	    cv.put(Application.Record.STATE, app.getState());
+	    cv.put(Application.Record.WDZP, app.getWdzp());
+	    cv.put(Application.Record.WCSJ, app.getWcrq());
+	    cv.put(Application.Record.JBR, app.getJbr());
+	    cv.put(Application.Record.FWPJ, app.getFwpj());
+	    cv.put(Application.Record.WDYJ, app.getWdyj());
+	    cv.put(Application.Record.ZJFX, app.getZjfx());
+	    cv.put(Application.Record.ZGYJY, app.getZgyyj());
+	    cv.put(Application.Record.NETWORK_STATUS, app.getNetwork_satus());
+	    cv.put(Application.Record.REMARK, app.getRemark());
+//	  
+//	    if (app != null && app.getInfo() != null) {	
+//		  violations = new StringBuilder();
+//		    violations_details = new StringBuilder();
+//		    violations_index = new StringBuilder();
+//		for (int i = 0; i < app.getInfo().size(); i++) {
+//		    
+//		   violations.append(app.getInfo().get(i).getWgnr() + ";");
+//		   violations_details.append(app.getInfo().get(i).getWgxx() + ";");
+//		   violations_index.append(app.getInfo().get(i).getIndex() + ";");
+//		
+//		}
+//	    }
+//	    cv.put(Application.Record.WGXX, violations+"");
+//	    cv.put(Application.Record.WGNR, violations_details+"");
+//	    cv.put(Application.Record.INDEXS, violations_index+"");
+	    
+	    long r = db.insert(Application.Record.tableName, null, cv);
+
+	} catch (Exception e) {
+	    e.printStackTrace();
+	} finally {
+	    if (db.isOpen())
+		db.close();
+	}
+    }
+}

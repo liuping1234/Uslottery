@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	>
+   <TextView
+    android:id="@+id/title"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="设置信息"
+	android:textSize="@dimen/title_font_size"
+	android:gravity="center"
+	android:paddingTop="10dp"
+	android:paddingBottom="10dp"
+	android:textStyle="bold"
+	/> 
+		 <TextView 	android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="手机号码:(必须是授权的手机号码)"
+					android:textSize="@dimen/lot_font_size"
+					android:textStyle="bold"
+				     />
+				 
+				<EditText	
+				     android:id="@+id/mobile" 
+				      android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:hint=""
+					 android:numeric="integer"
+					android:textSize="@dimen/lot_font_size"
+				     />
+				<Button 
+				    android:layout_width="fill_parent"
+				     android:layout_height="wrap_content"
+				     android:text="确认提交"	     
+				     android:id="@+id/btn"
+				     android:paddingRight="30dp"
+				       android:paddingLeft="30dp"
+				     android:textSize="@dimen/lot_font_size"
+					android:textStyle="bold"
+				    />
+   
+	<!-- 	 <TableLayout 
+		    android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+		    android:stretchColumns="0,1,2">
+		    <TableRow>
+				 <TextView 	android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="手机号码:"
+					android:textSize="@dimen/lot_font_size"
+					android:textStyle="bold"
+				     />
+				 
+				<EditText	
+				     android:id="@+id/mobile" 
+				      android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:hint=""
+					 android:paddingRight="5dp"
+					android:textSize="@dimen/lot_font_size"
+				     />
+				<Button 
+				    android:layout_width="wrap_content"
+				     android:layout_height="wrap_content"
+				     android:text="确认"
+				     android:id="@+id/btn"
+				     android:paddingRight="10dp"
+				     android:textSize="@dimen/lot_font_size"
+					android:textStyle="bold"
+				    />
+			</TableRow>
+		</TableLayout>-->
+		
+</LinearLayout>

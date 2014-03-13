@@ -1,0 +1,590 @@
+package com.uslotter;
+
+import java.io.File;
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.ContentResolver;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.provider.MediaStore.MediaColumns;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.View;
+import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.uslotter.R;
+import com.uslotter.compress.ImageCompress;
+import com.uslotter.db.App;
+import com.uslotter.db.App.WdwgInfo;
+import com.uslotter.util.Util;
+
+public class UslotteryRecord_wdwgActivity extends Activity {
+	private Button btn_save = null;
+	private Button btn_exit = null;
+	private LinearLayout ll_add = null;
+	ArrayList<LinearLayout> lls = null;
+	private ImageView iv_add = null;
+	private LinearLayout wdwg_Layout;
+	private ArrayList<String> wdzp_path;
+	private String imagepath;
+	private App app;
+	private ArrayList<WdwgInfo> info;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.record2_wdwg);
+		Intent intent = getIntent();
+		app = (App) intent.getSerializableExtra("app");
+		btn_exit = (Button) this.findViewById(R.id.record2_wdwg_back);
+		btn_save = (Button) this.findViewById(R.id.record2_wdwg_save);
+		ll_add = (LinearLayout) this.findViewById(R.id.record2_wdwg_ll);
+		iv_add = (ImageView) this.findViewById(R.id.record2_wdwg_iv_annex);
+		wdwg_Layout = (LinearLayout) findViewById(R.id.record2_wdwg_wdzp_ll);
+		wdzp_path = new ArrayList<String>();
+		lls = new ArrayList<LinearLayout>();
+		info = app.getInfo();
+		// 遍历集合
+		traverseArray(info);
+		iv_add.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				new AlertDialog.Builder(UslotteryRecord_wdwgActivity.this)
+						.setTitle("温馨提示!")
+						.setMessage("选择拍照还是图库")
+						.setPositiveButton("拍照",
+								new DialogInterface.OnClickListener() {
+
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										Intent intent = new Intent(
+												"android.media.action.IMAGE_CAPTURE");
+										imagepath = Environment
+												.getExternalStorageDirectory()
+												+ "/DCIM/camera/c"
+												+ Util.getCurTime() + ".jpeg";
+										intent.putExtra(
+												MediaStore.EXTRA_OUTPUT, Uri
+														.fromFile(new File(
+																imagepath)));
+										startActivityForResult(intent, 6);
+
+										UslotteryRecord_wdwgActivity.this
+												.overridePendingTransition(
+														R.anim.push_left_in,
+														R.anim.push_left_out);
+									}
+
+								})
+						.setNegativeButton("图库",
+								new DialogInterface.OnClickListener() {
+
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										Intent intent = new Intent(
+												Intent.ACTION_GET_CONTENT);
+										intent.addCategory(Intent.CATEGORY_OPENABLE);
+										intent.setType("image/*");
+										intent.putExtra("return-data", true);
+										startActivityForResult(intent, 2);
+										UslotteryRecord_wdwgActivity.this
+												.overridePendingTransition(
+														R.anim.push_left_in,
+														R.anim.push_left_out);
+									}
+								}).create().show();
+			}
+		});
+		btn_exit.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
+
+		btn_save.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				StringBuilder sb = new StringBuilder();
+				if (Util.ExistSDCard()) {
+					int size = wdwg_Layout.getChildCount();
+					for (int i = 0; i < size; i++) {
+						ImageView iv = (ImageView) wdwg_Layout.getChildAt(i);
+						String path = iv.getTag().toString();
+						if (i == size - 1) {
+							sb.append(path);
+						} else {
+							sb.append(path).append(",");
+						}
+						wdzp_path.add(path);
+					}
+				}
+				app.setWgzp(sb.toString());
+				Log.d("tag", "app.getWgzp:" + app.getWgzp());
+				if (lls.size() <= 0) {
+					return;
+				}
+				app.getInfo().clear();
+				for (int i = 0; i < lls.size(); i++) {
+					WdwgInfo info = new WdwgInfo();
+					Spinner sp = (Spinner) lls.get(i).getChildAt(0);
+					EditText et = (EditText) lls.get(i).getChildAt(1);
+					info.setIndex((int) sp.getSelectedItemId());
+					info.setWgnr(sp.getSelectedItem().toString());
+					info.setWgxx(et.getText().toString().trim());
+					app.getInfo().add(info);
+				}
+
+				if (!(app.getInfo() == null) || app.getInfo().size() >= 0) {
+					for (int i = 0; i < app.getInfo().size() - 1; i++) {
+						if (app.getInfo().get(i).getIndex() == 0
+								|| app.getInfo().get(i).getWgxx() == null
+								|| app.getInfo().get(i).getWgxx().equals("")) {
+							Toast.makeText(UslotteryRecord_wdwgActivity.this,
+									"请填入内容...", 2).show();
+							return;
+						}
+
+					}
+				}
+
+				Intent intent = new Intent(UslotteryRecord_wdwgActivity.this,
+						UslotteryRecord.class);
+				intent.putExtra("flag", 2 + "");
+				intent.putExtra("_app", app);
+				UslotteryRecord_wdwgActivity.this.startActivity(intent);
+				UslotteryRecord_wdwgActivity.this.finish();
+			}
+		});
+
+		if (app.getWgzp() != null && !app.getWgzp().equals("")) {
+			if (app.getWgzp().contains(",")) {
+				String[] paths = app.getWgzp().split(",");
+				for (int i = 0; i < paths.length; i++) {
+					ImageView iv = new ImageView(this);
+					iv.setPadding(0, 0, 15, 0);
+					Bitmap bitMap = BitmapFactory.decodeFile(paths[i]);
+					bitMap = Bitmap.createScaledBitmap(bitMap, 80, 80, false);
+					iv.setLayoutParams(new LayoutParams(80,
+							LayoutParams.FILL_PARENT));
+					iv.setImageBitmap(bitMap);
+					iv.setTag(paths[i]);
+
+					iv.setOnClickListener(new View.OnClickListener() {
+						@Override
+						public void onClick(View v) {
+							ImageView iv = (ImageView) v;
+							Intent intent = new Intent();
+							intent.setAction(android.content.Intent.ACTION_VIEW);
+							intent.setDataAndType(Uri.fromFile(new File(iv
+									.getTag().toString())), "image/*");
+							UslotteryRecord_wdwgActivity.this
+									.startActivity(intent);
+						}
+					});
+					iv.setOnLongClickListener(new View.OnLongClickListener() {
+
+						@Override
+						public boolean onLongClick(View v) {
+							final ImageView iv = (ImageView) v;
+
+							// delete photo
+							AlertDialog.Builder builder = new Builder(
+									UslotteryRecord_wdwgActivity.this);
+							builder.setTitle("提示");
+							builder.setMessage("确定删除此照片吗？");
+							builder.setPositiveButton("确定",
+									new DialogInterface.OnClickListener() {
+
+										@Override
+										public void onClick(
+												DialogInterface dialog,
+												int which) {
+											wdwg_Layout.removeView(iv);
+											dialog.dismiss();
+										}
+									});
+							builder.setNegativeButton("取消",
+									new DialogInterface.OnClickListener() {
+										@Override
+										public void onClick(
+												DialogInterface dialog,
+												int which) {
+
+											dialog.dismiss();
+										}
+									});
+							builder.create().show();
+							return false;
+						}
+					});
+					wdwg_Layout.addView(iv);
+				}
+			} else {
+				ImageView iv = new ImageView(this);
+				iv.setPadding(0, 0, 15, 0);
+				Bitmap bitMap = BitmapFactory.decodeFile(app.getWdzp());
+				bitMap = Bitmap.createScaledBitmap(bitMap, 80, 80, false);
+				iv.setLayoutParams(new LayoutParams(80,
+						LayoutParams.FILL_PARENT));
+				iv.setImageBitmap(bitMap);
+				iv.setTag(app.getWdzp());
+
+				iv.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						ImageView iv = (ImageView) v;
+						Intent intent = new Intent();
+						intent.setAction(android.content.Intent.ACTION_VIEW);
+						intent.setDataAndType(
+								Uri.fromFile(new File(iv.getTag().toString())),
+								"image/*");
+						UslotteryRecord_wdwgActivity.this.startActivity(intent);
+						UslotteryRecord_wdwgActivity.this
+								.overridePendingTransition(R.anim.push_left_in,
+										R.anim.push_left_out);
+
+					}
+				});
+				iv.setOnLongClickListener(new View.OnLongClickListener() {
+
+					@Override
+					public boolean onLongClick(View v) {
+						final ImageView iv = (ImageView) v;
+						// delete photo
+						AlertDialog.Builder builder = new Builder(
+								UslotteryRecord_wdwgActivity.this);
+						builder.setTitle("提示");
+						builder.setMessage("确定删除此照片吗？");
+						builder.setPositiveButton("确定",
+								new DialogInterface.OnClickListener() {
+
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										wdwg_Layout.removeView(iv);
+										dialog.dismiss();
+									}
+
+								});
+						builder.setNegativeButton("取消",
+								new DialogInterface.OnClickListener() {
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										dialog.dismiss();
+									}
+								});
+						builder.create().show();
+						return false;
+					}
+				});
+				wdwg_Layout.addView(iv);
+			}
+		}
+	}
+
+	/**
+	 * 遍历info集合
+	 * 
+	 * @param info
+	 */
+	public void traverseArray(ArrayList<WdwgInfo> info) {
+		int index = 0;
+		String wgxx = "";
+		String wgnr = "";
+		if (info instanceof ArrayList && info.size() == 0) {
+			createNewWidget(-1, index, wgxx, wgnr);
+			return;
+		}
+		for (int i = 0; i < info.size(); i++) {
+			index = info.get(i).getIndex();
+			wgxx = info.get(i).getWgxx();
+			wgnr = info.get(i).getWgnr();
+			Log.d("test", " info.size() = " + info.size());
+			createNewWidget(i, index, wgxx, wgnr);
+		}
+		if (info.get(info.size() - 1).getIndex() != 0) {
+			addInfoArray(-1);
+		}
+	}
+
+	/**
+	 * 增加一个空的item
+	 * 
+	 * @param i
+	 *            -1:表示一个空的item
+	 */
+	public void addInfoArray(int i) {
+		createNewWidget(i, 0, "", "");
+	}
+
+	/**
+	 * 创建一个Linlayout
+	 * 
+	 * @param index
+	 * @param wgxx
+	 * @param wgnr
+	 */
+
+	private void createNewWidget(final int i, int index, String wgxx,
+			String wgnr) {
+		// 创建新的控件
+		LinearLayout ll = new LinearLayout(UslotteryRecord_wdwgActivity.this);
+		LayoutParams lp = new LayoutParams(
+				LinearLayout.LayoutParams.FILL_PARENT,
+				LinearLayout.LayoutParams.WRAP_CONTENT);
+		lp.setMargins(5, 5, 5, 5);
+		ll.setOrientation(LinearLayout.HORIZONTAL);
+		ll.setLayoutParams(lp);
+		final Spinner _sp = new Spinner(UslotteryRecord_wdwgActivity.this);
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+				this, R.array.wdwg, android.R.layout.simple_spinner_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		_sp.setAdapter(adapter);
+		LayoutParams lp_sp = new LayoutParams(
+				(this.getScreenWidth() - 100) / 2,
+				LinearLayout.LayoutParams.WRAP_CONTENT);
+		_sp.setLayoutParams(lp_sp);
+		EditText et = new EditText(UslotteryRecord_wdwgActivity.this);
+		LayoutParams lp_et = new LayoutParams(
+				(this.getScreenWidth() - 100) / 2,
+				LinearLayout.LayoutParams.WRAP_CONTENT);
+		et.setLayoutParams(lp_et);
+		ll.addView(_sp);
+		ll.addView(et);
+		ll_add.addView(ll);
+		lls.add(ll);
+		// 设置参数的值
+		et.setText(wgxx);
+		_sp.setSelection(index);
+		if (i == -1) {
+			_sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+				@Override
+				public void onItemSelected(AdapterView<?> arg0, View arg1,
+						int position, long arg3) {
+					boolean flag = false;
+					Log.d("test", "position = " + position);
+
+					if (!flag) {
+						if (i == -1 && position != 0) {
+
+							addInfoArray(-1);
+							flag = true;
+						}
+
+					}
+
+				}
+
+				@Override
+				public void onNothingSelected(AdapterView<?> arg0) {
+
+				}
+			});
+		}
+	}
+
+	public int getScreenWidth() {
+		DisplayMetrics metric = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(metric);
+		int width = metric.widthPixels; // 屏幕宽度（像素）
+		return width;
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode,
+			Intent intent) {
+		if (resultCode == RESULT_OK) {
+			if (requestCode == 2) {
+				Bundle bundle = intent.getExtras();
+				Uri originalUri = intent.getData();
+				if (originalUri != null) {
+					Bitmap bitMap = null;
+					try {
+						ContentResolver resolver = getContentResolver();
+						bitMap = MediaStore.Images.Media.getBitmap(resolver,
+								originalUri);
+						String[] proj = { MediaColumns.DATA };
+						Cursor cursor = managedQuery(originalUri, proj, null,
+								null, null); // 按我个人理解 这个是获得用户选择的图片的索引值
+						int column_index = cursor
+								.getColumnIndexOrThrow(MediaColumns.DATA);
+						System.out.println("706-------------camera------"
+								+ column_index);
+						// 将光标移至开头 ，这个很重要，不小心很容易引起越界
+						cursor.moveToFirst(); // 最后根据索引值获取图片路径
+
+						Toast.makeText(UslotteryRecord_wdwgActivity.this,
+								"正在检测压缩，请稍候...", Toast.LENGTH_SHORT).show();
+						imagepath = Environment.getExternalStorageDirectory()
+								+ "/DCIM/camera/c" + Util.getCurTime()
+								+ ".jpeg";
+						String path_last = ImageCompress.compressImage3(bitMap,
+								UslotteryRecord_wdwgActivity.this, imagepath);
+						ImageView iv = new ImageView(this);
+						iv.setPadding(0, 0, 15, 0);
+						bitMap = Bitmap.createScaledBitmap(bitMap, 80, 80,
+								false);
+						iv.setLayoutParams(new LayoutParams(80,
+								LayoutParams.FILL_PARENT));
+						iv.setImageBitmap(bitMap);
+						// iv.setId(i++);
+						Log.d("tag", "path_last:::::::" + path_last);
+						iv.setTag(path_last);
+
+						iv.setOnClickListener(new View.OnClickListener() {
+							@Override
+							public void onClick(View v) {
+								ImageView iv = (ImageView) v;
+								Intent intent = new Intent();
+								intent.setAction(android.content.Intent.ACTION_VIEW);
+								intent.setDataAndType(Uri.fromFile(new File(iv
+										.getTag().toString())), "image/*");
+								UslotteryRecord_wdwgActivity.this
+										.startActivity(intent);
+								UslotteryRecord_wdwgActivity.this
+										.overridePendingTransition(
+												R.anim.push_right_in,
+												R.anim.push_right_out);
+
+							}
+						});
+						iv.setOnLongClickListener(new View.OnLongClickListener() {
+
+							@Override
+							public boolean onLongClick(View v) {
+								final ImageView iv = (ImageView) v;
+
+								// delete photo
+								AlertDialog.Builder builder = new Builder(
+										UslotteryRecord_wdwgActivity.this);
+								builder.setTitle("提示");
+								builder.setMessage("确定删除此照片吗？");
+								builder.setPositiveButton("确定",
+										new DialogInterface.OnClickListener() {
+
+											@Override
+											public void onClick(
+													DialogInterface dialog,
+													int which) {
+
+												wdwg_Layout.removeView(iv);
+												dialog.dismiss();
+											}
+										});
+								builder.setNegativeButton("取消",
+										new DialogInterface.OnClickListener() {
+											@Override
+											public void onClick(
+													DialogInterface dialog,
+													int which) {
+												dialog.dismiss();
+											}
+										});
+								builder.create().show();
+								return false;
+							}
+						});
+						wdwg_Layout.addView(iv);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+
+				}
+			} else if (requestCode == 6) {
+				String sdStatus = Environment.getExternalStorageState();
+				if (!sdStatus.equals(Environment.MEDIA_MOUNTED)) {
+					return;
+				}
+				ImageView iv = new ImageView(this);
+				iv.setPadding(0, 0, 15, 0);
+				iv.setLayoutParams(new LayoutParams(80,
+						LayoutParams.FILL_PARENT));
+				Bitmap bitmap = BitmapFactory.decodeFile(imagepath);
+				String path_fwyb = ImageCompress.compressImage3(bitmap,
+						UslotteryRecord_wdwgActivity.this, imagepath);
+				Log.d("tag", "imagepath:::::::" + path_fwyb);
+
+				iv.setTag(path_fwyb);
+				iv.setImageBitmap(bitmap);
+				Log.d("tag", "path_fwyb:::::::" + path_fwyb);
+
+				iv.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						ImageView iv = (ImageView) v;
+						Intent intent = new Intent();
+						intent.setAction(android.content.Intent.ACTION_VIEW);
+						intent.setDataAndType(
+								Uri.fromFile(new File(iv.getTag().toString())),
+								"image/*");
+						UslotteryRecord_wdwgActivity.this.startActivity(intent);
+						UslotteryRecord_wdwgActivity.this
+								.overridePendingTransition(
+										R.anim.push_right_in,
+										R.anim.push_right_out);
+
+					}
+				});
+				iv.setOnLongClickListener(new View.OnLongClickListener() {
+
+					@Override
+					public boolean onLongClick(View v) {
+						final ImageView iv = (ImageView) v;
+
+						// delete photo
+						AlertDialog.Builder builder = new Builder(
+								UslotteryRecord_wdwgActivity.this);
+						builder.setTitle("提示");
+						builder.setMessage("确定删除此照片吗？");
+						builder.setPositiveButton("确定",
+								new DialogInterface.OnClickListener() {
+
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										wdwg_Layout.removeView(iv);
+										dialog.dismiss();
+									}
+								});
+						builder.setNegativeButton("取消",
+								new DialogInterface.OnClickListener() {
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										dialog.dismiss();
+									}
+								});
+						builder.create().show();
+						return false;
+					}
+				});
+				wdwg_Layout.addView(iv);
+			}
+		}
+	}
+
+}

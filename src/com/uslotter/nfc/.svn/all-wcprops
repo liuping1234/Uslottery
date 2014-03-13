@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/uslotter/nfc
+END
+JkConfirm.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/uslotter/nfc/JkConfirm.java
+END
+MifareClassCard.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/uslotter/nfc/MifareClassCard.java
+END
+MifareSector.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/uslotter/nfc/MifareSector.java
+END
+Converter.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/uslotter/nfc/Converter.java
+END
+MifareKey.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/uslotter/nfc/MifareKey.java
+END
+MifareBlock.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/software/!svn/ver/14/project_source_code/Uslottery/src/com/uslotter/nfc/MifareBlock.java
+END

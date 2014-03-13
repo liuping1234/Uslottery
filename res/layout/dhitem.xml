@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"  
+    android:orientation="vertical"  
+    android:layout_width="fill_parent"  
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_main_deco"
+   >
+   <TextView 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:background="#9F5000"
+	    android:gravity="center"
+	    android:textStyle="bold"
+	    android:textSize="20dip"
+	    android:textColor="#ffffff"
+	    android:text="现在抽奖"
+	    />
+   <TextView 
+       android:id="@+id/titnum"
+       	android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:textStyle="bold"
+	    android:textSize="20dip"
+	    android:textColor="@color/white"
+       />
+   <TextView 
+       	android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center"
+	    android:text="摇一摇抽奖"
+	    android:textColor="#ffffff"
+       />
+    <LinearLayout  
+	    android:orientation="vertical"  
+	    android:layout_width="fill_parent"  
+	    android:layout_height="wrap_content"
+	    android:gravity="center" 
+    >  
+
+	    <ImageView
+	        android:id="@+id/img1"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:src="@drawable/shake_logo_up" />
+	    <ImageView
+	        android:id="@+id/img2"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:src="@drawable/shake_logo_down" />
+  
+	</LinearLayout>
+	<Button
+       android:id="@+id/but_shake"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center"
+       android:text="点击抽奖" />
+</LinearLayout>
+

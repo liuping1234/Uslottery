@@ -1,0 +1,102 @@
+package com.uslotter;
+import java.util.ArrayList;
+import java.util.List;
+import android.app.Activity;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.uslotter.R;
+
+public class UslotteryRecord_zdjcActivity extends Activity{
+	private List<LinearLayout> lists = null;
+	private LinearLayout lls = null;
+	private Button btn_exit = null;
+	private Button btn_save = null;
+	 
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.record2_zdjc);
+		lists = new ArrayList<LinearLayout>();
+		lls = (LinearLayout) this.findViewById(R.id.record2_zdjc_ll);
+		btn_exit = (Button)this.findViewById(R.id.record2_zdjc_back);
+		btn_save = (Button) this.findViewById(R.id.record2_zdjc_save);
+		btn_exit.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+			 finish();
+			}
+		});
+		btn_save.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				test();	
+			}
+		});
+		createNewWidgets();
+		createNewWidgets();
+		createNewWidgets();
+		createNewWidgets();
+		createNewWidgets();
+		createNewWidgets();
+		}
+	
+	public void createNewWidgets(){
+		LinearLayout ll = new LinearLayout(this);
+		ll.setOrientation(LinearLayout.VERTICAL);
+		LayoutParams lp_ll = new LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+		ll.setLayoutParams(lp_ll);
+		
+		TextView tv = new TextView(this);
+		tv.setText("hsdo丹江口for那就算了 豆浆粉扑簌簌koo");
+		tv.setTextColor(Color.BLACK);
+		tv.setTextSize(20);
+		LayoutParams lp_tv = new LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+		lp_tv.setMargins(10, 0, 10, 0);
+		tv.setLayoutParams(lp_tv);
+		
+		RadioGroup rg = new RadioGroup(this);
+		rg.setOrientation(LinearLayout.HORIZONTAL);
+		LayoutParams lp = new LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+		rg.setLayoutParams(lp);
+		
+		RadioButton rb1 = new RadioButton(this);
+		rb1.setTextColor(Color.BLACK);
+		rb1.setText("有");
+		LayoutParams lp_rb1 = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+		rb1.setLayoutParams(lp_rb1);
+		
+		RadioButton rb2 = new RadioButton(this);
+		rb2.setTextColor(Color.BLACK);
+		rb2.setText("无");
+	    LayoutParams lp_rb2 = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);	
+	    rb2.setLayoutParams(lp_rb2);
+	    rg.addView(rb1);
+	    rg.addView(rb2);
+	    
+	    ll.addView(tv);
+	    ll.addView(rg);
+	    lists.add(ll);
+	    lls.addView(ll);
+	    }
+	
+	public void test(){
+		for(int i = 0; i< lists.size();i++){
+		    RadioGroup _rg = (RadioGroup)lists.get(i).getChildAt(1);
+		    RadioButton btn =  (RadioButton)_rg.getChildAt(0);
+		    RadioButton btn2 = (RadioButton)_rg.getChildAt(1);
+		    Toast.makeText(this,"第"+i+"个"+btn.isChecked()+","+btn2.isChecked(),Toast.LENGTH_SHORT).show();
+		    }
+	}
+}

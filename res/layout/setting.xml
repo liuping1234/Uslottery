@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:padding="5pt"
+	android:background="@drawable/bg_main_deco"
+	>
+	
+    <ScrollView 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+        >
+        <LinearLayout 
+             android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+            >
+<LinearLayout 
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="活动名称：" 
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/ActText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+        <requestFocus />
+    </EditText>
+</LinearLayout>
+
+<LinearLayout 
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	>
+    <TextView
+        
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="奖组票数：" 
+        android:textColor="@color/black"/>
+
+    
+     <EditText
+        android:id="@+id/TicketNum"
+         android:numeric="integer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+        <requestFocus />
+    </EditText>
+  
+</LinearLayout>
+<LinearLayout 
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	>
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="设置等级个数" 
+	    android:textColor="@color/black"/>
+	
+	<Spinner
+	    android:id="@+id/Grade"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content" />
+
+	<Button
+	    android:id="@+id/clear"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="清空" />
+
+</LinearLayout>
+<LinearLayout 
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	>
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginRight="70dip"
+	    android:text="等级" 
+	    android:textColor="@color/black"/>
+	
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginRight="100dip"
+	    android:text="个数" 
+	    android:textColor="@color/black"/>
+	
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="奖品" 
+	    android:textColor="@color/black"/>
+	</LinearLayout>
+	
+
+
+<LinearLayout 
+    android:id="@+id/a1"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	>
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="一等奖" 
+	    android:textColor="@color/black"
+	    android:layout_marginRight="35dip"/>
+	
+	<EditText
+	    android:id="@+id/Grade1"
+	     android:numeric="integer"
+	    android:layout_width="80dip"
+	    android:layout_height="wrap_content"
+	    android:layout_marginRight="10dip"/>
+	
+	<EditText
+	    android:id="@+id/DrawName1"
+	    android:layout_width="130dip"
+	    android:layout_height="wrap_content" 
+	    android:layout_marginRight="10dip"/>
+	</LinearLayout>
+	
+<LinearLayout 
+    android:id="@+id/a2"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	>
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="二等奖"
+	    android:layout_marginRight="35dip" 
+	    android:textColor="@color/black"/>
+	
+	<EditText
+	    android:id="@+id/Grade2"
+	     android:numeric="integer"
+	    android:layout_width="80dip"
+	    android:layout_height="wrap_content" 
+	    android:layout_marginRight="10dip"/>
+	
+	<EditText
+	    android:id="@+id/DrawName2"
+	    android:layout_width="130dip"
+	    android:layout_height="wrap_content" 
+	    android:layout_marginRight="10dip"/>
+	</LinearLayout>
+	
+<LinearLayout 
+    android:id="@+id/a3"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	>
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="三等奖" 
+	    android:layout_marginRight="35dip"
+	    android:textColor="@color/black"/>
+	
+	<EditText
+	    android:id="@+id/Grade3"
+	     android:numeric="integer"
+	    android:layout_width="80dip"
+	    android:layout_height="wrap_content" 
+	     android:layout_marginRight="10dip"
+	     />
+	
+	<EditText
+	    android:id="@+id/DrawName3"
+	    android:layout_width="130dip"
+	    android:layout_height="wrap_content" 
+	    android:layout_marginRight="10dip"/>
+
+	</LinearLayout>
+	
+<LinearLayout 
+    android:id="@+id/a4"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	>
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="四等奖" 
+	    android:layout_marginRight="35dip"
+	    android:textColor="@color/black"/>
+	<EditText
+	    android:id="@+id/Grade4"
+	     android:numeric="integer"
+	    android:layout_width="80dip"
+	    android:layout_height="wrap_content"
+	    android:layout_marginRight="10dip" />
+	
+	<EditText
+	    android:id="@+id/DrawName4"
+	    android:layout_width="130dip"
+	    android:layout_height="wrap_content" 
+	    android:layout_marginRight="10dip"/>
+	</LinearLayout>
+	
+<LinearLayout 
+    android:id="@+id/a5"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	>
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="五等奖" 
+	    android:layout_marginRight="35dip"
+	    android:textColor="@color/black"/>
+	
+	<EditText
+	    android:id="@+id/Grade5"
+	     android:numeric="integer"
+	    android:layout_width="80dip"
+	    android:layout_height="wrap_content" 
+	    android:layout_marginRight="10dip"/>
+	
+	<EditText
+	    android:id="@+id/DrawName5"
+	    android:layout_width="130dip"
+	    android:layout_height="wrap_content" 
+	    android:layout_marginRight="10dip"/>
+	</LinearLayout>
+<LinearLayout 
+    android:id="@+id/a6"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	>
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="六等奖" 
+	    android:layout_marginRight="35dip"
+	    android:textColor="@color/black"/>
+	
+	<EditText
+	    android:id="@+id/Grade6"
+	     android:numeric="integer"
+	    android:layout_width="80dip"
+	    android:layout_height="wrap_content" 
+	    android:layout_marginRight="10dip"/>
+	
+	<EditText
+	    android:id="@+id/DrawName6"
+	    android:layout_width="130dip"
+	    android:layout_height="wrap_content" 
+	    android:layout_marginRight="10dip"/>
+	</LinearLayout>
+	<LinearLayout 
+	    android:id="@+id/a7"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	>
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="七等奖" 
+	    android:layout_marginRight="35dip"
+	    android:textColor="@color/black"/>
+	
+	<EditText
+	    android:id="@+id/Grade7"
+	     android:numeric="integer"
+	    android:layout_width="80dip"
+	    android:layout_height="wrap_content" 
+	    android:layout_marginRight="10dip"/>
+	
+	<EditText
+	    android:id="@+id/DrawName7"
+	    android:layout_width="130dip"
+	    android:layout_height="wrap_content" 
+	    android:layout_marginRight="10dip"/>
+	</LinearLayout>
+	<LinearLayout 
+	    android:id="@+id/a8"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	>
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="八等奖" 
+	    android:layout_marginRight="35dip"
+	    android:textColor="@color/black"/>
+	
+	<EditText
+	    android:id="@+id/Grade8"
+	     android:numeric="integer"
+	    android:layout_width="80dip"
+	    android:layout_height="wrap_content" 
+	    android:layout_marginRight="10dip"/>
+	
+	<EditText
+	    android:id="@+id/DrawName8"
+	    android:layout_width="130dip"
+	    android:layout_height="wrap_content" 
+	    android:layout_marginRight="10dip"/>
+	</LinearLayout>
+	<LinearLayout 
+	    android:id="@+id/a9"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	>
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="九等奖" 
+	    android:layout_marginRight="35dip"
+	    android:textColor="@color/black"/>
+	
+	<EditText
+	    android:id="@+id/Grade9"
+	     android:numeric="integer"
+	    android:layout_width="80dip"
+	    android:layout_height="wrap_content" 
+	    android:layout_marginRight="10dip"/>
+	
+	<EditText
+	    android:id="@+id/DrawName9"
+	    android:layout_width="130dip"
+	    android:layout_height="wrap_content" 
+	    android:layout_marginRight="10dip"/>
+	</LinearLayout>
+	<LinearLayout 
+	    android:id="@+id/a10"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	>
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="十等奖" 
+	    android:layout_marginRight="35dip"
+	    android:textColor="@color/black"/>
+	
+	<EditText
+	    android:id="@+id/Grade10"
+	     android:numeric="integer"
+	    android:layout_width="80dip"
+	    android:layout_height="wrap_content" 
+	    android:layout_marginRight="10dip"/>
+	
+	<EditText
+	    android:id="@+id/DrawName10"
+	    android:layout_width="130dip"
+	    android:layout_height="wrap_content" 
+	    android:layout_marginRight="10dip"/>
+	</LinearLayout>
+	<Button 
+	    android:id="@+id/sub"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent" 
+	    android:text="确认"/>
+	</LinearLayout>	
+</ScrollView>
+</LinearLayout>

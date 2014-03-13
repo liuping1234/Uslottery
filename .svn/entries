@@ -1,0 +1,133 @@
+8
+
+dir
+14
+http://192.168.0.201/repos/software/project_source_code/Uslottery
+http://192.168.0.201/repos/software
+
+
+
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+8b59784f-abe3-6e4f-bde3-b8bc1f90d7fc
+
+.classpath
+file
+
+
+
+
+2013-10-28T06:47:34.687500Z
+9fd0556732654c1cf248163186035cfc
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+
+cells.xml
+file
+
+
+
+
+2013-10-28T06:47:34.687500Z
+bdbdf7b04aca0307efce9dfb39262a03
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+
+proguard.cfg
+file
+
+
+
+
+2013-10-28T06:47:34.687500Z
+03ea0fdd0a4aabc43b80216d64438921
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+
+project.properties
+file
+
+
+
+
+2013-10-28T06:47:34.687500Z
+020b7af60d7826d792e8147b95a75587
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+
+assets
+dir
+
+.project
+file
+
+
+
+
+2013-10-28T06:47:34.687500Z
+6a8b538c902a61b8330f2416a52fd72b
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+
+lint.xml
+file
+
+
+
+
+2013-10-28T06:47:34.703125Z
+1ce274a186a2afb9f76542702f6ecc4d
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+
+AndroidManifest.xml
+file
+
+
+
+
+2013-10-28T06:47:34.703125Z
+62be9529b591726f01b62c0d704d3381
+2013-10-28T06:33:45.546875Z
+14
+rongqq
+
+src
+dir
+
+bin
+dir
+
+gen
+dir
+
+libs
+dir
+
+res
+dir
+
+.settings
+dir
+

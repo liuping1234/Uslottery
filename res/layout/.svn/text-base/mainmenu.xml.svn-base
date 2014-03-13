@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_deco_gray"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/linear"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/main_navigation_highlight_bg"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/zgy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="专管员："
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/syzgyname"
+            android:layout_width="70dip"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/zgy"
+            android:text="123"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/linear"
+            android:layout_alignTop="@id/linear"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/welcom" />
+
+        <Button
+            android:id="@+id/syzhuxiao"
+            android:layout_width="80dip"
+            android:layout_height="30dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/zxbutton_selector"
+            android:text="注销登录"
+            android:textColor="@color/white"
+            android:textSize="10dip" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/lil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="操作网点："
+            android:textColor="@color/red"
+            android:textSize="15dip" />
+
+        <TextView
+            android:id="@+id/workid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:textSize="15dip" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lil1"
+        android:layout_width="fill_parent"
+        android:layout_height="100dip"
+        android:layout_below="@id/lil"
+        android:background="@drawable/messageinfo_background"
+        android:orientation="vertical"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip" >
+
+        <ListView
+            android:id="@+id/listWdtz"
+            android:layout_width="fill_parent"
+            android:layout_height="100dip"
+            android:cacheColorHint="#00000000" >
+        </ListView>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btmore"
+        android:layout_width="100dip"
+        android:layout_height="30dip"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/lil1"
+        android:background="@drawable/look_tzbutton_selector"
+        android:text="查看更多"
+        android:textColor="#EE7621"
+        android:textSize="15dip" />
+
+    <TableLayout
+        android:id="@+id/bottommenu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/main_navigation_background"
+        android:padding="3dip"
+        android:stretchColumns="*" >
+
+        <TableRow>
+
+            <ImageButton
+                android:id="@+id/syhome"
+                android:background="@drawable/bottommenu_button_selector"
+                android:src="@drawable/main_home" />
+
+            <ImageButton
+                android:id="@+id/syjianjie"
+                android:background="@drawable/bottommenu_button_selector"
+                android:src="@drawable/main_search" />
+
+            <ImageButton
+                android:id="@+id/symore"
+                android:background="@drawable/bottommenu_button_selector"
+                android:src="@drawable/main_more" />
+        </TableRow>
+    </TableLayout>
+
+    <GridView
+        android:id="@+id/gridView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottommenu"
+        android:layout_below="@id/btmore"
+        android:numColumns="3" >
+    </GridView>
+
+</RelativeLayout>

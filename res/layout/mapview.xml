@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_deco_gray"
+     >
+
+
+	<RelativeLayout
+	    android:id="@+id/linear"
+	    android:layout_width="fill_parent"
+	    android:layout_height="45dip"
+	    android:layout_alignParentTop="true"
+	    android:background="@drawable/main_navigation_highlight_bg" >
+
+		<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_centerHorizontal="true"
+		    android:layout_centerVertical="true"
+		    android:textColor="@color/white"
+		    android:textSize="30dip"
+		    android:text="地图" />
+
+	    <Button
+	        android:id="@+id/wdmapback"
+	        android:layout_width="80dip"
+            android:layout_height="40dip"
+	        android:layout_centerVertical="true"
+	        android:layout_alignParentLeft="true"
+	        android:textColor="@color/white"
+	        android:text="返回"
+	        android:textSize="18dip" 
+	        android:background="@drawable/zxbutton_selector"/>
+	    <Button
+	        android:id="@+id/wdmapsetting"
+	        android:layout_width="80dip"
+	        android:layout_height="40dip"
+	        android:layout_centerVertical="true"
+	        android:layout_alignParentRight="true"
+	        android:textColor="@color/white"
+	        android:text="选项"
+	        android:textSize="18dip" 
+	        android:background="@drawable/zxbutton_selector"/>
+	</RelativeLayout>
+	<com.lingtu.mapapi.MapView 
+		android:id="@+id/mapView"
+		android:layout_width="fill_parent" 
+		android:layout_height="fill_parent" 
+		android:clickable="true"    
+	/>
+</LinearLayout>

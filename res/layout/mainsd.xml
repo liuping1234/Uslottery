@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:gravity="center_horizontal"
+	android:background="@drawable/bg_main_deco"
+	>
+	
+	 <TextView android:id="@+id/header"
+	android:layout_width="wrap_content" 
+	android:layout_height="wrap_content"
+	android:textColor="@color/white"
+	android:gravity="center"
+	android:textSize="25dip"
+	android:text="顺德体彩抽奖"
+	android:paddingTop="15dp"
+	/> 
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:gravity="center_horizontal"
+	>	
+		<TextView android:id="@+id/title"
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:textColor="@color/white"
+		android:layout_gravity="center"
+		android:text="网点编号:"
+		android:paddingTop="15dp"
+		/> 	
+		<TextView android:id="@+id/phoneNum"
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:textColor="@color/white"
+		android:gravity="left"
+		android:text="本机号码:"
+		android:paddingTop="15dp"
+		/> 	
+	</LinearLayout>
+	<!-- //间隔线
+	<TextView  android:layout_height="2dip" 
+	     android:background="#F00" />    -->  
+<!-- 定义一个GridView组件 -->
+<GridView  
+	android:id="@+id/grid01"
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content" 
+	android:verticalSpacing="2pt"
+	android:numColumns="3"
+	android:gravity="center"
+	android:paddingTop="30dp"
+	/>
+
+</LinearLayout>
+

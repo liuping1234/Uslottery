@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	 android:background="@drawable/bg_deco_gray"
+	>
+	 <RelativeLayout
+        android:id="@+id/main_hz_linear"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/main_navigation_highlight_bg"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="活动列表"
+            android:textColor="@color/white"
+            android:textSize="25dip" />
+
+        <Button
+            android:id="@+id/main_hz_qdback"
+            android:layout_width="80dip"
+            android:layout_height="40dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dip"
+            android:background="@drawable/zxbutton_selector"
+            android:text="返回"
+            android:textColor="@color/white"
+            android:textSize="18dip" />
+    </RelativeLayout>
+
+	
+			  
+<!-- 定义一个List -->
+<ListView android:id="@+id/mainhz_xclist"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:background="@drawable/textview_boder"
+	android:layout_marginLeft="10dip"
+	android:layout_marginRight="10dip"
+	android:cacheColorHint="#ffffff"
+	android:layout_marginTop="10dip"
+	android:scrollbars="vertical"
+	/>
+
+ <TextView android:layout_width="fill_parent"
+			android:layout_height="wrap_content" 
+			android:id="@+id/mainhz_data"
+			android:text=""
+			android:gravity="center" 
+			android:textSize="20dp"
+			android:paddingTop="50dp"
+			android:textColor="@color/title_text_6"	
+			 /> 
+</LinearLayout>
