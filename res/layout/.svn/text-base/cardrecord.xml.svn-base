@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@drawable/bg_deco_gray"
     >
-
+
 	<RelativeLayout
 	    android:id="@+id/cardrecord_linear"
 	    android:layout_width="fill_parent"
